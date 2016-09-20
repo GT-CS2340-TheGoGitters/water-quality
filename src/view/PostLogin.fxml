@@ -6,7 +6,7 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500" prefWidth="700" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PostLoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500" prefWidth="700" xmlns="http://javafx.com/javafx/8.0.66" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PostLoginController">
     <MenuBar AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
         <menus>
             <Menu mnemonicParsing="false" text="File">
@@ -16,5 +16,5 @@
             </Menu>
         </menus>
     </MenuBar>
-    <Button alignment="CENTER_RIGHT" mnemonicParsing="false" text="Log Out" fx:id="logOutButton" onAction="#handleLogOut" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="20" />
+    <Button fx:id="logOutButton" alignment="CENTER_RIGHT" layoutX="597.0" layoutY="47.0" mnemonicParsing="false" onAction="#handleLogOut" text="Log Out" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="47.0" />
 </AnchorPane>
