@@ -6,6 +6,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import controller.*;
+
+import model.*;
+
 public class WaterQualityApplication extends Application {
 
     @Override
