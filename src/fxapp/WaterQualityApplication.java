@@ -15,7 +15,7 @@ public class WaterQualityApplication extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("../view/Welcome.fxml"));
-        primaryStage.setTitle("Hello World");
+        primaryStage.setTitle("H2lOcator");
         primaryStage.setScene(new Scene(root, 700, 500));
         primaryStage.show();
     }
