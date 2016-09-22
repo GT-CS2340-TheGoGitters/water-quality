@@ -24,9 +24,9 @@
          <font>
             <Font size="18.0" />
          </font></Button>
-      <ImageView fitHeight="249.0" fitWidth="540.0" layoutX="80.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="logo" fitHeight="249.0" fitWidth="540.0" layoutX="80.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../Documents/GEORGIA%20TECH/FALL%202016/2340/2340logo.png" />
+            <Image url="@../../resources/2340logo.png" />
          </image></ImageView>
    </children>
 </AnchorPane>
