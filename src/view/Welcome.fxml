@@ -24,9 +24,9 @@
          <font>
             <Font size="18.0" />
          </font></Button>
-      <ImageView id="logo" fx:id="titlelogo" fitHeight="249.0" fitWidth="540.0" layoutX="80.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="titlelogo" fitHeight="249.0" fitWidth="540.0" layoutX="80.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image backgroundLoading="true" url="@../../resources/2340logo.png" />
+            <Image fx:id="logo" backgroundLoading="true" url="@../../resources/2340logo.png" />
          </image></ImageView>
    </children>
 </AnchorPane>
