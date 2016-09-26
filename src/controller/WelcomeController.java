@@ -1,5 +1,6 @@
 package controller;
 
+import fxapp.WaterQualityApplication;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -9,10 +10,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-public class WelcomeController {
+import java.awt.event.ActionListener;
 
+import java.io.IOException;
+
+public class WelcomeController {
     @FXML
     private Button login;
+
+    private WaterQualityApplication mainApp;
 
     private boolean _loginClicked = false;
 
@@ -20,11 +26,12 @@ public class WelcomeController {
         _loginClicked = true;
     }
 
-    @FXML
-    private void handleLoginClick() {
-        if (_loginClicked) {
-            //TODO: make it switch screens
-        }
+    public void setApp(WaterQualityApplication newApp) {
+        mainApp = newApp;
     }
 
+    @FXML
+    public void handleLoginClick() {
+        mainApp.showLogin();
+    }
 }
