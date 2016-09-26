@@ -8,6 +8,7 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.66" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
    <children>
@@ -20,14 +21,20 @@
           </Menu>
         </menus>
       </MenuBar>
-      <Label layoutX="200.0" layoutY="62.0" prefHeight="27.0" prefWidth="83.0" text="Username" />
-      <Label layoutX="200.0" layoutY="145.0" prefHeight="27.0" prefWidth="83.0" text="Password" />
-      <TextField fx:id="usernameField" layoutX="200.0" layoutY="89.0" prefHeight="39.0" prefWidth="300.0" />
-      <TextField fx:id="passwordField" layoutX="200.0" layoutY="172.0" prefHeight="39.0" prefWidth="300.0" />
-      <ButtonBar layoutX="200.0" layoutY="230.0" prefHeight="40.0" prefWidth="167.0">
+      <Label layoutX="200.0" layoutY="110.0" prefHeight="35.0" prefWidth="111.0" text="Username">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
+      <Label layoutX="200.0" layoutY="189.0" prefHeight="35.0" prefWidth="111.0" text="Password">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
+      <TextField fx:id="usernameField" layoutX="200.0" layoutY="145.0" prefHeight="39.0" prefWidth="300.0" />
+      <TextField fx:id="passwordField" layoutX="200.0" layoutY="224.0" prefHeight="39.0" prefWidth="300.0" />
+      <ButtonBar layoutX="200.0" layoutY="290.0" prefHeight="40.0" prefWidth="300.0">
         <buttons>
             <Button mnemonicParsing="false" text="Login" ButtonBar.buttonData="LEFT" />
-          <Button mnemonicParsing="false" text="Cancel" ButtonBar.buttonData="LEFT" />
+          <Button mnemonicParsing="false" prefWidth="141.0" text="Cancel" ButtonBar.buttonData="LEFT" />
         </buttons>
       </ButtonBar>
    </children>
