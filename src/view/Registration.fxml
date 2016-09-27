@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane accessibleRole="MENU_BAR" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WelcomeController">
+   <children>
+      <MenuBar prefHeight="29.0" prefWidth="700.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Text layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New User Registration" textAlignment="CENTER" wrappingWidth="700.0000030398369">
+         <font>
+            <Font size="46.0" />
+         </font>
+      </Text>
+      <TextField fx:id="RegisterName" layoutX="247.0" layoutY="112.0" />
+      <TextField fx:id="RegisterUsername" layoutX="247.0" layoutY="179.0" />
+      <TextField layoutX="247.0" layoutY="239.0" />
+      <Label layoutX="176.0" layoutY="111.0" prefHeight="29.0" prefWidth="71.0" text="Name" textAlignment="RIGHT">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="131.0" layoutY="178.0" text="Username">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="129.0" layoutY="237.0" text="Password">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <ButtonBar layoutX="486.0" layoutY="433.0" prefHeight="40.0" prefWidth="200.0">
+        <buttons>
+          <Button fx:id="RegistrationCancel" mnemonicParsing="false" text="Cancel" />
+            <Button fx:id="RegistrationRegister" mnemonicParsing="false" text="Register" />
+        </buttons>
+      </ButtonBar>
+      <Label layoutX="89.0" layoutY="291.0" text="Account Type">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <HBox layoutX="247.0" layoutY="291.0" prefHeight="31.0" prefWidth="387.0">
+         <children>
+            <RadioButton fx:id="UserSelectButton" mnemonicParsing="false" selected="true" text="User">
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+               <toggleGroup>
+                  <ToggleGroup fx:id="accountGroup" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="WorkerSelectButton" mnemonicParsing="false" text="Worker" toggleGroup="$accountGroup">
+               <HBox.margin>
+                  <Insets left="10.0" top="5.0" />
+               </HBox.margin>
+            </RadioButton>
+            <RadioButton fx:id="ManagerSelectButton" mnemonicParsing="false" text="Manager" toggleGroup="$accountGroup">
+               <HBox.margin>
+                  <Insets left="10.0" top="5.0" />
+               </HBox.margin>
+            </RadioButton>
+            <RadioButton fx:id="AdminSelectButton" mnemonicParsing="false" text="Admin" toggleGroup="$accountGroup">
+               <HBox.margin>
+                  <Insets left="10.0" top="5.0" />
+               </HBox.margin>
+            </RadioButton>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
