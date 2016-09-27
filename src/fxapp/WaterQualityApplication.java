@@ -1,5 +1,6 @@
 package fxapp;
 
+import controller.RegisterController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -95,7 +96,7 @@ public class WaterQualityApplication extends Application {
             loader.setLocation(WaterQualityApplication.class.getResource("../view/Registration.fxml"));
             baseLayout = loader.load();
 
-            WelcomeController controller = loader.getController();
+            RegisterController controller = loader.getController();
             controller.setApp(this);
 
             mainStage.setScene(new Scene(baseLayout));
