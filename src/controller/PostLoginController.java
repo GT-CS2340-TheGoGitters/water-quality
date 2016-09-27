@@ -1,18 +1,18 @@
 package controller;
 
+import fxapp.WaterQualityApplication;
 import javafx.fxml.FXML;
 
 /**
  * Created by Ashwin on 9/17/2016.
  */
 public class PostLoginController {
+    private WaterQualityApplication mainApp;
 
-    /**
-     * Close menu item event handler
-     */
+    public void setApp(WaterQualityApplication newApp) { mainApp = newApp;}
+
     @FXML
-    private void handleLogOut() {
-
-
+    private void handleLogOutClick() {
+        mainApp.returnToWelcomeScreen();
     }
 }
