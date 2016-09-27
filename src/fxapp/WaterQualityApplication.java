@@ -43,6 +43,17 @@ public class WaterQualityApplication extends Application {
         }
     }
 
+    public void showWelcome() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(WaterQualityApplication.class.getResource("../view/Welcome.fxml"));
+            baseLayout = loader.load();
+            mainStage.setScene(new Scene(baseLayout));
+        } catch (IOException e) {
+            System.out.print("Cannot load Welcome Screen");
+        }
+    }
+
     public void showLogin() {
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -61,7 +72,7 @@ public class WaterQualityApplication extends Application {
             baseLayout = loader.load();
             mainStage.setScene(new Scene(baseLayout));
         } catch (IOException e) {
-            System.out.print("Cannot load Login Screen");
+            System.out.print("Cannot load PostLogin Screen");
         }
     }
 
