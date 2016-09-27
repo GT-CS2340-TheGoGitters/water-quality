@@ -29,15 +29,7 @@ public class WelcomeController {
     @FXML
     private Image logo;
 
-    private boolean _loginClicked = false;
-
-    public final void setOnAction(EventHandler<ActionEvent> value) {
-        _loginClicked = true;
-    }
-
-    public void setApp(WaterQualityApplication newApp) {
-        mainApp = newApp;
-    }
+    public void setApp(WaterQualityApplication newApp) { mainApp = newApp;}
 
     @FXML
     public void handleLoginClick() {

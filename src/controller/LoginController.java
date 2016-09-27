@@ -1,6 +1,8 @@
 package controller;
 
+import fxapp.WaterQualityApplication;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.User;
@@ -18,37 +20,34 @@ public class LoginController {
     @FXML
     private TextField passwordField;
 
+    private WaterQualityApplication mainApp;
+
     private User user;
 
-    private Stage _dialogStage;
-
-    private boolean _loginAllowed = false;
-
-    private void handleLoginPressed() {
-        if (isInputValid()) {
-            if (usernameField.getAccessibleText().equals(user.getUsername())
-                    && passwordField.getAccessibleText().equals(user.getPassword())) {
-                _loginAllowed = true;
-                _dialogStage.close();
-            } else {
-                _loginAllowed = false;
-            }
-
-        }
+    public LoginController() {
+        user = new User();
     }
 
-    private boolean isInputValid() {
-        String error = "";
-        if (usernameField.getText() == null) {
-            error += "No username entered. Try again!\n";
-        } else if (passwordField.getText() == null) {
-            error+= "No password entered. Try again!\n";
-        }
+    public void setApp(WaterQualityApplication newApp) {
+        mainApp = newApp;
+    }
 
-        if (error.length() == 0) {
-            return true;
+    @FXML
+    private void handleCancelPressed() {
+        mainApp.returnToWelcomeScreen();
+    }
+
+    @FXML
+    private void handleLoginPressed() {
+        if (usernameField.getText().equals(user.getUsername())
+                && passwordField.getText().equals(user.getPassword())) {
+            mainApp.showPostLogin();
         } else {
-            return false;
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Login Error");
+            alert.setHeaderText("Invalid Login Information");
+            alert.setContentText("One or both of the required fields are incorrect.");
+            alert.showAndWait();
         }
     }
 }

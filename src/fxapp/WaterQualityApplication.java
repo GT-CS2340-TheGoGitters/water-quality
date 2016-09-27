@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 import controller.*;
 
 import model.*;
+import sun.rmi.runtime.Log;
 
 import java.io.IOException;
 
@@ -43,11 +44,30 @@ public class WaterQualityApplication extends Application {
         }
     }
 
+    public void returnToWelcomeScreen() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(WaterQualityApplication.class.getResource("../view/Welcome.fxml"));
+            baseLayout = loader.load();
+
+            WelcomeController controller = loader.getController();
+            controller.setApp(this);
+
+            mainStage.setScene(new Scene(baseLayout));
+        } catch (IOException e) {
+            System.out.print("Cannot load Welcome Screen");
+        }
+    }
+
     public void showLogin() {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(WaterQualityApplication.class.getResource("../view/Login.fxml"));
             baseLayout = loader.load();
+
+            LoginController controller = loader.getController();
+            controller.setApp(this);
+
             mainStage.setScene(new Scene(baseLayout));
         } catch (IOException e) {
             System.out.print("Cannot load Login Screen");
