@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.66" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
    <children>
       <MenuBar prefHeight="35.0" prefWidth="700.0">
         <menus>
@@ -21,11 +21,11 @@
           </Menu>
         </menus>
       </MenuBar>
-      <Label layoutX="200.0" layoutY="110.0" prefHeight="35.0" prefWidth="111.0" text="Username">
+      <Label layoutX="200.0" layoutY="110.0" prefHeight="35.0" prefWidth="300.0" text="Username">
          <font>
             <Font size="24.0" />
          </font></Label>
-      <Label layoutX="200.0" layoutY="189.0" prefHeight="35.0" prefWidth="111.0" text="Password">
+      <Label layoutX="200.0" layoutY="189.0" prefHeight="35.0" prefWidth="300.0" text="Password">
          <font>
             <Font size="24.0" />
          </font></Label>
