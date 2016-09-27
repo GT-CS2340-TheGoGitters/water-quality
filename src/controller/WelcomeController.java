@@ -23,6 +23,6 @@ public class WelcomeController {
 
     @FXML
     public void handleRegisterClick() {
-        //TODO: make this show the register screen
+        mainApp.showRegister();
     }
 }

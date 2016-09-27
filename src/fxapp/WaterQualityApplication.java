@@ -89,6 +89,21 @@ public class WaterQualityApplication extends Application {
         }
     }
 
+    public void showRegister() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(WaterQualityApplication.class.getResource("../view/Registration.fxml"));
+            baseLayout = loader.load();
+
+            WelcomeController controller = loader.getController();
+            controller.setApp(this);
+
+            mainStage.setScene(new Scene(baseLayout));
+        } catch (IOException e) {
+            System.out.print("Cannot load Registration Screen");
+        }
+    }
+
     public static void main(String[] args) {
         launch(args);
     }
