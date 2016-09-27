@@ -2,13 +2,13 @@ package fxapp;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-import controller.*;
+import controller.LoginController;
+import controller.WelcomeController;
+import controller.PostLoginController;
 
 import model.*;
 import sun.rmi.runtime.Log;
@@ -79,6 +79,10 @@ public class WaterQualityApplication extends Application {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(WaterQualityApplication.class.getResource("../view/PostLogin.fxml"));
             baseLayout = loader.load();
+
+            PostLoginController controller = loader.getController();
+            controller.setApp(this);
+
             mainStage.setScene(new Scene(baseLayout));
         } catch (IOException e) {
             System.out.print("Cannot load Login Screen");
