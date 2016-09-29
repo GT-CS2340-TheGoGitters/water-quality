@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane accessibleRole="MENU_BAR" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WelcomeController">
+<AnchorPane id="titlelogo" accessibleRole="MENU_BAR" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WelcomeController">
    <children>
       <MenuBar prefHeight="29.0" prefWidth="700.0">
         <menus>
@@ -22,11 +22,11 @@
           </Menu>
         </menus>
       </MenuBar>
-      <VBox layoutX="80.0" layoutY="110.0" prefHeight="200.0" prefWidth="482.0">
+      <VBox layoutX="87.0" layoutY="132.0" prefHeight="200.0" prefWidth="482.0">
          <children>
-            <ImageView fx:id="titlelogo" fitHeight="249.0" fitWidth="540.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="titlelogo" fitHeight="142.0" fitWidth="556.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image fx:id="logo" backgroundLoading="true" url="@../../resources/2340logo.png" />
+                  <Image url="@2340logo.png" />
                </image>
             </ImageView>
          </children>
