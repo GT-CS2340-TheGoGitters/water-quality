@@ -35,7 +35,7 @@
       </VBox>
       <ButtonBar layoutX="164.0" layoutY="370.0" prefHeight="40.0" prefWidth="84.0">
          <buttons>
-            <Button fx:id="login" alignment="CENTER" mnemonicParsing="false" onAction="#handleLoginClick" prefHeight="35.0" prefWidth="76.0" text="Login">
+            <Button fx:id="login" alignment="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#handleLoginClick" prefHeight="35.0" prefWidth="76.0" text="Login">
                <font>
                   <Font size="18.0" />
                </font>

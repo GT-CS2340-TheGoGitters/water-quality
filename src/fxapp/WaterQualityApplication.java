@@ -1,15 +1,11 @@
 package fxapp;
 
-import controller.RegisterController;
+import controller.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
-import controller.LoginController;
-import controller.WelcomeController;
-import controller.PostLoginController;
 
 import model.*;
 import sun.rmi.runtime.Log;
@@ -112,6 +108,21 @@ public class WaterQualityApplication extends Application {
             mainStage.setScene(new Scene(baseLayout));
         } catch (IOException e) {
             System.out.print("Cannot load Registration Screen");
+        }
+    }
+
+    public void showEditAccount() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(WaterQualityApplication.class.getResource("../view/EditAccount.fxml"));
+            baseLayout = loader.load();
+
+            EditAccountController controller = loader.getController();
+            controller.setApp(this);
+
+            mainStage.setScene(new Scene(baseLayout));
+        } catch (IOException e) {
+            System.out.print("Cannot load Edit Account Screen");
         }
     }
 
