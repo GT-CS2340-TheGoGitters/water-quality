@@ -8,6 +8,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -24,9 +25,10 @@
       </MenuBar>
       <VBox layoutX="80.0" layoutY="110.0" prefHeight="200.0" prefWidth="482.0">
          <children>
-            <ImageView fx:id="titlelogo" fitHeight="249.0" fitWidth="540.0" pickOnBounds="true" preserveRatio="true">
+            <Pane prefHeight="200.0" prefWidth="200.0" />
+            <ImageView fitHeight="146.0" fitWidth="539.0">
                <image>
-                  <Image fx:id="logo" backgroundLoading="true" url="@../../resources/2340logo.png" />
+                  <Image url="@../../resources/2340logo.png" />
                </image>
             </ImageView>
          </children>
