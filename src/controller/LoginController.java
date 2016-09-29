@@ -4,8 +4,8 @@ import fxapp.WaterQualityApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
-import model.User;
-
+import model.Account;
+import model.AccountsHolder;
 
 
 /**
@@ -21,11 +21,7 @@ public class LoginController {
 
     private WaterQualityApplication mainApp;
 
-    private User user;
-
-    public LoginController() {
-        user = new User();
-    }
+    public LoginController() { }
 
     public void setApp(WaterQualityApplication newApp) {
         mainApp = newApp;
@@ -38,8 +34,18 @@ public class LoginController {
 
     @FXML
     private void handleLoginPressed() {
-        if (usernameField.getText().equals(user.getUsername())
-                && passwordField.getText().equals(user.getPassword())) {
+        Account authenticatedAccount = null;
+
+        Account identifiedAccount = AccountsHolder.getAccountByUsername(usernameField.getText());
+
+        if (identifiedAccount != null) {
+            if (passwordField.getText().equals(identifiedAccount.getPassword())) {
+                authenticatedAccount = identifiedAccount;
+            }
+        }
+
+        if ( authenticatedAccount != null ) {
+            mainApp.setCurrentAccount(authenticatedAccount);
             mainApp.showPostLogin();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);

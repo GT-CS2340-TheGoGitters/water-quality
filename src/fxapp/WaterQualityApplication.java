@@ -22,10 +22,20 @@ public class WaterQualityApplication extends Application {
 
     private Stage mainStage;
 
+    private Account currentAccount = null;
+
     @Override
     public void start(Stage primaryStage) {
         mainStage = primaryStage;
         intialize();
+    }
+
+    public Account getCurrentAccount(){
+        return currentAccount;
+    }
+
+    public void setCurrentAccount(Account account){
+        this.currentAccount = account;
     }
 
     public void intialize() {

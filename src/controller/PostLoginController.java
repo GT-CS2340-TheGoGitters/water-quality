@@ -13,6 +13,7 @@ public class PostLoginController {
 
     @FXML
     private void handleLogOutClick() {
+        mainApp.setCurrentAccount(null);
         mainApp.returnToWelcomeScreen();
     }
 }

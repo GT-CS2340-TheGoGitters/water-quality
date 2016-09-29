@@ -5,8 +5,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
-import model.User;
-import model.UserType;
+import model.Account;
+import model.AccountType;
+import model.AccountsHolder;
 
 /**
  * Created by Allison on 9/27/16.
@@ -36,11 +37,9 @@ public class RegisterController {
     @FXML
     private RadioButton AdminSelectButton;
 
-    private User user;
+    private Account account;
 
-    public RegisterController() {
-        user = new User();
-    }
+    public RegisterController() {}
 
     public void setApp(WaterQualityApplication newApp) { mainApp = newApp;}
 
@@ -54,19 +53,37 @@ public class RegisterController {
         if (name.getText().length() != 0 &&
                 username.getText().length() != 0 &&
                 password.getText().length() != 0) {
-            user.setName(name.getAccessibleText());
-            user.setUsername(username.getAccessibleText());
-            user.setPassword(password.getAccessibleText());
+
+            AccountType accountType = null;
 
             if (UserSelectButton.isSelected()) {
-                user.setAccount(UserType.USR);
+                accountType = AccountType.USR;
             } else if (WorkerSelectButton.isSelected()) {
-                user.setAccount(UserType.WKR);
+                accountType = AccountType.WKR;
             } else if (ManagerSelectButton.isSelected()) {
-                user.setAccount(UserType.MGR);
+                accountType = AccountType.MGR;
             } else if (AdminSelectButton.isSelected()) {
-                user.setAccount(UserType.ADM);
+                accountType = AccountType.ADM;
             }
+
+            Account newAccount = new Account(
+                name.getText(),
+                username.getText(),
+                password.getText(),
+                accountType
+            );
+
+            try{
+                AccountsHolder.addAccount(newAccount);
+            } catch (Exception ex) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Registration error Error");
+                alert.setContentText(ex.getMessage());
+                alert.showAndWait();
+                return;
+            }
+
+
             mainApp.returnToWelcomeScreen();
         }
     }

@@ -3,17 +3,17 @@ package model;
 /**
  * Created by Jack on 9/20/16.
  */
-public class User {
+public class Account {
     private String username;
     private String password;
     private String name;
-    private UserType account;
+    private AccountType type;
 
-    public User() {
-        username = "user";
-        password = "pass";
-        name = "name";
-        account = UserType.USR;
+    public Account(String name, String username, String password, AccountType type) {
+        this.username = username;
+        this.name = name;
+        this.password = password;
+        this.type = type;
     }
 
     public String getUsername() {
@@ -26,7 +26,7 @@ public class User {
 
     public String getName() { return name; }
 
-    public UserType getAccount() { return account; }
+    public AccountType getAccountType() { return type; }
 
     public void setUsername(String username) {
         this.username = username;
@@ -40,7 +40,7 @@ public class User {
         this.name = name;
     }
 
-    public void setAccount(UserType account) {
-        this.account = account;
+    public void setAccountType(AccountType type) {
+        this.type = type;
     }
 }

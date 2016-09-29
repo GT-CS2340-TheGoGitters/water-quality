@@ -3,7 +3,7 @@ package model;
 /**
  * Created by Jack on 9/27/16.
  */
-public enum UserType {
+public enum AccountType {
     USR ("USER", "USR"),
     WKR ("WORKER", "WKR"),
     MGR ("MANAGER", "MGR"),
@@ -13,7 +13,7 @@ public enum UserType {
 
     private String code;
 
-    private UserType(String userType, String code) {
+    private AccountType(String userType, String code) {
         this.userType = userType;
         this.code = code;
     }
