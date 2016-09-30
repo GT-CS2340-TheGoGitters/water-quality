@@ -20,4 +20,9 @@ public class WelcomeController {
     public void handleLoginClick() {
         mainApp.showLogin();
     }
+
+    @FXML
+    public void handleRegisterClick() {
+        mainApp.showRegister();
+    }
 }
