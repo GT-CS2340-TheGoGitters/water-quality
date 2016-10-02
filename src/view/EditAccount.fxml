@@ -36,12 +36,12 @@
             <Font size="26.0" />
          </font>
       </Label>
-      <Label layoutX="59.0" layoutY="185.0" prefHeight="31.0" prefWidth="190.0" text="New Password:">
+      <Label layoutX="59.0" layoutY="185.0" prefHeight="31.0" prefWidth="190.0" text="New Password:" textAlignment="RIGHT">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
-      <ButtonBar layoutX="265.0" layoutY="259.0" prefHeight="40.0" prefWidth="167.0">
+      <ButtonBar layoutX="530.0" layoutY="422.0" prefHeight="40.0" prefWidth="167.0">
          <buttons>
             <Button fx:id="EditProfileCancel" cancelButton="true" mnemonicParsing="false" onAction="#handleCancelPressed" text="Cancel">
                <opaqueInsets>
@@ -51,5 +51,23 @@
             <Button fx:id="EditProfileSave" mnemonicParsing="false" onAction="#handleSaveClick" text="Save" />
          </buttons>
       </ButtonBar>
+      <Label layoutX="57.0" layoutY="250.0" prefHeight="31.0" prefWidth="190.0" text="Email Address:" textAlignment="RIGHT">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Label layoutX="57.0" layoutY="315.0" prefHeight="31.0" prefWidth="190.0" text="Address Line 1:" textAlignment="RIGHT">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="EditAccountEmail" layoutX="275.0" layoutY="252.0" />
+      <PasswordField fx:id="EditAccountAddress" layoutX="275.0" layoutY="317.0" />
+      <PasswordField fx:id="EditAccountAddress1" layoutX="277.0" layoutY="369.0" />
+      <Label layoutX="53.0" layoutY="367.0" prefHeight="31.0" prefWidth="202.0" text="Address Line 2:" textAlignment="RIGHT">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
