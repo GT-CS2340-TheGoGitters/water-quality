@@ -41,16 +41,6 @@
             <Font size="26.0" />
          </font>
       </Label>
-      <ButtonBar layoutX="274.0" layoutY="446.0" prefHeight="40.0" prefWidth="167.0">
-         <buttons>
-            <Button fx:id="EditProfileCancel" cancelButton="true" mnemonicParsing="false" onAction="#handleCancelPressed" text="Cancel">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </Button>
-            <Button fx:id="EditProfileSave" mnemonicParsing="false" onAction="#handleSaveClick" text="Save" />
-         </buttons>
-      </ButtonBar>
       <Label layoutX="57.0" layoutY="237.0" prefHeight="31.0" prefWidth="190.0" text="Email Address:" textAlignment="RIGHT">
          <font>
             <Font size="26.0" />
@@ -61,9 +51,6 @@
             <Font size="26.0" />
          </font>
       </Label>
-      <PasswordField fx:id="EditAccountEmail" accessibleRole="TEXT_FIELD" layoutX="276.0" layoutY="239.0" />
-      <PasswordField fx:id="EditAccountAddress" accessibleRole="TEXT_FIELD" layoutX="276.0" layoutY="302.0" />
-      <PasswordField fx:id="EditAccountCity" accessibleRole="TEXT_FIELD" layoutX="277.0" layoutY="356.0" prefHeight="27.0" prefWidth="87.0" promptText="City" />
       <Label layoutX="53.0" layoutY="354.0" prefHeight="31.0" prefWidth="202.0" text="Address Line 2:" textAlignment="RIGHT">
          <font>
             <Font size="26.0" />
@@ -74,8 +61,21 @@
             <Font size="26.0" />
          </font>
       </Label>
-      <PasswordField fx:id="EditAccountTitle" accessibleRole="TEXT_FIELD" layoutX="277.0" layoutY="407.0" promptText="ex: Mr., Mrs., Ms., etc..." />
-      <PasswordField fx:id="EditAccountState" accessibleRole="TEXT_FIELD" layoutX="381.0" layoutY="356.0" prefHeight="27.0" prefWidth="53.0" promptText="State" />
-      <PasswordField fx:id="EditAccountZIP" accessibleRole="TEXT_FIELD" layoutX="452.0" layoutY="356.0" prefHeight="27.0" prefWidth="87.0" promptText="ZIP code" />
+      <TextField fx:id="EditAccountEmail" layoutX="277.0" layoutY="239.0" />
+      <TextField fx:id="EditAccountAddress" layoutX="276.0" layoutY="302.0" />
+      <TextField fx:id="EditAccountCity" layoutX="276.0" layoutY="356.0" prefHeight="27.0" prefWidth="87.0" promptText="City" />
+      <TextField fx:id="EditAccountState" layoutX="376.0" layoutY="356.0" prefHeight="27.0" prefWidth="63.0" promptText="State" />
+      <TextField fx:id="EditAccountZIP" layoutX="457.0" layoutY="356.0" prefHeight="27.0" prefWidth="101.0" promptText="ZIP Code" />
+      <TextField fx:id="EditAccountTitle" layoutX="276.0" layoutY="407.0" promptText="ex: Mr., Mrs., Ms., etc..." />
+      <ButtonBar layoutX="274.0" layoutY="446.0" prefHeight="40.0" prefWidth="167.0">
+         <buttons>
+            <Button fx:id="EditProfileCancel" cancelButton="true" mnemonicParsing="false" onAction="#handleCancelPressed" text="Cancel">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+            <Button fx:id="EditProfileSave" mnemonicParsing="false" onAction="#handleSaveClick" text="Save" />
+         </buttons>
+      </ButtonBar>
    </children>
 </AnchorPane>
