@@ -20,6 +20,10 @@ public class WaterQualityApplication extends Application {
 
     private Account currentAccount = null;
 
+    /**
+     * Starts the application
+     * @param primaryStage the main stage of the application
+     */
     @Override
     public void start(Stage primaryStage) {
         mainStage = primaryStage;
@@ -31,10 +35,17 @@ public class WaterQualityApplication extends Application {
         return currentAccount;
     }
 
+    /**
+     * Sets up the current account
+     * @param account the user account
+     */
     public void setCurrentAccount(Account account){
         this.currentAccount = account;
     }
 
+    /**
+     * Initializes the application
+     */
     public void intialize() {
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -52,6 +63,9 @@ public class WaterQualityApplication extends Application {
         }
     }
 
+    /**
+     * Returns the user to the welcome screen
+     */
     public void returnToWelcomeScreen() {
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -67,6 +81,9 @@ public class WaterQualityApplication extends Application {
         }
     }
 
+    /**
+     * Loads the login screen
+     */
     public void showLogin() {
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -82,6 +99,9 @@ public class WaterQualityApplication extends Application {
         }
     }
 
+    /**
+     * Loads the post login screen
+     */
     public void showPostLogin() {
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -97,6 +117,9 @@ public class WaterQualityApplication extends Application {
         }
     }
 
+    /**
+     * Loads the registration screen
+     */
     public void showRegister() {
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -112,6 +135,9 @@ public class WaterQualityApplication extends Application {
         }
     }
 
+    /**
+     * Loads the edit account screen
+     */
     public void showEditAccount() {
         try {
             FXMLLoader loader = new FXMLLoader();

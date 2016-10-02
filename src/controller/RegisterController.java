@@ -41,13 +41,23 @@ public class RegisterController {
 
     public RegisterController() {}
 
+    /**
+     * Gives the controller access to the main application
+     * @param newApp the new application
+     */
     public void setApp(WaterQualityApplication newApp) { mainApp = newApp;}
 
+    /**
+     * Returns to the welcome screen when Cancel is pressed
+     */
     @FXML
     private void handleCancelPressed() {
         mainApp.returnToWelcomeScreen();
     }
 
+    /**
+     * Brings user to the register screen when Register is clicked
+     */
     @FXML
     private void handleRegisterClick() {
         if (name.getText().length() != 0 &&

@@ -54,11 +54,17 @@ public class EditAccountController {
         mainApp = newApp;
     }
 
+    /**
+     * Returns to the post login screen when Cancel is pressed
+     */
     @FXML
     private void handleCancelPressed() {
         mainApp.showPostLogin();
     }
 
+    /**
+     * Saves the information entered by the user
+     */
     @FXML
     private void handleSaveClick() {
         account = mainApp.getCurrentAccount();
