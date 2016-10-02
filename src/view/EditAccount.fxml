@@ -30,7 +30,7 @@
          </font>
       </Text>
       <TextField fx:id="EditAccountName" layoutX="277.0" layoutY="122.0" />
-      <PasswordField fx:id="EditAccountPassword" layoutX="277.0" layoutY="187.0" />
+      <PasswordField fx:id="EditAccountPassword" accessibleRole="TEXT_FIELD" layoutX="277.0" layoutY="187.0" />
       <Label layoutX="106.0" layoutY="121.0" prefHeight="31.0" prefWidth="143.0" text="New Name:" textAlignment="RIGHT">
          <font>
             <Font size="26.0" />
@@ -41,7 +41,7 @@
             <Font size="26.0" />
          </font>
       </Label>
-      <ButtonBar layoutX="530.0" layoutY="422.0" prefHeight="40.0" prefWidth="167.0">
+      <ButtonBar layoutX="274.0" layoutY="446.0" prefHeight="40.0" prefWidth="167.0">
          <buttons>
             <Button fx:id="EditProfileCancel" cancelButton="true" mnemonicParsing="false" onAction="#handleCancelPressed" text="Cancel">
                <opaqueInsets>
@@ -51,23 +51,31 @@
             <Button fx:id="EditProfileSave" mnemonicParsing="false" onAction="#handleSaveClick" text="Save" />
          </buttons>
       </ButtonBar>
-      <Label layoutX="57.0" layoutY="250.0" prefHeight="31.0" prefWidth="190.0" text="Email Address:" textAlignment="RIGHT">
+      <Label layoutX="57.0" layoutY="237.0" prefHeight="31.0" prefWidth="190.0" text="Email Address:" textAlignment="RIGHT">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
-      <Label layoutX="57.0" layoutY="315.0" prefHeight="31.0" prefWidth="190.0" text="Address Line 1:" textAlignment="RIGHT">
+      <Label layoutX="57.0" layoutY="300.0" prefHeight="31.0" prefWidth="190.0" text="Address Line 1:" textAlignment="RIGHT">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
-      <PasswordField fx:id="EditAccountEmail" layoutX="275.0" layoutY="252.0" />
-      <PasswordField fx:id="EditAccountAddress" layoutX="275.0" layoutY="317.0" />
-      <PasswordField fx:id="EditAccountAddress1" layoutX="277.0" layoutY="369.0" />
-      <Label layoutX="53.0" layoutY="367.0" prefHeight="31.0" prefWidth="202.0" text="Address Line 2:" textAlignment="RIGHT">
+      <PasswordField fx:id="EditAccountEmail" accessibleRole="TEXT_FIELD" layoutX="276.0" layoutY="239.0" />
+      <PasswordField fx:id="EditAccountAddress" accessibleRole="TEXT_FIELD" layoutX="276.0" layoutY="302.0" />
+      <PasswordField fx:id="EditAccountAddress1" accessibleRole="TEXT_FIELD" layoutX="277.0" layoutY="356.0" prefHeight="27.0" prefWidth="87.0" promptText="City" />
+      <Label layoutX="53.0" layoutY="354.0" prefHeight="31.0" prefWidth="202.0" text="Address Line 2:" textAlignment="RIGHT">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
+      <Label layoutX="177.0" layoutY="405.0" prefHeight="31.0" prefWidth="70.0" text="Title:" textAlignment="RIGHT">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="EditAccountAddress11" accessibleRole="TEXT_FIELD" layoutX="277.0" layoutY="407.0" promptText="ex: Mr., Mrs., Ms., etc..." />
+      <PasswordField fx:id="EditAccountAddress12" accessibleRole="TEXT_FIELD" layoutX="381.0" layoutY="356.0" prefHeight="27.0" prefWidth="53.0" promptText="State" />
+      <PasswordField fx:id="EditAccountAddress13" accessibleRole="TEXT_FIELD" layoutX="452.0" layoutY="356.0" prefHeight="27.0" prefWidth="87.0" promptText="ZIP code" />
    </children>
 </AnchorPane>
