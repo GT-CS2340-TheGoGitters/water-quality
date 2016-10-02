@@ -18,6 +18,24 @@ public class EditAccountController {
     private TextField EditAccountPassword;
 
     @FXML
+    private TextField EditAccountEmail;
+
+    @FXML
+    private TextField EditAccountAddress;
+
+    @FXML
+    private TextField EditAccountCity;
+
+    @FXML
+    private TextField EditAccountState;
+
+    @FXML
+    private TextField EditAccountZIP;
+
+    @FXML
+    private TextField EditAccountTitle;
+
+    @FXML
     private Button EditProfileCancel;
 
     @FXML
@@ -48,6 +66,9 @@ public class EditAccountController {
         }
         if (EditAccountPassword.getText().length() != 0) {
             account.setPassword(EditAccountPassword.getText());
+        }
+        if (EditAccountEmail.getText().length() != 0) {
+            account.setEmailAddress(EditAccountEmail.getText());
         }
 
         mainApp.showPostLogin();
