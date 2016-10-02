@@ -2,6 +2,7 @@ package controller;
 
 import fxapp.WaterQualityApplication;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import model.Account;
@@ -69,6 +70,26 @@ public class EditAccountController {
         }
         if (EditAccountEmail.getText().length() != 0) {
             account.setEmailAddress(EditAccountEmail.getText());
+        }
+        if (EditAccountAddress.getText().length() != 0) {
+            if (EditAccountCity.getText().length() == 0 ||
+                    EditAccountState.getText().length() == 0 ||
+                    EditAccountZIP.getText().length() == 0) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error in Address Fields");
+                alert.setHeaderText("Incomplete Address Information");
+                alert.setContentText("Fill in remaining address fields.");
+                alert.showAndWait();
+            } else {
+                String address = EditAccountAddress.getText() +"\n" +
+                        EditAccountCity.getText() + ", " +
+                        EditAccountState.getText() + " " +
+                        EditAccountZIP.getText();
+                account.setHomeAddress(address);
+            }
+        }
+        if (EditAccountTitle.getText().length() != 0) {
+            account.setTitle(EditAccountTitle.getText());
         }
 
         mainApp.showPostLogin();
