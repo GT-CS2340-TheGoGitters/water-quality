@@ -23,6 +23,7 @@ public class WaterQualityApplication extends Application {
     @Override
     public void start(Stage primaryStage) {
         mainStage = primaryStage;
+        mainStage.setResizable(false);
         intialize();
     }
 
