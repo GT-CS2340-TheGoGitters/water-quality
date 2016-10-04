@@ -2,6 +2,7 @@ package controller;
 
 import fxapp.WaterQualityApplication;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import model.Account;
@@ -16,6 +17,24 @@ public class EditAccountController {
 
     @FXML
     private TextField EditAccountPassword;
+
+    @FXML
+    private TextField EditAccountEmail;
+
+    @FXML
+    private TextField EditAccountAddress;
+
+    @FXML
+    private TextField EditAccountCity;
+
+    @FXML
+    private TextField EditAccountState;
+
+    @FXML
+    private TextField EditAccountZIP;
+
+    @FXML
+    private TextField EditAccountTitle;
 
     @FXML
     private Button EditProfileCancel;
@@ -35,11 +54,17 @@ public class EditAccountController {
         mainApp = newApp;
     }
 
+    /**
+     * Returns to the post login screen when Cancel is pressed
+     */
     @FXML
     private void handleCancelPressed() {
         mainApp.showPostLogin();
     }
 
+    /**
+     * Saves the information entered by the user
+     */
     @FXML
     private void handleSaveClick() {
         account = mainApp.getCurrentAccount();
@@ -48,6 +73,29 @@ public class EditAccountController {
         }
         if (EditAccountPassword.getText().length() != 0) {
             account.setPassword(EditAccountPassword.getText());
+        }
+        if (EditAccountEmail.getText().length() != 0) {
+            account.setEmailAddress(EditAccountEmail.getText());
+        }
+        if (EditAccountAddress.getText().length() != 0) {
+            if (EditAccountCity.getText().length() == 0 ||
+                    EditAccountState.getText().length() == 0 ||
+                    EditAccountZIP.getText().length() == 0) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error in Address Fields");
+                alert.setHeaderText("Incomplete Address Information");
+                alert.setContentText("Fill in remaining address fields.");
+                alert.showAndWait();
+            } else {
+                String address = EditAccountAddress.getText() +"\n" +
+                        EditAccountCity.getText() + ", " +
+                        EditAccountState.getText() + " " +
+                        EditAccountZIP.getText();
+                account.setHomeAddress(address);
+            }
+        }
+        if (EditAccountTitle.getText().length() != 0) {
+            account.setTitle(EditAccountTitle.getText());
         }
 
         mainApp.showPostLogin();

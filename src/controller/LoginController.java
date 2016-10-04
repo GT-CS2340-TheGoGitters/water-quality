@@ -23,15 +23,25 @@ public class LoginController {
 
     public LoginController() { }
 
+    /**
+     * Gives the controller access to the main application
+     * @param newApp the new application
+     */
     public void setApp(WaterQualityApplication newApp) {
         mainApp = newApp;
     }
 
+    /**
+     * Returns to the Welcome screen when Cancel is pressed
+     */
     @FXML
     private void handleCancelPressed() {
         mainApp.returnToWelcomeScreen();
     }
 
+    /**
+     * Logs in the user or generates an alert if it cannot authenticate
+     */
     @FXML
     private void handleLoginPressed() {
         Account authenticatedAccount = null;

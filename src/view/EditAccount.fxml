@@ -30,18 +30,44 @@
          </font>
       </Text>
       <TextField fx:id="EditAccountName" layoutX="277.0" layoutY="122.0" />
-      <PasswordField fx:id="EditAccountPassword" layoutX="277.0" layoutY="187.0" />
+      <PasswordField fx:id="EditAccountPassword" accessibleRole="TEXT_FIELD" layoutX="277.0" layoutY="187.0" />
       <Label layoutX="106.0" layoutY="121.0" prefHeight="31.0" prefWidth="143.0" text="New Name:" textAlignment="RIGHT">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
-      <Label layoutX="59.0" layoutY="185.0" prefHeight="31.0" prefWidth="190.0" text="New Password:">
+      <Label layoutX="59.0" layoutY="185.0" prefHeight="31.0" prefWidth="190.0" text="New Password:" textAlignment="RIGHT">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
-      <ButtonBar layoutX="265.0" layoutY="259.0" prefHeight="40.0" prefWidth="167.0">
+      <Label layoutX="57.0" layoutY="237.0" prefHeight="31.0" prefWidth="190.0" text="Email Address:" textAlignment="RIGHT">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Label layoutX="57.0" layoutY="300.0" prefHeight="31.0" prefWidth="190.0" text="Address Line 1:" textAlignment="RIGHT">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Label layoutX="53.0" layoutY="354.0" prefHeight="31.0" prefWidth="202.0" text="Address Line 2:" textAlignment="RIGHT">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Label layoutX="177.0" layoutY="405.0" prefHeight="31.0" prefWidth="70.0" text="Title:" textAlignment="RIGHT">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <TextField fx:id="EditAccountEmail" layoutX="277.0" layoutY="239.0" />
+      <TextField fx:id="EditAccountAddress" layoutX="276.0" layoutY="302.0" />
+      <TextField fx:id="EditAccountCity" layoutX="276.0" layoutY="356.0" prefHeight="27.0" prefWidth="87.0" promptText="City" />
+      <TextField fx:id="EditAccountState" layoutX="376.0" layoutY="356.0" prefHeight="27.0" prefWidth="63.0" promptText="State" />
+      <TextField fx:id="EditAccountZIP" layoutX="457.0" layoutY="356.0" prefHeight="27.0" prefWidth="101.0" promptText="ZIP Code" />
+      <TextField fx:id="EditAccountTitle" layoutX="276.0" layoutY="407.0" promptText="ex: Mr., Mrs., Ms., etc..." />
+      <ButtonBar layoutX="274.0" layoutY="446.0" prefHeight="40.0" prefWidth="167.0">
          <buttons>
             <Button fx:id="EditProfileCancel" cancelButton="true" mnemonicParsing="false" onAction="#handleCancelPressed" text="Cancel">
                <opaqueInsets>
