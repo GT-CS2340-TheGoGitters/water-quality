@@ -39,6 +39,9 @@ public class PostLoginController {
         mainApp.showEditAccount();
     }
 
+    /**
+     * Show the profile screen
+     */
     @FXML
     private void handleViewProfile() { mainApp.showProfile(); }
 }

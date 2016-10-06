@@ -46,6 +46,9 @@ public class ProfileController {
 
     }
 
+    /**
+     * Puts required values in the appropriate fields.
+     */
     public void setUpProfile() {
         account = mainApp.getCurrentAccount();
         name.setText(account.getName());
@@ -71,11 +74,17 @@ public class ProfileController {
         mainApp = newApp;
     }
 
+    /**
+     * Returns to the post login screen when Done is clicked.
+     */
     @FXML
     public void doneClicked() {
         mainApp.showPostLogin();
     }
 
+    /**
+     * Shows and hides the password.
+     */
     @FXML
     public void passButtonClicked() {
         if (count % 2 == 0) {
