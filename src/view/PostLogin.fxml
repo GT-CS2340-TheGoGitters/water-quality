@@ -10,11 +10,16 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500" prefWidth="700" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PostLoginController">
     <MenuBar AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
         <menus>
-            <Menu mnemonicParsing="false" text="File">
+            <Menu mnemonicParsing="false" text="Profile">
                 <items>
                     <MenuItem fx:id="EditProfileDropDown" mnemonicParsing="false" onAction="#handleEditProfile" text="Edit Profile" />
                 </items>
             </Menu>
+         <Menu mnemonicParsing="false" text="Report">
+           <items>
+             <MenuItem fx:id="WaterReportDropDown" mnemonicParsing="false" text="Water Report" />
+           </items>
+         </Menu>
         </menus>
     </MenuBar>
    <ButtonBar layoutX="492.0" layoutY="39.0" prefHeight="40.0" prefWidth="200.0">
