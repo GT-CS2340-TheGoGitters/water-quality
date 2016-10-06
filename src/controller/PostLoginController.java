@@ -11,6 +11,9 @@ public class PostLoginController {
     @FXML
     private MenuItem EditProfileDropDown;
 
+    @FXML
+    private MenuItem ViewProfileDropDown;
+
     private WaterQualityApplication mainApp;
 
     /**
@@ -35,4 +38,7 @@ public class PostLoginController {
     private void handleEditProfile() {
         mainApp.showEditAccount();
     }
+
+    @FXML
+    private void handleViewProfile() { mainApp.showProfile(); }
 }

@@ -136,6 +136,25 @@ public class WaterQualityApplication extends Application {
     }
 
     /**
+     * Loads the profile screen
+     */
+    public void showProfile() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(WaterQualityApplication.class.getResource("../view/Profile.fxml"));
+            baseLayout = loader.load();
+
+            ProfileController controller = loader.getController();
+            controller.setApp(this);
+            controller.setUpProfile();
+
+            mainStage.setScene(new Scene(baseLayout));
+        } catch (IOException e) {
+            System.out.print("Cannot load Profile Screen.");
+        }
+    }
+
+    /**
      * Loads the edit account screen
      */
     public void showEditAccount() {

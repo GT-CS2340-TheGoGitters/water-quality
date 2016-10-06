@@ -10,13 +10,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.66" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.66" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProfileController">
    <children>
       <MenuBar prefHeight="39.0" prefWidth="700.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Done" />
+              <MenuItem mnemonicParsing="false" onAction="#doneClicked" text="Done" />
             </items>
           </Menu>
         </menus>
@@ -30,7 +30,7 @@
             <Font size="26.0" />
          </font>
       </Label>
-      <Text fx:id="name" layoutX="261.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name">
+      <Text fx:id="name" layoutX="261.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0">
          <font>
             <Font size="26.0" />
          </font>
@@ -40,7 +40,7 @@
             <Font size="26.0" />
          </font>
       </Label>
-      <Text fx:id="username" layoutX="261.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
+      <Text fx:id="username" layoutX="261.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0">
          <font>
             <Font size="26.0" />
          </font>
@@ -50,7 +50,7 @@
             <Font size="26.0" />
          </font>
       </Label>
-      <Text fx:id="password" layoutX="261.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+      <Text fx:id="password" layoutX="261.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0">
          <font>
             <Font size="26.0" />
          </font>
@@ -65,12 +65,12 @@
             <Font size="26.0" />
          </font>
       </Label>
-      <Text fx:id="email" layoutX="261.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email Address">
+      <Text fx:id="email" layoutX="261.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0">
          <font>
             <Font size="26.0" />
          </font>
       </Text>
-      <Text fx:id="address" layoutX="261.0" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address">
+      <Text fx:id="address" layoutX="261.0" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0">
          <font>
             <Font size="26.0" />
          </font>
@@ -80,7 +80,7 @@
             <Font size="26.0" />
          </font>
       </Label>
-      <Text fx:id="accountype" layoutX="259.0" layoutY="418.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Type">
+      <Text fx:id="accounttype" layoutX="259.0" layoutY="418.0" strokeType="OUTSIDE" strokeWidth="0.0">
          <font>
             <Font size="26.0" />
          </font>
@@ -90,14 +90,14 @@
             <Font size="26.0" />
          </font>
       </Label>
-      <Text fx:id="title" layoutX="259.0" layoutY="475.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title">
+      <Text fx:id="title" layoutX="259.0" layoutY="475.0" strokeType="OUTSIDE" strokeWidth="0.0">
          <font>
             <Font size="26.0" />
          </font>
       </Text>
       <ButtonBar layoutX="486.0" layoutY="446.0" prefHeight="40.0" prefWidth="200.0">
          <buttons>
-          <Button fx:id="passbutton" mnemonicParsing="false" text="Show Passsword" />
+          <Button fx:id="passbutton" mnemonicParsing="false" onAction="#passButtonClicked" text="Show/Hide Password" />
          </buttons>
       </ButtonBar>
    </children>
