@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500" prefWidth="700" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PostLoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500" prefWidth="700" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WaterSourceReportController">
    <children>
       <Label fx:id="WaterLocationLabel" layoutX="54.0" layoutY="88.0" text="Water Location">
          <font>
@@ -58,8 +58,8 @@
       </ButtonBar>
       <ButtonBar layoutX="465.0" layoutY="439.0" prefHeight="40.0" prefWidth="200.0">
         <buttons>
-          <Button fx:id="CancelButton" mnemonicParsing="false" text="Cancel" />
-            <Button fx:id="SubmitButton" mnemonicParsing="false" text="Submit" />
+          <Button fx:id="CancelButton" mnemonicParsing="false" onAction="#handleCancelPressed" text="Cancel" />
+            <Button fx:id="SubmitButton" mnemonicParsing="false" onAction="#handleSubmitPressed" text="Submit" />
         </buttons>
       </ButtonBar>
    </children>

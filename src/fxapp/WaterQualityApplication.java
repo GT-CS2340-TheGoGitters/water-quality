@@ -172,6 +172,21 @@ public class WaterQualityApplication extends Application {
         }
     }
 
+    public void showWaterSourceReport() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(WaterQualityApplication.class.getResource("../view/WaterSourceReport.fxml"));
+            baseLayout = loader.load();
+
+            WaterSourceReportController controller = loader.getController();
+            controller.setApp(this);
+
+            mainStage.setScene(new Scene(baseLayout));
+        } catch (IOException e) {
+            System.out.print("Cannot load Edit Account Screen");
+        }
+    }
+
     public static void main(String[] args) {
         launch(args);
     }

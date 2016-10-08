@@ -44,4 +44,7 @@ public class PostLoginController {
      */
     @FXML
     private void handleViewProfile() { mainApp.showProfile(); }
+
+    @FXML
+    private void handleWaterSourceReport() { mainApp.showWaterSourceReport(); }
 }
