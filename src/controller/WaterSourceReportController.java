@@ -70,6 +70,7 @@ public class WaterSourceReportController {
     /*
      * Checks to make sure that latitude and logitude are filled out
      * Then adds information to WaterReportsHolder
+     * Then returns to PostLogin screen
      */
     @FXML
     private void handleSubmitPressed() {
