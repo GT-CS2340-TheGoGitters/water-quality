@@ -187,6 +187,21 @@ public class WaterQualityApplication extends Application {
         }
     }
 
+    public void showWaterReports() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(WaterQualityApplication.class.getResource("../view/ReportsView.fxml"));
+            baseLayout = loader.load();
+
+            ReportsController controller = loader.getController();
+            controller.setApp(this);
+
+            mainStage.setScene(new Scene(baseLayout));
+        } catch (IOException e) {
+            System.out.print("Cannot load Reports Screen: " + e.getMessage());
+        }
+    }
+
     public static void main(String[] args) {
         launch(args);
     }

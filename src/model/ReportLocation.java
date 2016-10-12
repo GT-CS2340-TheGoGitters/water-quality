@@ -19,4 +19,9 @@ public class ReportLocation {
     public double getLongitude() {
         return longitude;
     }
+
+    @Override
+    public String toString() {
+        return lattitude + ", " + longitude;
+    }
 }
