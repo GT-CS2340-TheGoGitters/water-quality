@@ -87,7 +87,7 @@ public class RegisterController {
                 AccountsHolder.addAccount(newAccount);
             } catch (Exception ex) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Registration error Error");
+                alert.setTitle("Registration Error");
                 alert.setContentText(ex.getMessage());
                 alert.showAndWait();
                 return;

@@ -86,6 +86,7 @@ public class EditAccountController {
                 alert.setHeaderText("Incomplete Address Information");
                 alert.setContentText("Fill in remaining address fields.");
                 alert.showAndWait();
+                return;
             } else {
                 String address = EditAccountAddress.getText() +"\n" +
                         EditAccountCity.getText() + ", " +

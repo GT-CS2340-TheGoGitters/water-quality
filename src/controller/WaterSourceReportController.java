@@ -6,7 +6,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import model.*;
-import sun.jvm.hotspot.utilities.StreamMonitor;
 
 /**
  * Created by Jack on 10/8/16.
@@ -67,10 +66,18 @@ public class WaterSourceReportController {
             account = mainApp.getCurrentAccount();
 
             String waterLocation = WaterLocationField.getText();
-            String[] latLong = waterLocation.split(",");
-            double latitude = Double.parseDouble(latLong[0]);
-            double longitude = Double.parseDouble(latLong[1]);
-            reportLocation = new ReportLocation(latitude, longitude);
+            try {
+                String[] latLong = waterLocation.split(",");
+                double latitude = Double.parseDouble(latLong[0]);
+                double longitude = Double.parseDouble(latLong[1]);
+                reportLocation = new ReportLocation(latitude, longitude);
+            } catch (Exception ex) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error in Water Location.");
+                alert.setContentText("Enter location properly\nlatitude, longitude");
+                alert.showAndWait();
+                return;
+            }
 
             if (WellButton.isSelected()) {
                 waterType = WaterType.WELL;
@@ -100,7 +107,7 @@ public class WaterSourceReportController {
                 WaterReportsHolder.addReport(waterSourceReport);
             } catch (Exception ex) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Registration error Error");
+                alert.setTitle("Error Submitting Report.");
                 alert.setContentText(ex.getMessage());
                 alert.showAndWait();
                 return;
