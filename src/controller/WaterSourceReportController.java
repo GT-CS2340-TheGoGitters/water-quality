@@ -52,14 +52,25 @@ public class WaterSourceReportController {
 
     }
 
+    /**
+     * Gives the controller access to the main application
+     * @param newApp the new application
+     */
     public void setApp(WaterQualityApplication newApp) { mainApp = newApp;}
 
 
+    /*
+     * Brings user back to PostLogin screen
+     */
     @FXML
     private void handleCancelPressed() {
         mainApp.showPostLogin();
     }
 
+    /*
+     * Checks to make sure that latitude and logitude are filled out
+     * Then adds information to WaterReportsHolder
+     */
     @FXML
     private void handleSubmitPressed() {
         if (WaterLocationField.getText().length() > 0) {
