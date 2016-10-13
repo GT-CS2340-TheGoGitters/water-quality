@@ -1,5 +1,6 @@
 package controller;
 
+import com.lynden.gmapsfx.GoogleMapView;
 import fxapp.WaterQualityApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuItem;
@@ -13,6 +14,9 @@ public class PostLoginController {
 
     @FXML
     private MenuItem ViewProfileDropDown;
+
+    @FXML
+    private GoogleMapView reportsMap;
 
     private WaterQualityApplication mainApp;
 

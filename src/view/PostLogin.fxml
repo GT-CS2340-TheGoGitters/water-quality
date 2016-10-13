@@ -7,6 +7,7 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
 
+<?import com.lynden.gmapsfx.GoogleMapView?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500" prefWidth="700" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PostLoginController">
     <MenuBar AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
         <menus>
@@ -24,6 +25,8 @@
          </Menu>
         </menus>
     </MenuBar>
+    <GoogleMapView fx:id="reportsMap" AnchorPane.topAnchor="39" AnchorPane.leftAnchor="0"
+                   AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0"></GoogleMapView>
    <ButtonBar layoutX="492.0" layoutY="39.0" prefHeight="40.0" prefWidth="200.0">
      <buttons>
        <Button mnemonicParsing="false" onAction="#handleLogOutClick" text="Logout" />

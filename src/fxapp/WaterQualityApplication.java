@@ -113,7 +113,7 @@ public class WaterQualityApplication extends Application {
 
             mainStage.setScene(new Scene(baseLayout));
         } catch (IOException e) {
-            System.out.print("Cannot load Login Screen");
+            System.out.print("Cannot load Post Login Screen");
         }
     }
 
