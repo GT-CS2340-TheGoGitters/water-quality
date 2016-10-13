@@ -41,7 +41,7 @@
                   <ToggleGroup fx:id="ConditionGroup" />
                </toggleGroup></RadioButton>
             <RadioButton fx:id="TreatableClearButton" mnemonicParsing="false" text="Treatable - Clear" toggleGroup="$ConditionGroup" translateY="15.0" />
-            <RadioButton fx:id="TreatableMuddyWater" mnemonicParsing="false" text="Treatable - Muddy" toggleGroup="$ConditionGroup" translateY="30.0" />
+            <RadioButton fx:id="TreatableMuddyButton" mnemonicParsing="false" text="Treatable - Muddy" toggleGroup="$ConditionGroup" translateY="30.0" />
             <RadioButton fx:id="WasteButton" minWidth="35.0" mnemonicParsing="false" prefHeight="18.0" text="Waste" toggleGroup="$ConditionGroup" translateY="45.0" />
          </children>
       </VBox>
