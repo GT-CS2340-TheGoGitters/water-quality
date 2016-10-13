@@ -11,14 +11,14 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.66" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WaterPurityReportController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WaterPurityReportController">
    <children>
       <Label fx:id="WaterLocationLabel" layoutX="54.0" layoutY="88.0" text="Water Location">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="WaterLocationField" alignment="CENTER" layoutX="236.0" layoutY="89.0" prefHeight="27.0" prefWidth="349.0" promptText="Lat, Long">
+      <TextField fx:id="WaterLocationField" alignment="CENTER" layoutX="236.0" layoutY="89.0" prefHeight="27.0" prefWidth="349.0" promptText="Lat, Long or Address">
          <font>
             <Font size="14.0" />
          </font>
@@ -68,5 +68,6 @@
       </Label>
       <TextField fx:id="VirusPPMField" alignment="CENTER" layoutX="183.0" layoutY="226.0" prefHeight="27.0" prefWidth="397.0" promptText="Virus PPM" />
       <TextField fx:id="ContainmentPPMField" alignment="CENTER" layoutX="274.0" layoutY="287.0" prefHeight="27.0" prefWidth="308.0" promptText="Containment PPM" />
+      <Button layoutX="600.0" layoutY="90.0" mnemonicParsing="false" text="Geocode" onAction="#handleGeocodePressed" />
    </children>
 </AnchorPane>

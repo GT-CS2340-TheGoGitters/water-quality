@@ -10,12 +10,7 @@ import model.*;
 /**
  * Created by Jack on 10/8/16.
  */
-public class WaterSourceReportController {
-
-    private WaterQualityApplication mainApp;
-
-    @FXML
-    private TextField WaterLocationField;
+public class WaterSourceReportController extends WaterReportController {
 
     @FXML
     private RadioButton WellButton;
@@ -52,12 +47,6 @@ public class WaterSourceReportController {
 
     }
 
-    /**
-     * Gives the controller access to the main application
-     * @param newApp the new application
-     */
-    public void setApp(WaterQualityApplication newApp) { mainApp = newApp;}
-
 
     /*
      * Brings user back to PostLogin screen
@@ -73,7 +62,7 @@ public class WaterSourceReportController {
      * Then returns to PostLogin screen
      */
     @FXML
-    private void handleSubmitPressed() {
+    protected void handleSubmitPressed() {
         if (WaterLocationField.getText().length() > 0) {
             account = mainApp.getCurrentAccount();
 
@@ -84,11 +73,8 @@ public class WaterSourceReportController {
                 double longitude = Double.parseDouble(latLong[1]);
                 reportLocation = new ReportLocation(latitude, longitude);
             } catch (Exception ex) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Report Submission Error");
-                alert.setHeaderText("Error in Water Location");
-                alert.setContentText("Enter location properly.\nlatitude, longitude");
-                alert.showAndWait();
+                // Geocode and wait
+                doGeoCode(true);
                 return;
             }
 

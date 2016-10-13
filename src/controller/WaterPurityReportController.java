@@ -1,5 +1,9 @@
 package controller;
 
+import com.lynden.gmapsfx.service.geocoding.GeocoderStatus;
+import com.lynden.gmapsfx.service.geocoding.GeocodingResult;
+import com.lynden.gmapsfx.service.geocoding.GeocodingService;
+import com.lynden.gmapsfx.service.geocoding.GeocodingServiceCallback;
 import fxapp.WaterQualityApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -10,12 +14,8 @@ import model.*;
 /**
  * Created by Jack on 10/13/16.
  */
-public class WaterPurityReportController {
+public class WaterPurityReportController extends WaterReportController{
 
-    private WaterQualityApplication mainApp;
-
-    @FXML
-    private TextField WaterLocationField;
     @FXML
     private TextField VirusPPMField;
     @FXML
@@ -43,13 +43,6 @@ public class WaterPurityReportController {
 
     public WaterPurityReportController() { }
 
-    /**
-     * Gives the controller access to the main application
-     * @param newApp the new application
-     */
-    public void setApp(WaterQualityApplication newApp) { mainApp = newApp;}
-
-
     /*
      * Brings user back to PostLogin screen
      */
@@ -64,7 +57,7 @@ public class WaterPurityReportController {
      * Then returns to PostLogin screen
      */
     @FXML
-    private void handleSubmitPressed() {
+    protected void handleSubmitPressed() {
         if (WaterLocationField.getText().length() > 0 &&
                 VirusPPMField.getText().length() > 0 &&
                 ContainmentPPMField.getText().length() > 0) {
@@ -77,11 +70,8 @@ public class WaterPurityReportController {
                 double longitude = Double.parseDouble(latLong[1]);
                 reportLocation = new ReportLocation(latitude, longitude);
             } catch (Exception ex) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Report Submission Error");
-                alert.setHeaderText("Error in Water Location");
-                alert.setContentText("Enter location properly.\nlatitude, longitude");
-                alert.showAndWait();
+                // Geocode and wait
+                doGeoCode(true);
                 return;
             }
 

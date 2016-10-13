@@ -26,7 +26,7 @@
          </Menu>
         </menus>
     </MenuBar>
-    <GoogleMapView fx:id="reportsMap" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="39" />
+    <GoogleMapView fx:id="mapView" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="30" />
    <ButtonBar layoutX="492.0" layoutY="39.0" prefHeight="40.0" prefWidth="200.0">
      <buttons>
        <Button mnemonicParsing="false" onAction="#handleLogOutClick" text="Logout" />

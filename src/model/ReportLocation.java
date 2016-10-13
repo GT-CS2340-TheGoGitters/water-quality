@@ -1,5 +1,7 @@
 package model;
 
+import com.lynden.gmapsfx.javascript.object.LatLong;
+
 /**
  * Created by Joshua on 10/4/16.
  */
@@ -23,5 +25,9 @@ public class ReportLocation {
     @Override
     public String toString() {
         return lattitude + ", " + longitude;
+    }
+
+    public LatLong toLatLong(){
+        return new LatLong(lattitude, longitude);
     }
 }
