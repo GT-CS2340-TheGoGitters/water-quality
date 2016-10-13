@@ -10,31 +10,30 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="20.0" prefWidth="160.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WaterSourceReportController">
+<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.66" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WaterSourceReportController">
    <children>
-      <Label fx:id="WaterLocationLabel" layoutX="54.0" layoutY="88.0" text="Water Location">
+      <Label fx:id="WaterLocationLabel" layoutX="88.0" layoutY="54.0" text="Water Location">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="WaterLocationField" alignment="CENTER" layoutX="236.0" layoutY="89.0" prefHeight="27.0" prefWidth="342.0" promptText="Lat, Long">
+      <TextField fx:id="WaterLocationField" alignment="CENTER" layoutX="270.0" layoutY="55.0" prefHeight="27.0" prefWidth="342.0" promptText="Lat, Long">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <Label layoutX="117.0" layoutY="155.0" prefHeight="17.0" prefWidth="166.0" text="Water Type" textAlignment="RIGHT">
+      <Label layoutX="90.0" layoutY="121.0" prefHeight="17.0" prefWidth="166.0" text="Water Type" textAlignment="RIGHT">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <ButtonBar layoutX="67.0" layoutY="286.0" prefHeight="47.0" prefWidth="498.0" />
-      <ButtonBar layoutX="465.0" layoutY="439.0" prefHeight="40.0" prefWidth="200.0">
+      <ButtonBar layoutX="463.0" layoutY="420.0" prefHeight="40.0" prefWidth="200.0">
         <buttons>
           <Button fx:id="CancelButton" mnemonicParsing="false" onAction="#handleCancelPressed" text="Cancel" />
             <Button fx:id="SubmitButton" mnemonicParsing="false" onAction="#handleSubmitPressed" text="Submit" />
         </buttons>
       </ButtonBar>
-      <VBox layoutX="426.0" layoutY="201.0" prefHeight="218.0" prefWidth="184.0">
+      <VBox layoutX="399.0" layoutY="167.0" prefHeight="161.0" prefWidth="184.0">
          <children>
             <RadioButton fx:id="PotableButton" mnemonicParsing="false" selected="true" text="Potable">
                <toggleGroup>
@@ -45,7 +44,7 @@
             <RadioButton fx:id="WasteButton" minWidth="35.0" mnemonicParsing="false" prefHeight="18.0" text="Waste" toggleGroup="$ConditionGroup" translateY="45.0" />
          </children>
       </VBox>
-      <VBox layoutX="135.0" layoutY="210.0" prefHeight="200.0" prefWidth="100.0">
+      <VBox layoutX="108.0" layoutY="176.0" prefHeight="244.0" prefWidth="100.0">
          <children>
             <RadioButton fx:id="WellButton" mnemonicParsing="false" selected="true" text="Well">
                <toggleGroup>
@@ -59,7 +58,7 @@
             <RadioButton fx:id="OtherButton" mnemonicParsing="false" text="Other" toggleGroup="$TypeGroup" translateY="75.0" />
          </children>
       </VBox>
-      <Label layoutX="415.0" layoutY="155.0" text="Water Condition">
+      <Label layoutX="388.0" layoutY="121.0" text="Water Condition">
          <font>
             <Font size="24.0" />
          </font>

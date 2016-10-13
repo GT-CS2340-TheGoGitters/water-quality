@@ -36,10 +36,12 @@ public class WaterPurityReportController {
 
     private WaterPurityReport waterPurityReport;
 
+    private int virusPPM;
 
-    public WaterPurityReport() {
+    private int containmentPPM;
 
-    }
+
+    public WaterPurityReportController() { }
 
     /**
      * Gives the controller access to the main application
@@ -66,6 +68,8 @@ public class WaterPurityReportController {
         if (WaterLocationField.getText().length() > 0 &&
                 VirusPPMField.getText().length() > 0 &&
                 ContainmentPPMField.getText().length() > 0) {
+            account = mainApp.getCurrentAccount();
+
             String waterLocation = WaterLocationField.getText();
             try {
                 String[] latLong = waterLocation.split(",");
@@ -89,9 +93,27 @@ public class WaterPurityReportController {
                 waterCondition = WaterCondition.UNSAFE;
             }
 
-            int virusPPM = Integer.parseInt(VirusPPMField.getText());
+            try {
+                virusPPM = Integer.parseInt(VirusPPMField.getText());
+            } catch (Exception ex) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("VirusPPM Error");
+                alert.setHeaderText("Improper data");
+                alert.setContentText("Enter integer value for virusPPM");
+                alert.showAndWait();
+                return;
+            }
 
-            int containmentPPM = Integer.parseInt(ContainmentPPMField.getText());
+            try {
+                containmentPPM = Integer.parseInt(ContainmentPPMField.getText());
+            } catch (Exception ex) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("ContainmentPPM Error");
+                alert.setHeaderText("Improper data");
+                alert.setContentText("Enter integer value for containmentPPM");
+                alert.showAndWait();
+                return;
+            }
 
             waterPurityReport = new WaterPurityReport(account, reportLocation, waterCondition, virusPPM, containmentPPM);
 
@@ -100,6 +122,15 @@ public class WaterPurityReportController {
             } catch (Exception ex) {
                 return;
             }
+
+            mainApp.showPostLogin();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Report Submission Error");
+            alert.setHeaderText("Incomplete Information");
+            alert.setContentText("Enter all required information.");
+            alert.showAndWait();
+            return;
         }
     }
 }

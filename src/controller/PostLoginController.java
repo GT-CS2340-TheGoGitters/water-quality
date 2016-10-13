@@ -3,6 +3,7 @@ package controller;
 import com.lynden.gmapsfx.GoogleMapView;
 import fxapp.WaterQualityApplication;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.MenuItem;
 
 /**
@@ -53,7 +54,18 @@ public class PostLoginController {
     private void handleWaterSourceReport() { mainApp.showWaterSourceReport(); }
 
     @FXML
-    private void handlViewReports() {
-        mainApp.showWaterReports();
+    private void handleWaterPurityReports() {
+        if (mainApp.getCurrentAccount().getAccountType().getUserType() == "USER") {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("You do no have permission to submit a Water Purity Report");
+            alert.showAndWait();
+            return;
+        } else {
+            mainApp.showWaterPutrityReport();
+        }
     }
+
+    @FXML
+    private void handlViewReports() { mainApp.showWaterReports(); }
 }

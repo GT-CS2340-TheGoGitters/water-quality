@@ -173,7 +173,7 @@ public class WaterQualityApplication extends Application {
     }
 
     /**
-     * Loads the submit water repport screen.
+     * Loads the submit water source report screen.
      */
     public void showWaterSourceReport() {
         try {
@@ -186,7 +186,25 @@ public class WaterQualityApplication extends Application {
 
             mainStage.setScene(new Scene(baseLayout));
         } catch (IOException e) {
-            System.out.print("Cannot load Edit Account Screen");
+            System.out.print("Cannot load Water Source Report Screen");
+        }
+    }
+
+    /**
+     * Loads the submit water purity report screen.
+     */
+    public void showWaterPutrityReport() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(WaterQualityApplication.class.getResource("../view/WaterPurityReport.fxml"));
+            baseLayout = loader.load();
+
+            WaterPurityReportController controller = loader.getController();
+            controller.setApp(this);
+
+            mainStage.setScene(new Scene(baseLayout));
+        } catch (IOException e) {
+            System.out.print("Cannot load Water Purity Report Screen");
         }
     }
 
