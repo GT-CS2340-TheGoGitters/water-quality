@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.lynden.gmapsfx.GoogleMapView?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Menu?>
@@ -7,16 +8,25 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500" prefWidth="700" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PostLoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500" prefWidth="700" xmlns="http://javafx.com/javafx/8.0.66" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PostLoginController">
     <MenuBar AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
         <menus>
-            <Menu mnemonicParsing="false" text="File">
+            <Menu mnemonicParsing="false" text="Profile">
                 <items>
                     <MenuItem fx:id="EditProfileDropDown" mnemonicParsing="false" onAction="#handleEditProfile" text="Edit Profile" />
+               <MenuItem fx:id="ViewProfileDropDown" mnemonicParsing="false" onAction="#handleViewProfile" text="View Profile" />
                 </items>
             </Menu>
+         <Menu mnemonicParsing="false" text="Report">
+           <items>
+             <MenuItem fx:id="WaterSourceReportDropDown" mnemonicParsing="false" onAction="#handleWaterSourceReport" text="Water Source Report" />
+               <MenuItem fx:id="WaterPurityReportDropDown" mnemonicParsing="false" onAction="#handleWaterPurityReports" text="Water Purity Report " />
+               <MenuItem fx:id="ViewReportsDropdown" mnemonicParsing="false" onAction="#handlViewReports" text="View Reports" />
+           </items>
+         </Menu>
         </menus>
     </MenuBar>
+    <GoogleMapView fx:id="reportsMap" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="39" />
    <ButtonBar layoutX="492.0" layoutY="39.0" prefHeight="40.0" prefWidth="200.0">
      <buttons>
        <Button mnemonicParsing="false" onAction="#handleLogOutClick" text="Logout" />

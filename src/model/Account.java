@@ -67,4 +67,9 @@ public class Account {
     public void setAccountType(AccountType type) {
         this.type = type;
     }
+
+    @Override
+    public String toString() {
+        return username;
+    }
 }

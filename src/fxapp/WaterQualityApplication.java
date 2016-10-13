@@ -113,7 +113,7 @@ public class WaterQualityApplication extends Application {
 
             mainStage.setScene(new Scene(baseLayout));
         } catch (IOException e) {
-            System.out.print("Cannot load Login Screen");
+            System.out.print("Cannot load Post Login Screen");
         }
     }
 
@@ -136,6 +136,25 @@ public class WaterQualityApplication extends Application {
     }
 
     /**
+     * Loads the profile screen
+     */
+    public void showProfile() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(WaterQualityApplication.class.getResource("../view/Profile.fxml"));
+            baseLayout = loader.load();
+
+            ProfileController controller = loader.getController();
+            controller.setApp(this);
+            controller.setUpProfile();
+
+            mainStage.setScene(new Scene(baseLayout));
+        } catch (IOException e) {
+            System.out.print("Cannot load Profile Screen.");
+        }
+    }
+
+    /**
      * Loads the edit account screen
      */
     public void showEditAccount() {
@@ -150,6 +169,60 @@ public class WaterQualityApplication extends Application {
             mainStage.setScene(new Scene(baseLayout));
         } catch (IOException e) {
             System.out.print("Cannot load Edit Account Screen");
+        }
+    }
+
+    /**
+     * Loads the submit water source report screen.
+     */
+    public void showWaterSourceReport() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(WaterQualityApplication.class.getResource("../view/WaterSourceReport.fxml"));
+            baseLayout = loader.load();
+
+            WaterSourceReportController controller = loader.getController();
+            controller.setApp(this);
+
+            mainStage.setScene(new Scene(baseLayout));
+        } catch (IOException e) {
+            System.out.print("Cannot load Water Source Report Screen");
+        }
+    }
+
+    /**
+     * Loads the submit water purity report screen.
+     */
+    public void showWaterPutrityReport() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(WaterQualityApplication.class.getResource("../view/WaterPurityReport.fxml"));
+            baseLayout = loader.load();
+
+            WaterPurityReportController controller = loader.getController();
+            controller.setApp(this);
+
+            mainStage.setScene(new Scene(baseLayout));
+        } catch (IOException e) {
+            System.out.print("Cannot load Water Purity Report Screen");
+        }
+    }
+
+    /**
+     * Loads the view water reports screen.
+     */
+    public void showWaterReports() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(WaterQualityApplication.class.getResource("../view/ReportsView.fxml"));
+            baseLayout = loader.load();
+
+            ReportsController controller = loader.getController();
+            controller.setApp(this);
+
+            mainStage.setScene(new Scene(baseLayout));
+        } catch (IOException e) {
+            System.out.print("Cannot load Reports Screen: " + e.getMessage());
         }
     }
 
