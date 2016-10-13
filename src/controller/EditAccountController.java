@@ -82,10 +82,11 @@ public class EditAccountController {
                     EditAccountState.getText().length() == 0 ||
                     EditAccountZIP.getText().length() == 0) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error in Address Fields");
+                alert.setTitle("Address Error");
                 alert.setHeaderText("Incomplete Address Information");
                 alert.setContentText("Fill in remaining address fields.");
                 alert.showAndWait();
+                return;
             } else {
                 String address = EditAccountAddress.getText() +"\n" +
                         EditAccountCity.getText() + ", " +

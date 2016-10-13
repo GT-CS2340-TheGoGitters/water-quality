@@ -4,26 +4,16 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EditAccountController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.66" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EditAccountController">
    <children>
-      <MenuBar prefHeight="29.0" prefWidth="700.0">
-         <menus>
-            <Menu mnemonicParsing="false" text="File">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Close" />
-               </items>
-            </Menu>
-         </menus>
-      </MenuBar>
+      <MenuBar prefHeight="29.0" prefWidth="700.0" />
       <Text layoutX="10.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Profile" textAlignment="CENTER" wrappingWidth="700.0000030398369">
          <font>
             <Font size="46.0" />
@@ -31,32 +21,32 @@
       </Text>
       <TextField fx:id="EditAccountName" layoutX="277.0" layoutY="122.0" />
       <PasswordField fx:id="EditAccountPassword" accessibleRole="TEXT_FIELD" layoutX="277.0" layoutY="187.0" />
-      <Label layoutX="106.0" layoutY="121.0" prefHeight="31.0" prefWidth="143.0" text="New Name:" textAlignment="RIGHT">
+      <Label layoutX="106.0" layoutY="113.0" prefHeight="31.0" prefWidth="143.0" text="New Name:" textAlignment="RIGHT">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
-      <Label layoutX="59.0" layoutY="185.0" prefHeight="31.0" prefWidth="190.0" text="New Password:" textAlignment="RIGHT">
+      <Label layoutX="65.0" layoutY="177.0" prefHeight="31.0" prefWidth="190.0" text="New Password:" textAlignment="RIGHT">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
-      <Label layoutX="57.0" layoutY="237.0" prefHeight="31.0" prefWidth="190.0" text="Email Address:" textAlignment="RIGHT">
+      <Label layoutX="72.0" layoutY="231.0" prefHeight="31.0" prefWidth="190.0" text="Email Address:" textAlignment="RIGHT">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
-      <Label layoutX="57.0" layoutY="300.0" prefHeight="31.0" prefWidth="190.0" text="Address Line 1:" textAlignment="RIGHT">
+      <Label layoutX="65.0" layoutY="294.0" prefHeight="31.0" prefWidth="190.0" text="Address Line 1:" textAlignment="RIGHT">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
-      <Label layoutX="53.0" layoutY="354.0" prefHeight="31.0" prefWidth="202.0" text="Address Line 2:" textAlignment="RIGHT">
+      <Label layoutX="59.0" layoutY="349.0" prefHeight="31.0" prefWidth="202.0" text="Address Line 2:" textAlignment="RIGHT">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
-      <Label layoutX="177.0" layoutY="405.0" prefHeight="31.0" prefWidth="70.0" text="Title:" textAlignment="RIGHT">
+      <Label layoutX="178.0" layoutY="401.0" prefHeight="31.0" prefWidth="70.0" text="Title:" textAlignment="RIGHT">
          <font>
             <Font size="26.0" />
          </font>

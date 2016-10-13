@@ -87,7 +87,7 @@ public class RegisterController {
                 AccountsHolder.addAccount(newAccount);
             } catch (Exception ex) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Registration error Error");
+                alert.setTitle("Registration Error");
                 alert.setContentText(ex.getMessage());
                 alert.showAndWait();
                 return;
@@ -95,6 +95,12 @@ public class RegisterController {
 
 
             mainApp.returnToWelcomeScreen();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Registration Error");
+            alert.setHeaderText("Incomplete Information");
+            alert.setContentText("Fill in all required information.");
+            alert.showAndWait();
         }
     }
 
