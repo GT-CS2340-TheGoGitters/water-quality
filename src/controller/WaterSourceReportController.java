@@ -85,8 +85,9 @@ public class WaterSourceReportController {
                 reportLocation = new ReportLocation(latitude, longitude);
             } catch (Exception ex) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error in Water Location.");
-                alert.setContentText("Enter location properly\nlatitude, longitude");
+                alert.setTitle("Report Submission Error");
+                alert.setHeaderText("Error in Water Location");
+                alert.setContentText("Enter location properly.\nlatitude, longitude");
                 alert.showAndWait();
                 return;
             }
@@ -119,14 +120,21 @@ public class WaterSourceReportController {
                 WaterReportsHolder.addReport(waterSourceReport);
             } catch (Exception ex) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error Submitting Report.");
+                alert.setTitle("Report Location Error");
                 alert.setContentText(ex.getMessage());
                 alert.showAndWait();
                 return;
             }
-        }
 
-        mainApp.showPostLogin();
+            mainApp.showPostLogin();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Report Location Error");
+            alert.setHeaderText("Incomplete Information");
+            alert.setContentText("Enter location of water.");
+            alert.showAndWait();
+            return;
+        }
     }
 
 }

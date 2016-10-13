@@ -95,6 +95,12 @@ public class RegisterController {
 
 
             mainApp.returnToWelcomeScreen();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Registration Error");
+            alert.setHeaderText("Incomplete Information");
+            alert.setContentText("Fill in all required information.");
+            alert.showAndWait();
         }
     }
 

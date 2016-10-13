@@ -172,6 +172,9 @@ public class WaterQualityApplication extends Application {
         }
     }
 
+    /**
+     * Loads the submit water repport screen.
+     */
     public void showWaterSourceReport() {
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -187,6 +190,9 @@ public class WaterQualityApplication extends Application {
         }
     }
 
+    /**
+     * Loads the view water reports screen.
+     */
     public void showWaterReports() {
         try {
             FXMLLoader loader = new FXMLLoader();
