@@ -19,8 +19,8 @@
             </Menu>
          <Menu mnemonicParsing="false" text="Report">
            <items>
-             <MenuItem fx:id="WaterReportDropDown" mnemonicParsing="false" onAction="#handleWaterSourceReport" text="Water Source Report" />
-               <MenuItem fx:id="WaterReportDropDown1" mnemonicParsing="false" onAction="#handleWaterPurityReports" text="Water Purity Report " />
+             <MenuItem fx:id="WaterSourceReportDropDown" mnemonicParsing="false" onAction="#handleWaterSourceReport" text="Water Source Report" />
+               <MenuItem fx:id="WaterPurityReportDropDown" mnemonicParsing="false" onAction="#handleWaterPurityReports" text="Water Purity Report " />
                <MenuItem fx:id="ViewReportsDropdown" mnemonicParsing="false" onAction="#handlViewReports" text="View Reports" />
            </items>
          </Menu>
