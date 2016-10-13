@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import model.Account;
+import model.AccountType;
 import model.AccountsHolder;
 
 
@@ -55,8 +56,16 @@ public class LoginController {
         }
 
         if ( authenticatedAccount != null ) {
-            mainApp.setCurrentAccount(authenticatedAccount);
-            mainApp.showPostLogin();
+            if (authenticatedAccount.getAccountType() == AccountType.ADM) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Login Error");
+                alert.setHeaderText("Unsupported Role");
+                alert.setContentText("Admin functionality has not been implemented yet.");
+                alert.showAndWait();
+            } else {
+                mainApp.setCurrentAccount(authenticatedAccount);
+                mainApp.showPostLogin();
+            }
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Login Error");
