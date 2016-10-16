@@ -14,7 +14,7 @@ public class ReportLocation {
         this.longitude = lng;
     }
 
-    public double getLattitude() {
+    public double getLatitude() {
         return latitude;
     }
 
