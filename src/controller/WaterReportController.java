@@ -40,7 +40,7 @@ public class WaterReportController {
                         Alert alert = new Alert(Alert.AlertType.ERROR);
                         alert.setTitle("Geocode Error");
                         alert.setHeaderText("Address Error");
-                        alert.setContentText("Please enter a valid address or lattitude, longitude.");
+                        alert.setContentText("Please enter a valid address or latitude, longitude.");
                         alert.showAndWait();
                     });
                 }

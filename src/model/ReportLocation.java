@@ -6,16 +6,16 @@ import com.lynden.gmapsfx.javascript.object.LatLong;
  * Created by Joshua on 10/4/16.
  */
 public class ReportLocation {
-    private double lattitude;
+    private double latitude;
     private double longitude;
 
     public ReportLocation(double lat, double lng){
-        this.lattitude = lat;
+        this.latitude = lat;
         this.longitude = lng;
     }
 
     public double getLattitude() {
-        return lattitude;
+        return latitude;
     }
 
     public double getLongitude() {
@@ -24,10 +24,10 @@ public class ReportLocation {
 
     @Override
     public String toString() {
-        return lattitude + ", " + longitude;
+        return latitude + ", " + longitude;
     }
 
     public LatLong toLatLong(){
-        return new LatLong(lattitude, longitude);
+        return new LatLong(latitude, longitude);
     }
 }
