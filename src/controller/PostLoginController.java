@@ -22,12 +22,6 @@ import java.util.ResourceBundle;
  */
             public class PostLoginController implements Initializable, MapComponentInitializedListener {
                 @FXML
-                private MenuItem EditProfileDropDown;
-
-                @FXML
-                private MenuItem ViewProfileDropDown;
-
-                @FXML
                 private MenuItem WaterPurityReportDropDown;
 
                 @FXML
