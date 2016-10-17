@@ -13,6 +13,11 @@ public class WaterReport {
     private Account creator;
     private ReportLocation location;
 
+    /**
+     * Constructor for WaterReport
+     * @param creator Acccount that's submitting report
+     * @param location location where report is
+     */
     protected WaterReport(Account creator, ReportLocation location){
         created = new Date();
         reportNumber = ++nextReportNumber;

@@ -39,10 +39,16 @@ public class ReportsController {
         mainApp = newApp;
     }
 
+    /**
+     * Brings Account back to PostLogin screen
+     */
     @FXML private void handleHomeClicked(){
         mainApp.showPostLogin();
     }
 
+    /**
+     * Initializes ReportsController
+     */
     @FXML
     private void initialize() {
         TableColumn reportNumberCol = new TableColumn("#");

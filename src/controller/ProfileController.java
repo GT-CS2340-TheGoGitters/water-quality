@@ -70,6 +70,10 @@ public class ProfileController {
         count = 0;
     }
 
+    /**
+     * Gives the controller access to the main application
+     * @param newApp the new application
+     */
     public void setApp(WaterQualityApplication newApp) {
         mainApp = newApp;
     }

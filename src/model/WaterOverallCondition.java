@@ -13,6 +13,11 @@ public enum WaterOverallCondition {
 
     private String code;
 
+    /**
+     * Constructor for WaterOverallCondition
+     * @param text overall condition of water
+     * @param code code for overall condition
+     */
     private WaterOverallCondition(String text, String code) {
         this.text = text;
         this.code = code;

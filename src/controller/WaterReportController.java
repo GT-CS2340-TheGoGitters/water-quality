@@ -21,14 +21,24 @@ public class WaterReportController {
     @FXML
     protected TextField WaterLocationField;
 
+    /**
+     * Calls doGeoCode
+     */
     @FXML
     protected void handleGeocodePressed() {
         doGeoCode(false);
     }
 
+    /**
+     * Handles what to do when Submit is pressed
+     */
     protected void handleSubmitPressed() {
     }
 
+    /**
+     * Gets the geocode
+     * @param submitOnCompletion takes in the boolean if ready for submission
+     */
     protected void doGeoCode(boolean submitOnCompletion) {
         String waterLocation = WaterLocationField.getText();
         new GeocodingService().geocode(waterLocation, new GeocodingServiceCallback() {

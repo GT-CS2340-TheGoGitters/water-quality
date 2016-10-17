@@ -50,6 +50,10 @@ public class EditAccountController {
 
     }
 
+    /**
+     * Give controller access to main application
+     * @param newApp the new application
+     */
     public void setApp(WaterQualityApplication newApp) {
         mainApp = newApp;
     }
