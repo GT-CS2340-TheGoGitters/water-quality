@@ -24,9 +24,9 @@
       </MenuBar>
       <VBox layoutX="87.0" layoutY="132.0" prefHeight="200.0" prefWidth="482.0">
          <children>
-            <ImageView fx:id="titlelogo" fitHeight="142.0" fitWidth="556.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="titlelogo" fitHeight="202.0" fitWidth="541.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@2340logo.png" />
+                  <Image url="@H2LOcatorLogo.png" />
                </image>
             </ImageView>
          </children>
