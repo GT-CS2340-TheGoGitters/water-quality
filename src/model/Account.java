@@ -11,6 +11,8 @@ public class Account {
     private String title = null;
     private String homeAddress = null;
 
+    private int incorrectAttempts = 0;
+
     private AccountType type;
 
     public Account(String name, String username, String password, AccountType type) {
@@ -66,6 +68,28 @@ public class Account {
 
     public void setAccountType(AccountType type) {
         this.type = type;
+    }
+
+    /**
+     * Increments the number of incorrect login attempts
+     */
+    public void incrementIncorrectAttempts() {
+        this.incorrectAttempts++;
+    }
+
+    /**
+     * Resets the number of incorrect login attempts after a successful login
+     */
+    public void resetIncorrectAttempts() {
+        this.incorrectAttempts = 0;
+    }
+
+    public int getIncorrectAttempts() {
+        return this.incorrectAttempts;
+    }
+
+    public boolean getIsLocked() {
+        return this.incorrectAttempts >= 3;
     }
 
     @Override
