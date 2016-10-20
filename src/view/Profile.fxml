@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProfileController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.66" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProfileController">
    <children>
       <Text layoutX="285.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile">
          <font>
@@ -93,6 +93,6 @@
           <Button fx:id="back" minWidth="54.0" mnemonicParsing="false" onAction="#backClicked" prefHeight="27.0" text="Back" />
         </buttons>
       </ButtonBar>
-      <Button fx:id="editprofile" layoutX="102.0" layoutY="12.0" mnemonicParsing="false" onAction="#editProfileClicked" text="Edit Profile" />
+      <Button fx:id="editprofile" layoutX="97.0" layoutY="14.0" mnemonicParsing="false" onAction="#editProfileClicked" text="Edit Profile" />
    </children>
 </AnchorPane>

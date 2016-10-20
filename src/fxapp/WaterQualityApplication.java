@@ -165,6 +165,7 @@ public class WaterQualityApplication extends Application {
 
             EditAccountController controller = loader.getController();
             controller.setApp(this);
+            controller.setUpEditPage();
 
             mainStage.setScene(new Scene(baseLayout));
         } catch (IOException e) {

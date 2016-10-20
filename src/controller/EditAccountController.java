@@ -42,6 +42,8 @@ public class EditAccountController {
     @FXML
     private Button EditProfileSave;
 
+    private int count;
+
     private WaterQualityApplication mainApp;
 
     private Account account;
@@ -56,6 +58,34 @@ public class EditAccountController {
      */
     public void setApp(WaterQualityApplication newApp) {
         mainApp = newApp;
+    }
+
+    /**
+     * Puts required values in the appropriate fields.
+     */
+    public void setUpEditPage() {
+        account = mainApp.getCurrentAccount();
+        EditAccountName.setText(account.getName());
+        for (int i = 0; i < account.getPassword().length(); i++) {
+            EditAccountPassword.setText(EditAccountPassword.getText() + "*");
+        }
+        if (account.getEmailAddress() != null) {
+            EditAccountEmail.setText(account.getEmailAddress());
+        }
+        if (account.getHomeAddress() != null) {
+            String address = account.getHomeAddress();
+            String[] addressComponenets = address.split("\n");
+            EditAccountAddress.setText(addressComponenets[0]);
+            String[] city = addressComponenets[1].split(",");
+            EditAccountCity.setText(city[0]);
+            String[] stateZip = city[1].split(" ");
+            EditAccountState.setText(stateZip[1]);
+            EditAccountZIP.setText(stateZip[2]);
+        }
+        if (account.getTitle() != null) {
+            EditAccountTitle.setText(account.getTitle());
+        }
+        count = 0;
     }
 
     /**

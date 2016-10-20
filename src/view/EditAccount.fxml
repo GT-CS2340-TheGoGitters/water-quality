@@ -19,17 +19,17 @@
       </Text>
       <TextField fx:id="EditAccountName" layoutX="267.0" layoutY="103.0" />
       <PasswordField fx:id="EditAccountPassword" accessibleRole="TEXT_FIELD" layoutX="267.0" layoutY="168.0" />
-      <Label layoutX="96.0" layoutY="94.0" prefHeight="31.0" prefWidth="143.0" text="New Name:" textAlignment="RIGHT">
+      <Label layoutX="160.0" layoutY="96.0" prefHeight="38.0" prefWidth="87.0" text="Name:" textAlignment="RIGHT">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
-      <Label layoutX="55.0" layoutY="158.0" prefHeight="31.0" prefWidth="190.0" text="New Password:" textAlignment="RIGHT">
+      <Label layoutX="116.0" layoutY="158.0" prefHeight="38.0" prefWidth="122.0" text="Password:" textAlignment="RIGHT">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
-      <Label layoutX="62.0" layoutY="212.0" prefHeight="31.0" prefWidth="190.0" text="Email Address:" textAlignment="RIGHT">
+      <Label layoutX="65.0" layoutY="212.0" prefHeight="31.0" prefWidth="190.0" text="Email Address:" textAlignment="RIGHT">
          <font>
             <Font size="26.0" />
          </font>
