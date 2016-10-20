@@ -12,6 +12,11 @@ public enum WaterCondition {
 
     private String code;
 
+    /**
+     * Constructor for Watercondition
+     * @param text condition of water
+     * @param code code for condition
+     */
     private WaterCondition(String text, String code) {
         this.text = text;
         this.code = code;

@@ -39,38 +39,27 @@ public class ReportsController {
         mainApp = newApp;
     }
 
+    /**
+     * Brings Account back to PostLogin screen
+     */
     @FXML private void handleHomeClicked(){
         mainApp.showPostLogin();
     }
 
+    /**
+     * Initializes ReportsController
+     */
     @FXML
     private void initialize() {
-        TableColumn reportNumberCol = new TableColumn("#");
+        TableColumn reportCol = new TableColumn("Report Type");
+        TableColumn reportNumberCol = new TableColumn("ID");
         TableColumn dateCol = new TableColumn("Date");
         TableColumn accountCol = new TableColumn("Account");
         TableColumn locationCol = new TableColumn("Location");
-        TableColumn reportCol = new TableColumn("Report");
-        TableColumn typeCol = new TableColumn("Type");
+        TableColumn typeCol = new TableColumn("Water Type");
         TableColumn conditionCol = new TableColumn("Condition");
         TableColumn virusCol = new TableColumn("Virus");
         TableColumn contaminationCol = new TableColumn("Contaminant");
-
-        reportNumberCol.setCellValueFactory(
-                new PropertyValueFactory<>("reportNumber")
-        );
-
-        dateCol.setCellValueFactory(
-                new Callback<TableColumn.CellDataFeatures, ObservableValue>() {
-                    @Override
-                    public ObservableValue call(TableColumn.CellDataFeatures dataFeatures) {
-                        WaterReport report = (WaterReport) dataFeatures.getValue();
-
-                        String date = new SimpleDateFormat("mm/dd/yyyy HH:mm").format(report.getCreated());
-
-                        return new SimpleStringProperty(date);
-                    }
-                }
-        );
 
         reportCol.setCellValueFactory(
                 new Callback<TableColumn.CellDataFeatures, ObservableValue>() {
@@ -87,6 +76,23 @@ public class ReportsController {
                         }
 
                         return new SimpleStringProperty(type);
+                    }
+                }
+        );
+
+        reportNumberCol.setCellValueFactory(
+                new PropertyValueFactory<>("reportNumber")
+        );
+
+        dateCol.setCellValueFactory(
+                new Callback<TableColumn.CellDataFeatures, ObservableValue>() {
+                    @Override
+                    public ObservableValue call(TableColumn.CellDataFeatures dataFeatures) {
+                        WaterReport report = (WaterReport) dataFeatures.getValue();
+
+                        String date = new SimpleDateFormat("mm/dd/yyyy HH:mm").format(report.getCreated());
+
+                        return new SimpleStringProperty(date);
                     }
                 }
         );
@@ -160,6 +166,6 @@ public class ReportsController {
 
         reportsTable.setItems(data);
 
-        reportsTable.getColumns().addAll(reportNumberCol, dateCol, accountCol, locationCol, reportCol, typeCol, conditionCol, virusCol, contaminationCol);
+        reportsTable.getColumns().addAll(reportCol, reportNumberCol, dateCol, accountCol, locationCol, typeCol, conditionCol, virusCol, contaminationCol);
     }
 }

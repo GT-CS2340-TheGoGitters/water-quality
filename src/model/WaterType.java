@@ -15,6 +15,11 @@ public enum WaterType {
 
     private String code;
 
+    /**
+     * Constructor for WaterType
+     * @param text type of water
+     * @param code code for the type of water
+     */
     private WaterType(String text, String code) {
         this.text = text;
         this.code = code;

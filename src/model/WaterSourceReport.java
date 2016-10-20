@@ -16,6 +16,13 @@ public class WaterSourceReport extends WaterReport {
         return waterOverallCondition;
     }
 
+    /**
+     * Constructor for WaterReport
+     * @param creator Acccount that's submitting report
+     * @param location location where report is
+     * @param waterType the type of te water
+     * @param waterOverallCondition the condition of the water
+     */
     public WaterSourceReport(Account creator, ReportLocation location, WaterType waterType, WaterOverallCondition waterOverallCondition) {
         super(creator, location);
         this.waterType = waterType;

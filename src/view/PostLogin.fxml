@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.lynden.gmapsfx.GoogleMapView?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -15,6 +13,7 @@
                 <items>
                     <MenuItem fx:id="EditProfileDropDown" mnemonicParsing="false" onAction="#handleEditProfile" text="Edit Profile" />
                <MenuItem fx:id="ViewProfileDropDown" mnemonicParsing="false" onAction="#handleViewProfile" text="View Profile" />
+               <MenuItem mnemonicParsing="false" onAction="#handleLogOutClick" text="Logout" />
                 </items>
             </Menu>
          <Menu mnemonicParsing="false" text="Report">
@@ -26,10 +25,5 @@
          </Menu>
         </menus>
     </MenuBar>
-    <GoogleMapView fx:id="reportsMap" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="39" />
-   <ButtonBar layoutX="492.0" layoutY="39.0" prefHeight="40.0" prefWidth="200.0">
-     <buttons>
-       <Button mnemonicParsing="false" onAction="#handleLogOutClick" text="Logout" />
-     </buttons>
-   </ButtonBar>
+    <GoogleMapView fx:id="mapView" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="30" />
 </AnchorPane>

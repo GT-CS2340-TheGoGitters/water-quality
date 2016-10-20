@@ -13,6 +13,11 @@ public enum AccountType {
 
     private String code;
 
+    /**
+     * Constructor for AccountType enum
+     * @param userType type of account
+     * @param code account type code
+     */
     private AccountType(String userType, String code) {
         this.userType = userType;
         this.code = code;
