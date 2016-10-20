@@ -20,6 +20,13 @@ public class WaterPurityReport extends WaterReport {
         return contaminantPPM;
     }
 
+    /**
+     * Constructor for WaterReport
+     * @param creator Acccount that's submitting report
+     * @param location location where report is
+     * @param virusPPM the virusPPM of the water
+     * @param contaminantPPM the contaminantPPM of the water
+     */
     public WaterPurityReport(Account creator, ReportLocation location, WaterCondition waterCondition, int virusPPM, int contaminantPPM) {
         super(creator, location);
         this.waterCondition = waterCondition;
