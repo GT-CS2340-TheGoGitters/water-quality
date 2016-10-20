@@ -50,8 +50,19 @@ public class LoginController {
         Account identifiedAccount = AccountsHolder.getAccountByUsername(usernameField.getText());
 
         if (identifiedAccount != null) {
-            if (passwordField.getText().equals(identifiedAccount.getPassword())) {
+            if (identifiedAccount.getIsLocked()) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Login Error");
+                alert.setHeaderText("Account Locked");
+                alert.setContentText("Your account has been locked. Please contact an admin for assistance.");
+                alert.showAndWait();
+
+                return;
+            } else if (passwordField.getText().equals(identifiedAccount.getPassword())) {
                 authenticatedAccount = identifiedAccount;
+                authenticatedAccount.resetIncorrectAttempts();
+            } else {
+                identifiedAccount.incrementIncorrectAttempts();
             }
         }
 
