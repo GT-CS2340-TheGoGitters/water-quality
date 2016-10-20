@@ -36,6 +36,12 @@ public class ProfileController {
     @FXML
     private Button passbutton;
 
+    @FXML
+    private Button back;
+
+    @FXML
+    private Button editprofile;
+
     private WaterQualityApplication mainApp;
 
     private Account account;
@@ -82,8 +88,16 @@ public class ProfileController {
      * Returns to the post login screen when Done is clicked.
      */
     @FXML
-    public void doneClicked() {
+    public void backClicked() {
         mainApp.showPostLogin();
+    }
+
+    /**
+     * Returns to the edit account screen when Edit profile is clicked.
+     */
+    @FXML
+    public void editProfileClicked() {
+        mainApp.showEditAccount();
     }
 
     /**
