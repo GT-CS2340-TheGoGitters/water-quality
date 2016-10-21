@@ -8,6 +8,7 @@ import javafx.scene.control.TextField;
 import model.Account;
 import model.AccountType;
 import model.AccountsHolder;
+import model.logging.security.AccountCreationEntry;
 
 /**
  * Created by Allison on 9/27/16.
@@ -85,6 +86,7 @@ public class RegisterController {
 
             try{
                 AccountsHolder.addAccount(newAccount);
+                mainApp.logSecurityEvent(new AccountCreationEntry(newAccount));
             } catch (Exception ex) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Registration Error");

@@ -7,6 +7,8 @@ import javafx.scene.control.TextField;
 import model.Account;
 import model.AccountType;
 import model.AccountsHolder;
+import model.logging.security.Log;
+import model.logging.security.LoginAttemptEntry;
 
 
 /**
@@ -47,10 +49,12 @@ public class LoginController {
     private void handleLoginPressed() {
         Account authenticatedAccount = null;
 
-        Account identifiedAccount = AccountsHolder.getAccountByUsername(usernameField.getText());
+        String username = usernameField.getText();
+        Account identifiedAccount = AccountsHolder.getAccountByUsername(username);
 
         if (identifiedAccount != null) {
             if (identifiedAccount.getIsLocked()) {
+                mainApp.logSecurityEvent(new LoginAttemptEntry(identifiedAccount, username, LoginAttemptEntry.SuccessStatus.LOCKED));
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Login Error");
                 alert.setHeaderText("Account Locked");
@@ -59,11 +63,15 @@ public class LoginController {
 
                 return;
             } else if (passwordField.getText().equals(identifiedAccount.getPassword())) {
+                mainApp.logSecurityEvent(new LoginAttemptEntry(null, username, LoginAttemptEntry.SuccessStatus.SUCCESS));
                 authenticatedAccount = identifiedAccount;
                 authenticatedAccount.resetIncorrectAttempts();
             } else {
+                mainApp.logSecurityEvent(new LoginAttemptEntry(identifiedAccount, username, LoginAttemptEntry.SuccessStatus.INCORRECT_PASSWORD));
                 identifiedAccount.incrementIncorrectAttempts();
             }
+        } else {
+            mainApp.logSecurityEvent(new LoginAttemptEntry(null, username, LoginAttemptEntry.SuccessStatus.UNKNOWN_USER));
         }
 
         if ( authenticatedAccount != null ) {

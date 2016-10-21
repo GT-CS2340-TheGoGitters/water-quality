@@ -8,9 +8,14 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import model.*;
+import model.logging.security.ApplicationStartedEntry;
+import model.logging.security.SecurityLogEntry;
 import sun.rmi.runtime.Log;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class WaterQualityApplication extends Application {
 
@@ -19,6 +24,8 @@ public class WaterQualityApplication extends Application {
     private Stage mainStage;
 
     private Account currentAccount = null;
+
+    private PrintWriter securityLog;
 
     /**
      * Starts the application
@@ -29,6 +36,18 @@ public class WaterQualityApplication extends Application {
         mainStage = primaryStage;
         mainStage.setResizable(false);
         intialize();
+
+        // Initialize Log
+        File file = new File("security.log");
+        FileWriter writer;
+        try {
+            writer = new FileWriter(file, true);
+            securityLog = new PrintWriter(writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        logSecurityEvent(new ApplicationStartedEntry());
     }
 
     public Account getCurrentAccount(){
@@ -225,6 +244,14 @@ public class WaterQualityApplication extends Application {
         } catch (IOException e) {
             System.out.print("Cannot load Reports Screen: " + e.getMessage());
         }
+    }
+
+    public void logSecurityEvent(SecurityLogEntry event){
+        if(securityLog != null){
+            securityLog.println(event.toString());
+            securityLog.flush();
+        }
+        model.logging.security.Log.addEntry(event);
     }
 
     public static void main(String[] args) {
