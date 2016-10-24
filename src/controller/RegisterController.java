@@ -77,14 +77,15 @@ public class RegisterController {
                 accountType = AccountType.ADM;
             }
 
-            Account newAccount = new Account(
-                name.getText(),
-                username.getText(),
-                password.getText(),
-                accountType
-            );
 
             try{
+                Account newAccount = new Account(
+                        name.getText(),
+                        username.getText(),
+                        password.getText(),
+                        accountType
+                );
+
                 AccountsHolder.addAccount(newAccount);
                 mainApp.logSecurityEvent(new AccountCreationEntry(newAccount));
             } catch (Exception ex) {

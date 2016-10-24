@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.66" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EditAccountController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EditAccountController">
    <children>
       <Text layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Profile" textAlignment="CENTER" wrappingWidth="700.0000030398369">
          <font>
@@ -24,7 +24,7 @@
             <Font size="26.0" />
          </font>
       </Label>
-      <Label layoutX="116.0" layoutY="158.0" prefHeight="38.0" prefWidth="122.0" text="Password:" textAlignment="RIGHT">
+      <Label layoutX="48.0" layoutY="158.0" prefHeight="38.0" prefWidth="190.0" text="New Password:" textAlignment="RIGHT">
          <font>
             <Font size="26.0" />
          </font>

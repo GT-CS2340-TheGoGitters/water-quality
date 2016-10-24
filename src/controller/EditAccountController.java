@@ -6,6 +6,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import model.Account;
+import model.Password;
 
 /**
  * Created by Jack on 9/29/16.
@@ -66,9 +67,6 @@ public class EditAccountController {
     public void setUpEditPage() {
         account = mainApp.getCurrentAccount();
         EditAccountName.setText(account.getName());
-        for (int i = 0; i < account.getPassword().length(); i++) {
-            EditAccountPassword.setText(EditAccountPassword.getText() + "*");
-        }
         if (account.getEmailAddress() != null) {
             EditAccountEmail.setText(account.getEmailAddress());
         }
@@ -106,7 +104,18 @@ public class EditAccountController {
             account.setName(EditAccountName.getText());
         }
         if (EditAccountPassword.getText().length() != 0) {
-            account.setPassword(EditAccountPassword.getText());
+            try {
+                account.setPassword(EditAccountPassword.getText());
+            } catch (Password.CannotPerformOperationException e) {
+                e.printStackTrace();
+
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Password Error");
+                alert.setHeaderText("Password Heshing Error");
+                alert.setContentText("Could not hash password.");
+                alert.showAndWait();
+                return;
+            }
         }
         if (EditAccountEmail.getText().length() != 0) {
             account.setEmailAddress(EditAccountEmail.getText());

@@ -6,6 +6,8 @@ import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import model.Account;
 
+import java.text.SimpleDateFormat;
+
 
 /**
  * Created by Ashwin on 10/5/2016.
@@ -19,7 +21,7 @@ public class ProfileController {
     private Text username;
 
     @FXML
-    private Text password;
+    private Text passwordCreated;
 
     @FXML
     private Text email;
@@ -59,10 +61,8 @@ public class ProfileController {
         account = mainApp.getCurrentAccount();
         name.setText(account.getName());
         username.setText(account.getUsername());
+        passwordCreated.setText(new SimpleDateFormat("MMMMM F, y").format(account.getLastPasswordChange()));
         accounttype.setText(account.getAccountType().getUserType());
-        for (int i = 0; i < account.getPassword().length(); i++) {
-            password.setText(password.getText() + "*");
-        }
         if (account.getEmailAddress() != null) {
             email.setText(account.getEmailAddress());
         }
@@ -98,22 +98,5 @@ public class ProfileController {
     @FXML
     public void editProfileClicked() {
         mainApp.showEditAccount();
-    }
-
-    /**
-     * Shows and hides the password.
-     */
-    @FXML
-    public void passButtonClicked() {
-        if (count % 2 == 0) {
-            count++;
-            password.setText(account.getPassword());
-        } else {
-            count++;
-            password.setText("");
-            for (int i = 0; i < account.getPassword().length(); i++) {
-                password.setText(password.getText() + "*");
-            }
-        }
     }
 }

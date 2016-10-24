@@ -1,11 +1,13 @@
 package model;
 
+import java.util.Date;
+
 /**
  * Created by Jack on 9/20/16.
  */
 public class Account {
     private String username;
-    private String password;
+    private Password password;
     private String name;
     private String emailAddress = null;
     private String title = null;
@@ -15,10 +17,10 @@ public class Account {
 
     private AccountType type;
 
-    public Account(String name, String username, String password, AccountType type) {
+    public Account(String name, String username, String password, AccountType type) throws Password.CannotPerformOperationException {
         this.username = username;
         this.name = name;
-        this.password = password;
+        this.password = new Password(password);
         this.type = type;
     }
 
@@ -26,16 +28,20 @@ public class Account {
         return username;
     }
 
-    public String getPassword() {
-        return password;
+    public boolean verifyPassword(String password) throws Password.CannotPerformOperationException {
+        return this.password.verifyPassword(password);
+    }
+
+    public Date getLastPasswordChange(){
+        return password.getCreated();
     }
 
     public String getName() { return name; }
 
     public AccountType getAccountType() { return type; }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPassword(String password) throws Password.CannotPerformOperationException {
+        this.password = new Password(password);
     }
 
     public void setName(String name) {

@@ -7,6 +7,7 @@ import javafx.scene.control.TextField;
 import model.Account;
 import model.AccountType;
 import model.AccountsHolder;
+import model.Password;
 import model.logging.security.Log;
 import model.logging.security.LoginAttemptEntry;
 
@@ -53,22 +54,26 @@ public class LoginController {
         Account identifiedAccount = AccountsHolder.getAccountByUsername(username);
 
         if (identifiedAccount != null) {
-            if (identifiedAccount.getIsLocked()) {
-                mainApp.logSecurityEvent(new LoginAttemptEntry(identifiedAccount, username, LoginAttemptEntry.SuccessStatus.LOCKED));
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Login Error");
-                alert.setHeaderText("Account Locked");
-                alert.setContentText("Your account has been locked. Please contact an admin for assistance.");
-                alert.showAndWait();
+            try {
+                if (identifiedAccount.getIsLocked()) {
+                    mainApp.logSecurityEvent(new LoginAttemptEntry(identifiedAccount, username, LoginAttemptEntry.SuccessStatus.LOCKED));
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Login Error");
+                    alert.setHeaderText("Account Locked");
+                    alert.setContentText("Your account has been locked. Please contact an admin for assistance.");
+                    alert.showAndWait();
 
-                return;
-            } else if (passwordField.getText().equals(identifiedAccount.getPassword())) {
-                mainApp.logSecurityEvent(new LoginAttemptEntry(null, username, LoginAttemptEntry.SuccessStatus.SUCCESS));
-                authenticatedAccount = identifiedAccount;
-                authenticatedAccount.resetIncorrectAttempts();
-            } else {
-                mainApp.logSecurityEvent(new LoginAttemptEntry(identifiedAccount, username, LoginAttemptEntry.SuccessStatus.INCORRECT_PASSWORD));
-                identifiedAccount.incrementIncorrectAttempts();
+                    return;
+                } else if (identifiedAccount.verifyPassword(passwordField.getText())) {
+                    mainApp.logSecurityEvent(new LoginAttemptEntry(null, username, LoginAttemptEntry.SuccessStatus.SUCCESS));
+                    authenticatedAccount = identifiedAccount;
+                    authenticatedAccount.resetIncorrectAttempts();
+                } else {
+                    mainApp.logSecurityEvent(new LoginAttemptEntry(identifiedAccount, username, LoginAttemptEntry.SuccessStatus.INCORRECT_PASSWORD));
+                    identifiedAccount.incrementIncorrectAttempts();
+                }
+            } catch (Password.CannotPerformOperationException e) {
+                e.printStackTrace();
             }
         } else {
             mainApp.logSecurityEvent(new LoginAttemptEntry(null, username, LoginAttemptEntry.SuccessStatus.UNKNOWN_USER));
