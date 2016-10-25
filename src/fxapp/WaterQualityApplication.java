@@ -10,7 +10,6 @@ import javafx.stage.Stage;
 import model.*;
 import model.logging.security.ApplicationStartedEntry;
 import model.logging.security.SecurityLogEntry;
-import sun.rmi.runtime.Log;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -243,6 +242,66 @@ public class WaterQualityApplication extends Application {
             mainStage.setScene(new Scene(baseLayout));
         } catch (IOException e) {
             System.out.print("Cannot load Reports Screen: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Loads the reset password screen
+     */
+    public void showSendResetEmail() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(WaterQualityApplication.class.getResource("../view/SendResetEmail.fxml"));
+            baseLayout = loader.load();
+
+            SendResetEmailController controller = loader.getController();
+            controller.setApp(this);
+
+            mainStage.setScene(new Scene(baseLayout));
+        } catch (IOException e) {
+            System.out.print("Cannot load Send Reset Email Screen");
+        }
+    }
+
+    /**
+     * Loads the recovery code screen
+     */
+    public EnterResetCodeController showEnterResetCode() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(WaterQualityApplication.class.getResource("../view/EnterResetCode.fxml"));
+            baseLayout = loader.load();
+
+            EnterResetCodeController controller = loader.getController();
+            controller.setApp(this);
+
+            mainStage.setScene(new Scene(baseLayout));
+
+            return controller;
+        } catch (IOException e) {
+            System.out.print("Cannot load Enter Reset Code Screen");
+            return null;
+        }
+    }
+
+    /**
+     * Loads the reset password screen
+     */
+    public ResetPasswordController showResetPassword() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(WaterQualityApplication.class.getResource("../view/ResetPassword.fxml"));
+            baseLayout = loader.load();
+
+            ResetPasswordController controller = loader.getController();
+            controller.setApp(this);
+
+            mainStage.setScene(new Scene(baseLayout));
+
+            return controller;
+        } catch (IOException e) {
+            System.out.print("Cannot load Reset Password Screen");
+            return null;
         }
     }
 

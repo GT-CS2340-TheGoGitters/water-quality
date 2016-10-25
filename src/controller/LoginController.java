@@ -11,6 +11,8 @@ import model.Password;
 import model.logging.security.Log;
 import model.logging.security.LoginAttemptEntry;
 
+import javax.swing.*;
+
 
 /**
  * Created by Ashwin on 9/17/2016.
@@ -97,5 +99,13 @@ public class LoginController {
             alert.setContentText("One or both of the required fields are incorrect.");
             alert.showAndWait();
         }
+    }
+
+    /**
+     * Prompts the user for their email address and sends a password reset email.
+     */
+    @FXML
+    private void handleForgotPasswordClicked() {
+        mainApp.showSendResetEmail();
     }
 }
