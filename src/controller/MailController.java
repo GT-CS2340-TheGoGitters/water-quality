@@ -16,7 +16,7 @@ import java.nio.file.Paths;
 public class MailController {
     protected static final String BASE_URL = "https://api.mailgun.net/v3/h2locator.jdwire.co";
     protected static final String FROM = "noreply@h2locator.jdwire.co";
-    protected static final String SUBJECT = "Reset your H2Locator Password";
+    protected static final String SUBJECT = "Reset your H2LOcator Password";
 
     protected String apiKey;
 
@@ -25,12 +25,19 @@ public class MailController {
     }
 
     public void sendPasswordReset(Account account, String code) throws Exception {
+        String txtTemplate = new String(Files.readAllBytes(Paths.get("recovery_email.txt")));
+        String htmlTemplate = new String(Files.readAllBytes(Paths.get("recovery_email.html")));
+
+        String txtBody = txtTemplate.replace("{name}", account.getName()).replace("{code}", code);
+        String htmlBody = htmlTemplate.replace("{name}", account.getName()).replace("{code}", code);
+
         HttpResponse<JsonNode> response = Unirest.post(BASE_URL+"/messages")
                 .basicAuth("api", apiKey)
                 .field("from", FROM)
                 .field("to", account.getEmailAddress())
                 .field("subject", SUBJECT)
-                .field("text", code)
+                .field("text", txtBody)
+                .field("html", htmlBody)
                 .asJson();
 
         if (response.getStatus() != 200){
