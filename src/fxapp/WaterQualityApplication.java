@@ -9,12 +9,14 @@ import javafx.stage.Stage;
 
 import model.*;
 import model.logging.security.ApplicationStartedEntry;
+import model.logging.security.Log;
 import model.logging.security.SecurityLogEntry;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
 
 public class WaterQualityApplication extends Application {
 
@@ -311,6 +313,18 @@ public class WaterQualityApplication extends Application {
             securityLog.flush();
         }
         model.logging.security.Log.addEntry(event);
+    }
+
+    public void loadData() {
+        WaterReportsHolder.loadReportsFromBinary();
+        AccountsHolder.loadAccountsFromBinary();
+        Log.loadAccountsFromBinary();
+    }
+
+    public void saveData() {
+        WaterReportsHolder.saveReportsToBinary();
+        AccountsHolder.saveAccountsToBinary();
+        Log.saveAccountsToBinary();
     }
 
     public static void main(String[] args) {

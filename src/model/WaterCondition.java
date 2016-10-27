@@ -1,9 +1,11 @@
 package model;
 
+import java.io.Serializable;
+
 /**
  * Created by Joshua on 10/4/16.
  */
-public enum WaterCondition {
+public enum WaterCondition implements Serializable{
     SAFE ("Safe", "SAFE"),
     TREATABLE ("Treatable", "TREATABLE"),
     UNSAFE ("Unsafe", "UNSAFE");

@@ -2,10 +2,12 @@ package model;
 
 import com.lynden.gmapsfx.javascript.object.LatLong;
 
+import java.io.Serializable;
+
 /**
  * Created by Joshua on 10/4/16.
  */
-public class ReportLocation {
+public class ReportLocation implements Serializable{
     private double latitude;
     private double longitude;
 

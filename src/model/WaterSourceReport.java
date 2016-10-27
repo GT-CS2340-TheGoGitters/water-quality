@@ -1,12 +1,19 @@
 package model;
 
+import java.io.PrintWriter;
+import java.io.Serializable;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  * Created by Joshua on 10/4/16.
  */
-public class WaterSourceReport extends WaterReport {
+public class WaterSourceReport extends WaterReport implements Serializable{
 
     private WaterType waterType;
     private WaterOverallCondition waterOverallCondition;
+    private static Logger LOGGER = Logger.getLogger("WaterReport");
+
 
     public WaterType getWaterType() {
         return waterType;
@@ -28,4 +35,11 @@ public class WaterSourceReport extends WaterReport {
         this.waterType = waterType;
         this.waterOverallCondition = waterOverallCondition;
     }
+
+//    public void saveToText(PrintWriter pw) {
+//        LOGGER.setLevel(Level.FINEST);
+//        LOGGER.entering("WaterReport", "saveToText");
+//        pw.println(this.getClass() + "," + this.getCreator() + "," + this.getLocation(), +"," + this.getCreated() + "," + this.getReportNumber() + "," + this.waterType + "," + this.waterOverallCondition);
+//        LOGGER.exiting("WaterReport", "saveToText");
+//    }
 }

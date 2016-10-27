@@ -1,5 +1,6 @@
 package model;
 
+import java.io.Serializable;
 import java.security.SecureRandom;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.SecretKeyFactory;
@@ -9,7 +10,7 @@ import java.util.Date;
 import javax.xml.bind.DatatypeConverter;
 
 // Copied from the approved library: https://github.com/defuse/password-hashing
-public class Password {
+public class Password implements Serializable{
     @SuppressWarnings("serial")
     static public class CannotPerformOperationException extends Exception {
         public CannotPerformOperationException(String message) {

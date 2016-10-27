@@ -2,6 +2,7 @@ package controller;
 
 import fxapp.WaterQualityApplication;
 import javafx.fxml.FXML;
+import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -13,6 +14,11 @@ public class WelcomeController {
 
     @FXML
     private Image logo;
+
+    @FXML
+    private MenuItem LoadStateMenuItem;
+    @FXML
+    private MenuItem SaveStateMenuItem;
 
     /**
      * Gives the controller access to the main application
@@ -34,5 +40,15 @@ public class WelcomeController {
     @FXML
     public void handleRegisterClick() {
         mainApp.showRegister();
+    }
+
+    @FXML
+    public void handleLoadClick() {
+        mainApp.loadData();
+    }
+
+    @FXML
+    public void handleSaveClick() {
+        mainApp.saveData();
     }
 }

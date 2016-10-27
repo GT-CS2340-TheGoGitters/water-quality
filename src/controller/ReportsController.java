@@ -4,10 +4,8 @@ import fxapp.WaterQualityApplication;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -162,7 +160,7 @@ public class ReportsController {
                 }
         );
 
-        data.addAll(WaterReportsHolder.getReports());
+        data.addAll(WaterReportsHolder.getValues());
 
         reportsTable.setItems(data);
 

@@ -3,6 +3,7 @@ package model.logging.security;
 import model.Account;
 import model.AccountType;
 
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -11,7 +12,7 @@ import java.util.Locale;
 /**
  * Created by Joshua on 10/21/16.
  */
-public abstract class SecurityLogEntry {
+public abstract class SecurityLogEntry implements Serializable{
     protected static final DateFormat dateFormat = new SimpleDateFormat("dd/MMM/yyyy:HH:mm:ss Z", Locale.US);
 
     protected Account actingAccount;

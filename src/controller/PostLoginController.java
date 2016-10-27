@@ -50,7 +50,7 @@ public class PostLoginController implements Initializable, MapComponentInitializ
         // Handle user ACL
         WaterPurityReportDropDown.setDisable(mainApp.getCurrentAccount().getAccountType() == AccountType.USR);
 
-        for (WaterReport report : WaterReportsHolder.getReports()) {
+        for (WaterReport report : WaterReportsHolder.getValues()) {
             addWaterReport(report);
         }
     }
