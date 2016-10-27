@@ -15,11 +15,6 @@ public class WelcomeController {
     @FXML
     private Image logo;
 
-    @FXML
-    private MenuItem LoadStateMenuItem;
-    @FXML
-    private MenuItem SaveStateMenuItem;
-
     /**
      * Gives the controller access to the main application
      * @param newApp the new application
