@@ -52,7 +52,7 @@ public class ResetPasswordController {
      */
     @FXML
     private void handleCancelPressed() {
-        mainApp.returnToWelcomeScreen();
+        mainApp.showLogin();
     }
 
     /**
