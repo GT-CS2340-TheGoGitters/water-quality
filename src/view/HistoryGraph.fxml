@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button layoutX="14.0" layoutY="53.0" mnemonicParsing="false" text="Back" />
+      <Label layoutX="86.0" layoutY="111.0" text="Location">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TextField layoutX="195.0" layoutY="116.0" prefHeight="25.0" prefWidth="252.0" promptText="Latitude, Longitude" />
+      <Label layoutX="128.0" layoutY="164.0" text="PPM">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <RadioButton layoutX="195.0" layoutY="173.0" mnemonicParsing="false" text="Virus">
+         <toggleGroup>
+            <ToggleGroup fx:id="PPMGroup" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton layoutX="195.0" layoutY="199.0" mnemonicParsing="false" text="Contaminant" toggleGroup="$PPMGroup" />
+      <TextField layoutX="195.0" layoutY="238.0" prefHeight="25.0" prefWidth="234.0" promptText="PPM" />
+      <Button layoutX="472.0" layoutY="116.0" mnemonicParsing="false" text="Geocode" />
+      <TextField layoutX="195.0" layoutY="304.0" prefHeight="25.0" prefWidth="252.0" />
+      <Label layoutX="129.0" layoutY="294.0" text="Year">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Button layoutX="280.0" layoutY="388.0" mnemonicParsing="false" text="Generate Graph" />
+   </children>
+</AnchorPane>
