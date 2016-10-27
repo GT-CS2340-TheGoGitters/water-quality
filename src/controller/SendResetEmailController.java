@@ -42,7 +42,7 @@ public class SendResetEmailController {
      */
     @FXML
     private void handleCancelPressed() {
-        mainApp.returnToWelcomeScreen();
+        mainApp.showLogin();
     }
 
     /**
