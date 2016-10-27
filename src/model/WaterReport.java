@@ -63,14 +63,7 @@ public class WaterReport implements Serializable{
         return location;
     }
 
-//    public void saveToText(PrintWriter pw) {
-//        LOGGER.setLevel(Level.FINEST);
-//        LOGGER.entering("WaterReport", "saveToText");
-//        if (this.getClass().equals(WaterPurityReport)) {
-//            pw.println(this.getClass() + "," + creator + "," + location, +"," + created + "," + reportNumber);
-//        } else if (this.getClass().equals(WaterSourceReport)) {
-//            pw.println(this.getClass() + "," + creator + "," + location, +"," + created + "," + reportNumber);
-//        }
-//        LOGGER.exiting("WaterReport", "saveToText");
-//    }
+    public static void setReportNumber(int rN) {
+        nextReportNumber = rN;
+    }
 }

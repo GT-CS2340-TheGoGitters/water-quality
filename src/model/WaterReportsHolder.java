@@ -34,5 +34,13 @@ public class WaterReportsHolder {
         Persistence p = new Persistence(reportsList);
         p.loadFromBinary(reportsFile);
         reportsList = (HashMap) p.getBacking();
+
+        int reportNum = 0;
+        for (WaterReport value: reportsList.values()) {
+            if (value.getReportNumber() > reportNum) {
+                reportNum = value.getReportNumber();
+            }
+        }
+        WaterReport.setReportNumber(reportNum);
     }
 }

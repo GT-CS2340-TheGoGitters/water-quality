@@ -20,30 +20,6 @@ public class Persistence {
         this.backing = backing;
     }
 
-//    public void saveToText(File f) {
-//        try (PrintWriter pw = new PrintWriter(new FileWriter(f))) {
-//            pw.println(backing.size());
-//            for (WaterReport w : backing) {
-//                w.saveToText(pw);
-//            }
-//            pw.close();
-//        } catch (IOException e) {
-//            LOGGER.log(Level.SEVERE, "Problem saving file", e);
-//        }
-//    }
-//
-//    public void loadFromText(File f) {
-//        String s = null;
-//        backing.clear();
-//        try (BufferedReader br = new BufferedReader(new FileReader(f))) {
-//            while((s = br.readLine()) != null) {
-//                WaterReport w = WaterReport.makeFromString(s);
-//                backing.add(w);
-//            }
-//            br.close();
-//        }
-//    }
-
     public void saveToBinary(File f) {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f))) {
             oos.writeObject(backing);
