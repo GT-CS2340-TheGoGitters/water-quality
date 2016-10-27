@@ -62,7 +62,7 @@ public class EnterResetCodeController {
      */
     @FXML
     private void handleCancelPressed() {
-        mainApp.returnToWelcomeScreen();
+        mainApp.showLogin();
     }
 
     /**

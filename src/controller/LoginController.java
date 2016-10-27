@@ -83,11 +83,8 @@ public class LoginController {
 
         if ( authenticatedAccount != null ) {
             if (authenticatedAccount.getAccountType() == AccountType.ADM) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Login Error");
-                alert.setHeaderText("Unsupported Role");
-                alert.setContentText("Admin functionality has not been implemented yet.");
-                alert.showAndWait();
+                mainApp.setCurrentAccount(authenticatedAccount);
+                mainApp.showAdminHome();
             } else {
                 mainApp.setCurrentAccount(authenticatedAccount);
                 mainApp.showPostLogin();

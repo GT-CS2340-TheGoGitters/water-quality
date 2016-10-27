@@ -16,6 +16,18 @@ public class AdminHomeController {
 
     private Account account;
 
+    @FXML
+    private Button mngUsers;
+
+    @FXML
+    private Button viewLog;
+
+    @FXML
+    private Button mngReports;
+
+    @FXML
+    private Button logout;
+
     public AdminHomeController() {
 
     }
@@ -26,6 +38,26 @@ public class AdminHomeController {
      */
     public void setApp(WaterQualityApplication newApp) {
         mainApp = newApp;
+    }
+
+    @FXML
+    public void handleMngUsersClicked() {
+        //mainApp.showMngUsersScreen();
+    }
+
+    @FXML
+    public void handleViewLogClicked() {
+        //mainApp.showSecurityLogScree();
+    }
+
+    @FXML
+    public void handleMngReportsClicked() {
+        //mainApp.showMngReportsScreen();
+    }
+
+    @FXML
+    public void handleLogout() {
+        mainApp.returnToWelcomeScreen();
     }
 
 }
