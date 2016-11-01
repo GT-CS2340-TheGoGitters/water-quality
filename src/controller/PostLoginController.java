@@ -25,6 +25,9 @@ public class PostLoginController implements Initializable, MapComponentInitializ
     private MenuItem WaterPurityReportDropDown;
 
     @FXML
+    private MenuItem ViewHistoryDropdown;
+
+    @FXML
     private GoogleMapView mapView;
 
     private GoogleMap map;
@@ -49,6 +52,7 @@ public class PostLoginController implements Initializable, MapComponentInitializ
 
         // Handle user ACL
         WaterPurityReportDropDown.setDisable(mainApp.getCurrentAccount().getAccountType() == AccountType.USR);
+        ViewHistoryDropdown.setDisable(mainApp.getCurrentAccount().getAccountType() != AccountType.MGR);
 
         for (WaterReport report : WaterReportsHolder.getValues()) {
             addWaterReport(report);
@@ -186,6 +190,22 @@ public class PostLoginController implements Initializable, MapComponentInitializ
             return;
         } else {
             mainApp.showWaterPutrityReport();
+        }
+    }
+
+    /**
+     * Makes sure that only managers can view the history graph
+     */
+    @FXML
+    private void handleViewHistory() {
+        if (mainApp.getCurrentAccount().getAccountType() != AccountType.MGR) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("You do no have permission to view water history");
+            alert.showAndWait();
+            return;
+        } else {
+            mainApp.showHistoryInput();
         }
     }
 

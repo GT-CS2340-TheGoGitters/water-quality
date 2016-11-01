@@ -6,15 +6,16 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HistoryGraphDisplayController">
    <children>
-      <Button layoutX="201.0" layoutY="388.0" mnemonicParsing="false" text="Generate New Graph" />
-      <BorderPane layoutX="109.0" layoutY="90.0" prefHeight="278.0" prefWidth="497.0" />
+      <BorderPane layoutX="17.0" layoutY="74.0" prefHeight="407.0" prefWidth="672.0" fx:id="containerPane">
+         <bottom>
+            <Button mnemonicParsing="false" onAction="#handleDonePressed" text="Done" BorderPane.alignment="CENTER" />
+         </bottom></BorderPane>
       <Label layoutX="274.0" layoutY="35.0" text="History Graph">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <Button layoutX="383.0" layoutY="388.0" mnemonicParsing="false" text="Back to Menu" />
    </children>
 </AnchorPane>

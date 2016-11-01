@@ -256,6 +256,45 @@ public class WaterQualityApplication extends Application {
     }
 
     /**
+     * Loads the history graph screen.
+     */
+    public HistoryGraphDisplayController showHistoryDisplay() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(WaterQualityApplication.class.getResource("../view/HistoryGraphDisplay.fxml"));
+            baseLayout = loader.load();
+
+            HistoryGraphDisplayController controller = loader.getController();
+            controller.setApp(this);
+
+            mainStage.setScene(new Scene(baseLayout));
+
+            return controller;
+        } catch (IOException e) {
+            System.out.print("Cannot load History Display Screen: " + e.getMessage());
+            return null;
+        }
+    }
+
+    /**
+     * Loads the history input screen.
+     */
+    public void showHistoryInput() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(WaterQualityApplication.class.getResource("../view/HistoryGraphInput.fxml"));
+            baseLayout = loader.load();
+
+            HistoryGraphInputController controller = loader.getController();
+            controller.setApp(this);
+
+            mainStage.setScene(new Scene(baseLayout));
+        } catch (IOException e) {
+            System.out.print("Cannot load History Input Screen: " + e.getMessage());
+        }
+    }
+
+    /**
      * Loads the reset password screen
      */
     public void showSendResetEmail() {
