@@ -56,6 +56,10 @@ public class HistoryGraphInputController {
     public HistoryGraphInputController() {
     }
 
+    /**
+     * Initializes the history graph
+     */
+
     @FXML
     public void initialize() {
         SpinnerValueFactory valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 15000, 1, 100);

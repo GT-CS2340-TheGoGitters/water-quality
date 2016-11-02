@@ -20,10 +20,20 @@ public class MailController {
 
     protected String apiKey;
 
+    /**
+     * controls where mail is sent from
+     * @throws IOException
+     */
     public MailController() throws IOException {
         apiKey = new String(Files.readAllBytes(Paths.get("mailgunkey.dat")));
     }
 
+    /**
+     * if clicked, this will send a password reset to the email listed
+     * @param account the user's account on the app
+     * @param code code to reset the password
+     * @throws Exception
+     */
     public void sendPasswordReset(Account account, String code) throws Exception {
         String txtTemplate = new String(Files.readAllBytes(Paths.get("recovery_email.txt")));
         String htmlTemplate = new String(Files.readAllBytes(Paths.get("recovery_email.html")));
