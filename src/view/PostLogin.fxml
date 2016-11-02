@@ -25,5 +25,5 @@
          </Menu>
         </menus>
     </MenuBar>
-    <GoogleMapView fx:id="mapView" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="30" />
+    <GoogleMapView fx:id="mapView" layoutY="38.0" prefHeight="462.0" prefWidth="700.0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="25" />
 </AnchorPane>
