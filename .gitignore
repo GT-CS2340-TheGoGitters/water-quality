@@ -8,3 +8,5 @@ security.log
 mailgunkey.dat
 
 mailgunkey.dat
+
+*.dat

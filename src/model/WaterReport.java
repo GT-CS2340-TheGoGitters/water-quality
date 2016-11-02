@@ -2,6 +2,8 @@ package model;
 
 import java.io.PrintWriter;
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,6 +26,11 @@ public class WaterReport implements Serializable{
      * @param location location where report is
      */
     protected WaterReport(Account creator, ReportLocation location){
+        /*try {
+            created = new SimpleDateFormat("M/dd/yyyy").parse("05/01/2016");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }*/
         created = new Date();
         reportNumber = ++nextReportNumber;
         this.creator = creator;
