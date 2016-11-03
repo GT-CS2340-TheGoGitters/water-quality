@@ -1,9 +1,6 @@
 package model;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -25,16 +22,16 @@ public class Persistence {
             oos.writeObject(backing);
             oos.close();
         } catch (IOException e) {
-            LOGGER.log(Level.SEVERE, "Failed to write binary!", e);
+            LOGGER.log(Level.SEVERE, "Failed to save file", e);
         }
     }
 
     public void loadFromBinary(File f) {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f))) {
-            backing = (Object) ois.readObject();
+            backing = ois.readObject();
             ois.close();
         } catch (IOException e) {
-            LOGGER.log(Level.SEVERE, "Failed to input Bianry", e);
+            LOGGER.log(Level.SEVERE, "Failed to input Binary", e);
         } catch (ClassNotFoundException e) {
             LOGGER.log(Level.SEVERE, "Failed to find Binary", e);
         }
