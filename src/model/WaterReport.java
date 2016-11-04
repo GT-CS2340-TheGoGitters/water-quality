@@ -1,12 +1,8 @@
 package model;
 
-import java.io.PrintWriter;
 import java.io.Serializable;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 /**
  * Created by Joshua on 10/4/16.
@@ -18,7 +14,6 @@ public class WaterReport implements Serializable{
     private int reportNumber;
     private Account creator;
     private ReportLocation location;
-    private static Logger LOGGER = Logger.getLogger("WaterReport");
 
     /**
      * Constructor for WaterReport
@@ -50,10 +45,6 @@ public class WaterReport implements Serializable{
         this.location = location;
     }
 
-    public static int getNextReportNumber() {
-        return nextReportNumber;
-    }
-
     public Date getCreated() {
         return created;
     }
@@ -70,7 +61,7 @@ public class WaterReport implements Serializable{
         return location;
     }
 
-    public static void setReportNumber(int rN) {
+    public static void setNextReportNumber(int rN) {
         nextReportNumber = rN;
     }
 }

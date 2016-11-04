@@ -1,7 +1,6 @@
 package model;
 
 import java.io.File;
-import java.io.Serializable;
 import java.util.HashMap;
 
 /**
@@ -41,6 +40,6 @@ public class WaterReportsHolder {
                 reportNum = value.getReportNumber();
             }
         }
-        WaterReport.setReportNumber(reportNum);
+        WaterReport.setNextReportNumber(reportNum);
     }
 }
