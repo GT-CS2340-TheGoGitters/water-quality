@@ -20,7 +20,7 @@ import java.io.IOException;
 /**
  * Created by Joshua on 11/1/2016.
  */
-public class HistoryGraphDisplayController {
+public class HistoryGraphDisplayController implements Controller {
 
     @FXML
     BorderPane containerPane;

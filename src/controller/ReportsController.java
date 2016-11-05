@@ -20,7 +20,7 @@ import java.text.SimpleDateFormat;
 /**
  * Created by Joshua on 10/12/2016.
  */
-public class ReportsController {
+public class ReportsController implements Controller {
     @FXML
     private TableView reportsTable;
 

@@ -20,7 +20,7 @@ import java.util.ResourceBundle;
 /**
  * Created by Ashwin on 9/17/2016.
  */
-public class PostLoginController implements Initializable, MapComponentInitializedListener {
+public class PostLoginController implements Initializable, MapComponentInitializedListener, Controller {
     @FXML
     private MenuItem WaterPurityReportDropDown;
 

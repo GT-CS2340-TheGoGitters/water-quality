@@ -14,7 +14,7 @@ import javafx.scene.control.TextField;
 /**
  * Created by Joshua on 10/13/16.
  */
-public class WaterReportController {
+public class WaterReportController implements Controller {
 
     protected WaterQualityApplication mainApp;
 

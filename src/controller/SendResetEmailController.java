@@ -18,7 +18,7 @@ import java.io.IOException;
 /**
  * Created by Joshua on 10/25/2016.
  */
-public class SendResetEmailController {
+public class SendResetEmailController implements Controller {
 
     @FXML
     private TextField emailField;

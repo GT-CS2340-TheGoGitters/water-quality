@@ -13,7 +13,7 @@ import model.logging.security.AccountCreationEntry;
 /**
  * Created by Allison on 9/27/16.
  */
-public class RegisterController {
+public class RegisterController implements Controller {
 
     private WaterQualityApplication mainApp;
 

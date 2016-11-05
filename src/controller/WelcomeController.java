@@ -6,7 +6,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public class WelcomeController {
+public class WelcomeController implements Controller {
     private WaterQualityApplication mainApp;
 
     @FXML

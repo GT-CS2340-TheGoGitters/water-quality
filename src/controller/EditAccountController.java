@@ -11,7 +11,7 @@ import model.Password;
 /**
  * Created by Jack on 9/29/16.
  */
-public class EditAccountController {
+public class EditAccountController implements Controller {
 
     @FXML
     private TextField EditAccountName;

@@ -17,7 +17,7 @@ import javax.swing.*;
 /**
  * Created by Ashwin on 9/17/2016.
  */
-public class LoginController {
+public class LoginController implements Controller {
 
     @FXML
     private TextField usernameField;

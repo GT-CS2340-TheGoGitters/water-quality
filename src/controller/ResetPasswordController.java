@@ -17,7 +17,7 @@ import java.io.IOException;
 /**
  * Created by Joshua on 10/25/2016.
  */
-public class ResetPasswordController {
+public class ResetPasswordController implements Controller {
 
     @FXML
     private PasswordField passwordField;

@@ -16,7 +16,7 @@ import java.io.IOException;
 /**
  * Created by Joshua on 10/25/2016.
  */
-public class EnterResetCodeController {
+public class EnterResetCodeController implements Controller {
 
     @FXML
     private TextField codeField;

@@ -14,7 +14,7 @@ import model.*;
 /**
  * Created by Jack on 10/13/16.
  */
-public class WaterPurityReportController extends WaterReportController{
+public class WaterPurityReportController extends WaterReportController implements Controller{
 
     @FXML
     private TextField VirusPPMField;

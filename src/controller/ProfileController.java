@@ -12,7 +12,7 @@ import java.text.SimpleDateFormat;
 /**
  * Created by Ashwin on 10/5/2016.
  */
-public class ProfileController {
+public class ProfileController implements Controller {
 
     @FXML
     private Text name;

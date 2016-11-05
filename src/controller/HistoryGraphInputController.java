@@ -28,7 +28,7 @@ import java.time.LocalDate;
 /**
  * Created by Joshua on 11/1/2016.
  */
-public class HistoryGraphInputController {
+public class HistoryGraphInputController implements Controller {
 
     @FXML
     private Slider radiusSlider;

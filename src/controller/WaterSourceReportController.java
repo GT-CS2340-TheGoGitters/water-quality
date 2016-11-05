@@ -10,7 +10,7 @@ import model.*;
 /**
  * Created by Jack on 10/8/16.
  */
-public class WaterSourceReportController extends WaterReportController {
+public class WaterSourceReportController extends WaterReportController implements Controller {
 
     @FXML
     private RadioButton WellButton;
