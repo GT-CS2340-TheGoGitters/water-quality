@@ -90,6 +90,11 @@ public class WaterQualityApplication extends Application {
         }));
     }
 
+    /**
+     * Changes the screen
+     *
+     * @param file the FXML file that will be displayed
+     */
     public void showSceen(File file) {
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -193,6 +198,11 @@ public class WaterQualityApplication extends Application {
         }
     }
 
+    /**
+     * Logs and failed login attempts
+     *
+     * @param event the failed login attempt.
+     */
     public void logSecurityEvent(SecurityLogEntry event){
         if(securityLog != null){
             securityLog.println(event.toString());
@@ -201,18 +211,27 @@ public class WaterQualityApplication extends Application {
         model.logging.security.Log.addEntry(event);
     }
 
+    /**
+     * Loads previously submitted WaterReports and Accounts
+     */
     public void loadData() {
         WaterReportsHolder.loadReportsFromBinary();
         AccountsHolder.loadAccountsFromBinary();
         Log.loadAccountsFromBinary();
     }
 
+    /**
+     * Saves any newly submitted WaterReports and Accounts
+     */
     public void saveData() {
         WaterReportsHolder.saveReportsToBinary();
         AccountsHolder.saveAccountsToBinary();
         Log.saveAccountsToBinary();
     }
 
+    /**
+     * launches the application
+     */
     public static void main(String[] args) {
         launch(args);
     }
