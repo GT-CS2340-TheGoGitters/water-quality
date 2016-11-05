@@ -11,6 +11,8 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import model.*;
 
+import java.io.File;
+
 /**
  * Created by Jack on 10/13/16.
  */
@@ -48,7 +50,7 @@ public class WaterPurityReportController extends WaterReportController implement
      */
     @FXML
     private void handleCancelPressed() {
-        mainApp.showPostLogin();
+        mainApp.showSceen(new File("../view/PostLogin.fxml"));
     }
 
     /*
@@ -113,7 +115,7 @@ public class WaterPurityReportController extends WaterReportController implement
                 return;
             }
 
-            mainApp.showPostLogin();
+            mainApp.showSceen(new File("../view/PostLogin.fxml"));
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Report Submission Error");

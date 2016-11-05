@@ -12,5 +12,5 @@ public interface Controller {
      *
      * @param mainApp the main app that the controller can access
      */
-    public void setApp(WaterQualityApplication mainApp);
+    void setApp(WaterQualityApplication mainApp);
 }

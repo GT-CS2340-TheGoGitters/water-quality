@@ -14,13 +14,14 @@ import model.logging.security.Log;
 import model.logging.security.LoginAttemptEntry;
 
 import javax.swing.*;
+import java.io.File;
 import java.io.IOException;
 
 
 /**
  * Created by Joshua on 11/1/2016.
  */
-public class HistoryGraphDisplayController implements Controller {
+public class HistoryGraphDisplayController implements Controller{
 
     @FXML
     BorderPane containerPane;
@@ -48,6 +49,6 @@ public class HistoryGraphDisplayController implements Controller {
      */
     @FXML
     private void handleDonePressed() {
-        mainApp.showHistoryInput();
+        mainApp.showSceen(new File("../view/HistoryGraphInput.fxml"));
     }
 }

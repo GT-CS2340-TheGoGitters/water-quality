@@ -11,6 +11,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.MenuItem;
 import model.*;
 
+import java.io.File;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.LinkedList;
@@ -154,7 +155,7 @@ public class PostLoginController implements Initializable, MapComponentInitializ
     @FXML
     private void handleLogOutClick() {
         mainApp.setCurrentAccount(null);
-        mainApp.returnToWelcomeScreen();
+        mainApp.showSceen(new File("../view/Welcome.fxml"));
     }
 
     /**
@@ -162,20 +163,27 @@ public class PostLoginController implements Initializable, MapComponentInitializ
      */
     @FXML
     private void handleEditProfile() {
-        mainApp.showEditAccount();
+
+        mainApp.showSceen(new File("../view/EditAccount.fxml"));
     }
 
     /**
      * Show the profile screen
      */
     @FXML
-    private void handleViewProfile() { mainApp.showProfile(); }
+    private void handleViewProfile() {
+
+        mainApp.showSceen(new File("../view/Profile.fxml"));
+    }
 
     /**
      * Brings user to WaterSourceReport page
      */
     @FXML
-    private void handleWaterSourceReport() { mainApp.showWaterSourceReport(); }
+    private void handleWaterSourceReport() {
+
+        mainApp.showSceen(new File("../view/WaterSourceReport.fxml"));
+    }
 
     /**
      * Makes sure that Users don't have access to submit WaterPurityReport
@@ -189,7 +197,7 @@ public class PostLoginController implements Initializable, MapComponentInitializ
             alert.showAndWait();
             return;
         } else {
-            mainApp.showWaterPutrityReport();
+            mainApp.showSceen(new File("../view/WaterPurityReport.fxml"));
         }
     }
 
@@ -205,7 +213,7 @@ public class PostLoginController implements Initializable, MapComponentInitializ
             alert.showAndWait();
             return;
         } else {
-            mainApp.showHistoryInput();
+            mainApp.showSceen(new File("../view/HistoryGraphInput.fxml"));
         }
     }
 
@@ -213,5 +221,7 @@ public class PostLoginController implements Initializable, MapComponentInitializ
      * Shows WaterReports
      */
     @FXML
-    private void handlViewReports() { mainApp.showWaterReports(); }
+    private void handleViewReports() {
+        mainApp.showSceen(new File("../view/ReportsView.fxml"));
+    }
 }

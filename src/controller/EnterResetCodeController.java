@@ -10,6 +10,7 @@ import model.logging.security.Log;
 import model.logging.security.LoginAttemptEntry;
 
 import javax.swing.*;
+import java.io.File;
 import java.io.IOException;
 
 
@@ -58,11 +59,12 @@ public class EnterResetCodeController implements Controller {
     }
 
     /**
-     * Returns to the Welcome screen when Cancel is pressed
+     * Returns to the Login screen when Cancel is pressed
      */
     @FXML
     private void handleCancelPressed() {
-        mainApp.showLogin();
+
+        mainApp.showSceen(new File("../view/Login.fxml"));
     }
 
     /**

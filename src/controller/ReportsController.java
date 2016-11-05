@@ -15,6 +15,7 @@ import model.WaterReport;
 import model.WaterReportsHolder;
 import model.WaterSourceReport;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 
 /**
@@ -41,7 +42,7 @@ public class ReportsController implements Controller {
      * Brings Account back to PostLogin screen
      */
     @FXML private void handleHomeClicked(){
-        mainApp.showPostLogin();
+        mainApp.showSceen(new File("../view/PostLogin.fxml"));
     }
 
     /**

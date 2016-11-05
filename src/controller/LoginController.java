@@ -12,6 +12,7 @@ import model.logging.security.Log;
 import model.logging.security.LoginAttemptEntry;
 
 import javax.swing.*;
+import java.io.File;
 
 
 /**
@@ -42,7 +43,7 @@ public class LoginController implements Controller {
      */
     @FXML
     private void handleCancelPressed() {
-        mainApp.returnToWelcomeScreen();
+        mainApp.showSceen(new File("../view/Welcome.fxml"));
     }
 
     /**
@@ -87,7 +88,7 @@ public class LoginController implements Controller {
                 mainApp.showAdminHome();
             } else {
                 mainApp.setCurrentAccount(authenticatedAccount);
-                mainApp.showPostLogin();
+                mainApp.showSceen(new File("../view/PostLogin.fxml"));
             }
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -103,6 +104,6 @@ public class LoginController implements Controller {
      */
     @FXML
     private void handleForgotPasswordClicked() {
-        mainApp.showSendResetEmail();
+        mainApp.showSceen(new File("..view/SendResetEmail.fxml"));
     }
 }

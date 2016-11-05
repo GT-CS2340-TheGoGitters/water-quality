@@ -10,6 +10,8 @@ import model.AccountType;
 import model.AccountsHolder;
 import model.logging.security.AccountCreationEntry;
 
+import java.io.File;
+
 /**
  * Created by Allison on 9/27/16.
  */
@@ -53,7 +55,8 @@ public class RegisterController implements Controller {
      */
     @FXML
     private void handleCancelPressed() {
-        mainApp.returnToWelcomeScreen();
+
+        mainApp.showSceen(new File("../view/Welcome.fxml"));
     }
 
     /**
@@ -97,7 +100,7 @@ public class RegisterController implements Controller {
             }
 
 
-            mainApp.returnToWelcomeScreen();
+            mainApp.showSceen(new File("../view/Welcome.fxml"));
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Registration Error");

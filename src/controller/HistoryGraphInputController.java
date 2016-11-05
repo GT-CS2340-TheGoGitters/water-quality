@@ -19,6 +19,7 @@ import model.logging.security.Log;
 import model.logging.security.LoginAttemptEntry;
 
 import javax.swing.*;
+import java.io.File;
 import java.io.IOException;
 import java.util.*;
 import java.text.SimpleDateFormat;
@@ -82,11 +83,11 @@ public class HistoryGraphInputController implements Controller {
     }
 
     /**
-     * Returns to the Welcome screen when Back is pressed
+     * Returns to the PostLogin screen when Back is pressed
      */
     @FXML
     private void handleBackPressed() {
-        mainApp.showPostLogin();
+        mainApp.showSceen(new File("../view/PostLogin.fxml"));
     }
 
     /**

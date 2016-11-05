@@ -11,6 +11,7 @@ import model.logging.security.Log;
 import model.logging.security.LoginAttemptEntry;
 
 import javax.swing.*;
+import java.io.File;
 import java.io.IOException;
 
 
@@ -48,11 +49,11 @@ public class ResetPasswordController implements Controller {
     }
 
     /**
-     * Returns to the Welcome screen when Cancel is pressed
+     * Returns to the Login screen when Cancel is pressed
      */
     @FXML
     private void handleCancelPressed() {
-        mainApp.showLogin();
+        mainApp.showSceen(new File("../view/Login.fxml"));
     }
 
     /**
@@ -89,7 +90,7 @@ public class ResetPasswordController implements Controller {
             alert.setContentText("Your password has been reset. You may now log in.");
             alert.showAndWait();
 
-            mainApp.returnToWelcomeScreen();
+            mainApp.showSceen(new File("../view/Welcome.fxml"));
         }
     }
 }

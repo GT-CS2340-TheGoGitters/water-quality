@@ -8,6 +8,8 @@ import javafx.scene.control.TextField;
 import model.Account;
 import model.Password;
 
+import java.io.File;
+
 /**
  * Created by Jack on 9/29/16.
  */
@@ -91,7 +93,7 @@ public class EditAccountController implements Controller {
      */
     @FXML
     private void handleCancelPressed() {
-        mainApp.showPostLogin();
+        mainApp.showSceen(new File("../view/PostLogin.fxml"));
     }
 
     /**
@@ -142,6 +144,6 @@ public class EditAccountController implements Controller {
             account.setTitle(EditAccountTitle.getText());
         }
 
-        mainApp.showPostLogin();
+        mainApp.showSceen(new File("../view/PostLogin.fxml"));
     }
 }

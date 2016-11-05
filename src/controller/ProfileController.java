@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import model.Account;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 
 
@@ -89,7 +90,7 @@ public class ProfileController implements Controller {
      */
     @FXML
     public void backClicked() {
-        mainApp.showPostLogin();
+        mainApp.showSceen(new File("../view/PostLogin.fxml"));
     }
 
     /**
@@ -97,6 +98,6 @@ public class ProfileController implements Controller {
      */
     @FXML
     public void editProfileClicked() {
-        mainApp.showEditAccount();
+        mainApp.showSceen(new File("../view/EditAccount.fxml"));
     }
 }

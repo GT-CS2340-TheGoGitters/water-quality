@@ -12,6 +12,7 @@ import model.logging.security.Log;
 import model.logging.security.LoginAttemptEntry;
 
 import javax.swing.*;
+import java.io.File;
 import java.io.IOException;
 
 
@@ -42,7 +43,7 @@ public class SendResetEmailController implements Controller {
      */
     @FXML
     private void handleCancelPressed() {
-        mainApp.showLogin();
+        mainApp.showSceen(new File("../view/Login.fxml"));
     }
 
     /**
