@@ -42,7 +42,7 @@ public class ReportsController implements Controller {
      * Brings Account back to PostLogin screen
      */
     @FXML private void handleHomeClicked(){
-        mainApp.showSceen(new File("../view/PostLogin.fxml"));
+        mainApp.showScreen(new File("../view/PostLogin.fxml"));
     }
 
     /**

@@ -17,7 +17,7 @@ public class WaterReport implements Serializable{
 
     /**
      * Constructor for WaterReport
-     * @param creator Acccount that's submitting report
+     * @param creator Account that's submitting report
      * @param location location where report is
      */
     protected WaterReport(Account creator, ReportLocation location){
@@ -34,7 +34,7 @@ public class WaterReport implements Serializable{
 
     /**
      * Constructor for WaterReport
-     * @param creator Acccount that's submitting report
+     * @param creator Account that's submitting report
      * @param location location where report is
      */
     protected WaterReport(Account creator, ReportLocation location, Date created, int reportNumber){

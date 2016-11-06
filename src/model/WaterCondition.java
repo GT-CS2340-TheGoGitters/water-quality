@@ -15,7 +15,7 @@ public enum WaterCondition implements Serializable{
     private String code;
 
     /**
-     * Constructor for Watercondition
+     * Constructor for WaterCondition
      * @param text condition of water
      * @param code code for condition
      */

@@ -1,8 +1,6 @@
 package model;
 
-import java.io.PrintWriter;
 import java.io.Serializable;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
@@ -25,7 +23,7 @@ public class WaterSourceReport extends WaterReport implements Serializable{
 
     /**
      * Constructor for WaterReport
-     * @param creator Acccount that's submitting report
+     * @param creator Account that's submitting report
      * @param location location where report is
      * @param waterType the type of te water
      * @param waterOverallCondition the condition of the water

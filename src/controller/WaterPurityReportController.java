@@ -1,10 +1,5 @@
 package controller;
 
-import com.lynden.gmapsfx.service.geocoding.GeocoderStatus;
-import com.lynden.gmapsfx.service.geocoding.GeocodingResult;
-import com.lynden.gmapsfx.service.geocoding.GeocodingService;
-import com.lynden.gmapsfx.service.geocoding.GeocodingServiceCallback;
-import fxapp.WaterQualityApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.RadioButton;
@@ -50,11 +45,11 @@ public class WaterPurityReportController extends WaterReportController implement
      */
     @FXML
     private void handleCancelPressed() {
-        mainApp.showSceen(new File("../view/PostLogin.fxml"));
+        mainApp.showScreen(new File("../view/PostLogin.fxml"));
     }
 
     /*
-     * Checks to make sure that latitude and logitude are filled out
+     * Checks to make sure that latitude and longitude are filled out
      * Then adds information to WaterReportsHolder
      * Then returns to PostLogin screen
      */
@@ -115,7 +110,7 @@ public class WaterPurityReportController extends WaterReportController implement
                 return;
             }
 
-            mainApp.showSceen(new File("../view/PostLogin.fxml"));
+            mainApp.showScreen(new File("../view/PostLogin.fxml"));
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Report Submission Error");

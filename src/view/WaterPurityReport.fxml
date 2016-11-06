@@ -61,7 +61,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="54.0" layoutY="286.0" text="Containtment PPM">
+      <Label layoutX="54.0" layoutY="286.0" text="Containment PPM">
          <font>
             <Font size="24.0" />
          </font>

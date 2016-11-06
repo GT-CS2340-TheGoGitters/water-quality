@@ -1,13 +1,9 @@
 package model;
 
-import com.sun.javaws.exceptions.InvalidArgumentException;
-//import com.sun.tools.corba.se.idl.InvalidArgument;
+import com.sun.tools.corba.se.idl.InvalidArgument;
 
 import java.io.File;
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 /**
  * Created by Joshua on 9/29/16.

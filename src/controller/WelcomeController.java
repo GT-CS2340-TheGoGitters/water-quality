@@ -2,7 +2,6 @@ package controller;
 
 import fxapp.WaterQualityApplication;
 import javafx.fxml.FXML;
-import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -28,7 +27,7 @@ public class WelcomeController implements Controller {
      */
     @FXML
     public void handleLoginClick() {
-        mainApp.showSceen(new File("../view/Login.fxml"));
+        mainApp.showScreen(new File("../view/Login.fxml"));
     }
 
     /**
@@ -36,7 +35,7 @@ public class WelcomeController implements Controller {
      */
     @FXML
     public void handleRegisterClick() {
-        mainApp.showSceen(new File("../view/Registration.fxml"));
+        mainApp.showScreen(new File("../view/Registration.fxml"));
     }
 
     @FXML

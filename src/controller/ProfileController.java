@@ -90,7 +90,7 @@ public class ProfileController implements Controller {
      */
     @FXML
     public void backClicked() {
-        mainApp.showSceen(new File("../view/PostLogin.fxml"));
+        mainApp.showScreen(new File("../view/PostLogin.fxml"));
     }
 
     /**
@@ -98,6 +98,6 @@ public class ProfileController implements Controller {
      */
     @FXML
     public void editProfileClicked() {
-        mainApp.showSceen(new File("../view/EditAccount.fxml"));
+        mainApp.showScreen(new File("../view/EditAccount.fxml"));
     }
 }

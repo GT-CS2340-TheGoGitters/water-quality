@@ -74,9 +74,9 @@ public class EditAccountController implements Controller {
         }
         if (account.getHomeAddress() != null) {
             String address = account.getHomeAddress();
-            String[] addressComponenets = address.split("\n");
-            EditAccountAddress.setText(addressComponenets[0]);
-            String[] city = addressComponenets[1].split(",");
+            String[] addressComponents = address.split("\n");
+            EditAccountAddress.setText(addressComponents[0]);
+            String[] city = addressComponents[1].split(",");
             EditAccountCity.setText(city[0]);
             String[] stateZip = city[1].split(" ");
             EditAccountState.setText(stateZip[1]);
@@ -93,7 +93,7 @@ public class EditAccountController implements Controller {
      */
     @FXML
     private void handleCancelPressed() {
-        mainApp.showSceen(new File("../view/PostLogin.fxml"));
+        mainApp.showScreen(new File("../view/PostLogin.fxml"));
     }
 
     /**
@@ -113,7 +113,7 @@ public class EditAccountController implements Controller {
 
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Password Error");
-                alert.setHeaderText("Password Heshing Error");
+                alert.setHeaderText("Password Hashing Error");
                 alert.setContentText("Could not hash password.");
                 alert.showAndWait();
                 return;
@@ -144,6 +144,6 @@ public class EditAccountController implements Controller {
             account.setTitle(EditAccountTitle.getText());
         }
 
-        mainApp.showSceen(new File("../view/PostLogin.fxml"));
+        mainApp.showScreen(new File("../view/PostLogin.fxml"));
     }
 }

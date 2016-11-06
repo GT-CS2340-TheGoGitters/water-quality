@@ -2,8 +2,6 @@ package model.logging.security;
 
 import model.Account;
 
-import java.io.Serializable;
-
 /**
  * Created by Joshua on 10/21/16.
  */

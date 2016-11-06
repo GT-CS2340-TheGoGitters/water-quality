@@ -155,7 +155,7 @@ public class PostLoginController implements Initializable, MapComponentInitializ
     @FXML
     private void handleLogOutClick() {
         mainApp.setCurrentAccount(null);
-        mainApp.showSceen(new File("../view/Welcome.fxml"));
+        mainApp.showScreen(new File("../view/Welcome.fxml"));
     }
 
     /**
@@ -164,7 +164,7 @@ public class PostLoginController implements Initializable, MapComponentInitializ
     @FXML
     private void handleEditProfile() {
 
-        mainApp.showSceen(new File("../view/EditAccount.fxml"));
+        mainApp.showScreen(new File("../view/EditAccount.fxml"));
     }
 
     /**
@@ -173,7 +173,7 @@ public class PostLoginController implements Initializable, MapComponentInitializ
     @FXML
     private void handleViewProfile() {
 
-        mainApp.showSceen(new File("../view/Profile.fxml"));
+        mainApp.showScreen(new File("../view/Profile.fxml"));
     }
 
     /**
@@ -182,7 +182,7 @@ public class PostLoginController implements Initializable, MapComponentInitializ
     @FXML
     private void handleWaterSourceReport() {
 
-        mainApp.showSceen(new File("../view/WaterSourceReport.fxml"));
+        mainApp.showScreen(new File("../view/WaterSourceReport.fxml"));
     }
 
     /**
@@ -197,7 +197,7 @@ public class PostLoginController implements Initializable, MapComponentInitializ
             alert.showAndWait();
             return;
         } else {
-            mainApp.showSceen(new File("../view/WaterPurityReport.fxml"));
+            mainApp.showScreen(new File("../view/WaterPurityReport.fxml"));
         }
     }
 
@@ -213,7 +213,7 @@ public class PostLoginController implements Initializable, MapComponentInitializ
             alert.showAndWait();
             return;
         } else {
-            mainApp.showSceen(new File("../view/HistoryGraphInput.fxml"));
+            mainApp.showScreen(new File("../view/HistoryGraphInput.fxml"));
         }
     }
 
@@ -222,6 +222,6 @@ public class PostLoginController implements Initializable, MapComponentInitializ
      */
     @FXML
     private void handleViewReports() {
-        mainApp.showSceen(new File("../view/ReportsView.fxml"));
+        mainApp.showScreen(new File("../view/ReportsView.fxml"));
     }
 }

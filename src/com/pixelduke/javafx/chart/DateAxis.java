@@ -18,8 +18,6 @@ import javafx.util.Duration;
 import javafx.util.StringConverter;
 import javafx.util.converter.TimeStringConverter;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.*;
 
 /*

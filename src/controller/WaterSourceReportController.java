@@ -1,10 +1,8 @@
 package controller;
 
-import fxapp.WaterQualityApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
 import model.*;
 
 import java.io.File;
@@ -55,11 +53,11 @@ public class WaterSourceReportController extends WaterReportController implement
      */
     @FXML
     private void handleCancelPressed() {
-        mainApp.showSceen(new File("../view/PostLogin.fxml"));
+        mainApp.showScreen(new File("../view/PostLogin.fxml"));
     }
 
     /*
-     * Checks to make sure that latitude and logitude are filled out
+     * Checks to make sure that latitude and longitude are filled out
      * Then adds information to WaterReportsHolder
      * Then returns to PostLogin screen
      */
@@ -114,7 +112,7 @@ public class WaterSourceReportController extends WaterReportController implement
                 return;
             }
 
-            mainApp.showSceen(new File("../view/PostLogin.fxml"));
+            mainApp.showScreen(new File("../view/PostLogin.fxml"));
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Report Location Error");

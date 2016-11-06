@@ -56,7 +56,7 @@ public class RegisterController implements Controller {
     @FXML
     private void handleCancelPressed() {
 
-        mainApp.showSceen(new File("../view/Welcome.fxml"));
+        mainApp.showScreen(new File("../view/Welcome.fxml"));
     }
 
     /**
@@ -100,7 +100,7 @@ public class RegisterController implements Controller {
             }
 
 
-            mainApp.showSceen(new File("../view/Welcome.fxml"));
+            mainApp.showScreen(new File("../view/Welcome.fxml"));
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Registration Error");

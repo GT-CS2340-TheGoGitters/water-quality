@@ -5,22 +5,15 @@ import com.lynden.gmapsfx.service.geocoding.GeocoderStatus;
 import com.lynden.gmapsfx.service.geocoding.GeocodingResult;
 import com.lynden.gmapsfx.service.geocoding.GeocodingService;
 import com.lynden.gmapsfx.service.geocoding.GeocodingServiceCallback;
-import com.mashape.unirest.http.exceptions.UnirestException;
 import com.pixelduke.javafx.chart.DateAxis;
 import fxapp.WaterQualityApplication;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.chart.*;
 import javafx.scene.control.*;
 import model.*;
-import model.logging.security.Log;
-import model.logging.security.LoginAttemptEntry;
 
-import javax.swing.*;
 import java.io.File;
-import java.io.IOException;
 import java.util.*;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -87,7 +80,7 @@ public class HistoryGraphInputController implements Controller {
      */
     @FXML
     private void handleBackPressed() {
-        mainApp.showSceen(new File("../view/PostLogin.fxml"));
+        mainApp.showScreen(new File("../view/PostLogin.fxml"));
     }
 
     /**

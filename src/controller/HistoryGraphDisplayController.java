@@ -1,21 +1,11 @@
 package controller;
 
-import com.mashape.unirest.http.exceptions.UnirestException;
 import fxapp.WaterQualityApplication;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.chart.Chart;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
-import model.*;
-import model.logging.security.Log;
-import model.logging.security.LoginAttemptEntry;
 
-import javax.swing.*;
 import java.io.File;
-import java.io.IOException;
 
 
 /**
@@ -49,6 +39,6 @@ public class HistoryGraphDisplayController implements Controller{
      */
     @FXML
     private void handleDonePressed() {
-        mainApp.showSceen(new File("../view/HistoryGraphInput.fxml"));
+        mainApp.showScreen(new File("../view/HistoryGraphInput.fxml"));
     }
 }

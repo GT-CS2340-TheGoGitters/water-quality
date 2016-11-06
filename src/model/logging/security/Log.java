@@ -1,6 +1,5 @@
 package model.logging.security;
 
-import model.Account;
 import model.Persistence;
 
 import java.io.File;

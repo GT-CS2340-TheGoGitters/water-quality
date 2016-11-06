@@ -1,7 +1,6 @@
 package model.logging.security;
 
 import model.Account;
-import model.AccountType;
 
 import java.io.Serializable;
 import java.text.DateFormat;

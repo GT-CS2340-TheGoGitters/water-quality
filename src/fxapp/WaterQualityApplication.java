@@ -35,7 +35,7 @@ public class WaterQualityApplication extends Application {
     public void start(Stage primaryStage) {
         mainStage = primaryStage;
         mainStage.setResizable(false);
-        intialize();
+        initialize();
 
         // Initialize Log
         File file = new File("security.log");
@@ -65,7 +65,7 @@ public class WaterQualityApplication extends Application {
     /**
      * Initializes the application
      */
-    public void intialize() {
+    public void initialize() {
         this.loadData();
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -95,7 +95,7 @@ public class WaterQualityApplication extends Application {
      *
      * @param file the FXML file that will be displayed
      */
-    public void showSceen(File file) {
+    public void showScreen(File file) {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(WaterQualityApplication.class.getResource("../view/" + file.getName()));

@@ -1,19 +1,12 @@
 package controller;
 
-import com.mashape.unirest.http.exceptions.UnirestException;
 import fxapp.WaterQualityApplication;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import model.*;
-import model.logging.security.Log;
-import model.logging.security.LoginAttemptEntry;
 
-import javax.swing.*;
 import java.io.File;
-import java.io.IOException;
 
 
 /**
@@ -43,7 +36,7 @@ public class SendResetEmailController implements Controller {
      */
     @FXML
     private void handleCancelPressed() {
-        mainApp.showSceen(new File("../view/Login.fxml"));
+        mainApp.showScreen(new File("../view/Login.fxml"));
     }
 
     /**
