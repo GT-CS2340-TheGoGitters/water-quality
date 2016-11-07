@@ -12,24 +12,14 @@ import java.io.File;
 /**
  * Created by Joshua on 10/25/2016.
  */
-public class ResetPasswordController implements Controller {
+public class ResetPasswordController extends Controller {
 
     @FXML
     private PasswordField passwordField;
 
-    private WaterQualityApplication mainApp;
     private Account account;
 
     public ResetPasswordController() {
-    }
-
-    /**
-     * Gives the controller access to the main application
-     *
-     * @param newApp the new application
-     */
-    public void setApp(WaterQualityApplication newApp) {
-        mainApp = newApp;
     }
 
     /**

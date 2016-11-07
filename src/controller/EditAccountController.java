@@ -13,7 +13,7 @@ import java.io.File;
 /**
  * Created by Jack on 9/29/16.
  */
-public class EditAccountController implements Controller {
+public class EditAccountController extends Controller {
 
     @FXML
     private TextField EditAccountName;
@@ -47,20 +47,10 @@ public class EditAccountController implements Controller {
 
     private int count;
 
-    private WaterQualityApplication mainApp;
-
     private Account account;
 
     public EditAccountController() {
 
-    }
-
-    /**
-     * Give controller access to main application
-     * @param newApp the new application
-     */
-    public void setApp(WaterQualityApplication newApp) {
-        mainApp = newApp;
     }
 
     /**

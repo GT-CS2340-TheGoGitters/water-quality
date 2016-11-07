@@ -14,9 +14,7 @@ import javafx.scene.control.TextField;
 /**
  * Created by Joshua on 10/13/16.
  */
-public class WaterReportController implements Controller {
-
-    protected WaterQualityApplication mainApp;
+public class WaterReportController extends Controller {
 
     @FXML
     protected TextField WaterLocationField;
@@ -63,14 +61,5 @@ public class WaterReportController implements Controller {
                 handleSubmitPressed();
             }
         });
-    }
-
-    /**
-     * Gives the controller access to the main application
-     *
-     * @param newApp the new application
-     */
-    public void setApp(WaterQualityApplication newApp) {
-        mainApp = newApp;
     }
 }

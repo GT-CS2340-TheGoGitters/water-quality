@@ -11,7 +11,7 @@ import java.io.File;
 /**
  * Created by Jack on 10/13/16.
  */
-public class WaterPurityReportController extends WaterReportController implements Controller{
+public class WaterPurityReportController extends WaterReportController {
 
     @FXML
     private TextField VirusPPMField;

@@ -12,25 +12,15 @@ import java.io.File;
 /**
  * Created by Joshua on 10/25/2016.
  */
-public class EnterResetCodeController implements Controller {
+public class EnterResetCodeController extends Controller {
 
     @FXML
     private TextField codeField;
 
-    private WaterQualityApplication mainApp;
     private Account account;
     private PasswordResetCode code;
 
     public EnterResetCodeController() {
-    }
-
-    /**
-     * Gives the controller access to the main application
-     *
-     * @param newApp the new application
-     */
-    public void setApp(WaterQualityApplication newApp) {
-        mainApp = newApp;
     }
 
     /**

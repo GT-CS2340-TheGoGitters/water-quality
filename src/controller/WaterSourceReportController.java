@@ -10,7 +10,7 @@ import java.io.File;
 /**
  * Created by Jack on 10/8/16.
  */
-public class WaterSourceReportController extends WaterReportController implements Controller {
+public class WaterSourceReportController extends WaterReportController {
 
     @FXML
     private RadioButton WellButton;

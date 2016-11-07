@@ -11,23 +11,12 @@ import java.io.File;
 /**
  * Created by Joshua on 11/1/2016.
  */
-public class HistoryGraphDisplayController implements Controller{
+public class HistoryGraphDisplayController extends Controller{
 
     @FXML
     BorderPane containerPane;
 
-    private WaterQualityApplication mainApp;
-
     public HistoryGraphDisplayController() {
-    }
-
-    /**
-     * Gives the controller access to the main application
-     *
-     * @param newApp the new application
-     */
-    public void setApp(WaterQualityApplication newApp) {
-        mainApp = newApp;
     }
 
     public void setChart(Chart chart){

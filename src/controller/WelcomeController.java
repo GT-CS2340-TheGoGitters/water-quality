@@ -7,20 +7,13 @@ import javafx.scene.image.ImageView;
 
 import java.io.File;
 
-public class WelcomeController implements Controller {
-    private WaterQualityApplication mainApp;
+public class WelcomeController extends Controller {
 
     @FXML
     private ImageView titlelogo;
 
     @FXML
     private Image logo;
-
-    /**
-     * Gives the controller access to the main application
-     * @param newApp the new application
-     */
-    public void setApp(WaterQualityApplication newApp) { mainApp = newApp;}
 
     /**
      * Brings user to login screen when login is clicked

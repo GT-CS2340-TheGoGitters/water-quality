@@ -9,26 +9,14 @@ import java.io.File;
 /**
  * Created by Allison on 10/20/16.
  */
-public class AdminHomeController implements Controller {
+public class AdminHomeController extends Controller {
 
-    private WaterQualityApplication mainApp;
 
     private Account account;
 
     public AdminHomeController() {
 
     }
-
-    /**
-     * Give controller access to main application
-     * @param newApp the new application
-     */
-    public void setApp(WaterQualityApplication newApp) {
-        mainApp = newApp;
-    }
-
-
-
 
     @FXML
     public void handleMngUsersClicked() {

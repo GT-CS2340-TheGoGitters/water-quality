@@ -21,22 +21,11 @@ import java.text.SimpleDateFormat;
 /**
  * Created by Joshua on 10/12/2016.
  */
-public class ReportsController implements Controller {
+public class ReportsController extends Controller {
     @FXML
     private TableView reportsTable;
 
-    private WaterQualityApplication mainApp;
-
     private ObservableList<WaterReport> data = FXCollections.observableArrayList();
-
-    /**
-     * Gives the controller access to the main application
-     *
-     * @param newApp the new application
-     */
-    public void setApp(WaterQualityApplication newApp) {
-        mainApp = newApp;
-    }
 
     /**
      * Brings Account back to PostLogin screen

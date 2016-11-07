@@ -21,7 +21,7 @@ import java.util.ResourceBundle;
 /**
  * Created by Ashwin on 9/17/2016.
  */
-public class PostLoginController implements Initializable, MapComponentInitializedListener, Controller {
+public class PostLoginController extends Controller implements Initializable, MapComponentInitializedListener {
     @FXML
     private MenuItem WaterPurityReportDropDown;
 
@@ -32,8 +32,6 @@ public class PostLoginController implements Initializable, MapComponentInitializ
     private GoogleMapView mapView;
 
     private GoogleMap map;
-
-    private WaterQualityApplication mainApp;
 
     private Queue<WaterReport> pendingReports = new LinkedList<>();
 
@@ -48,8 +46,9 @@ public class PostLoginController implements Initializable, MapComponentInitializ
      * Gives the controller access to the main application
      * @param newApp the new application
      */
+    @Override
     public void setApp(WaterQualityApplication newApp) {
-        mainApp = newApp;
+        super.setApp(newApp);
 
         // Handle user ACL
         WaterPurityReportDropDown.setDisable(mainApp.getCurrentAccount().getAccountType() == AccountType.USR);

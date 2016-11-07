@@ -12,23 +12,12 @@ import java.io.File;
 /**
  * Created by Joshua on 10/25/2016.
  */
-public class SendResetEmailController implements Controller {
+public class SendResetEmailController extends Controller {
 
     @FXML
     private TextField emailField;
 
-    private WaterQualityApplication mainApp;
-
     public SendResetEmailController() {
-    }
-
-    /**
-     * Gives the controller access to the main application
-     *
-     * @param newApp the new application
-     */
-    public void setApp(WaterQualityApplication newApp) {
-        mainApp = newApp;
     }
 
     /**

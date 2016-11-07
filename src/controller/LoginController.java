@@ -16,7 +16,7 @@ import java.io.File;
 /**
  * Created by Ashwin on 9/17/2016.
  */
-public class LoginController implements Controller {
+public class LoginController extends Controller {
 
     @FXML
     private TextField usernameField;
@@ -24,17 +24,7 @@ public class LoginController implements Controller {
     @FXML
     private TextField passwordField;
 
-    private WaterQualityApplication mainApp;
-
     public LoginController() { }
-
-    /**
-     * Gives the controller access to the main application
-     * @param newApp the new application
-     */
-    public void setApp(WaterQualityApplication newApp) {
-        mainApp = newApp;
-    }
 
     /**
      * Returns to the Welcome screen when Cancel is pressed

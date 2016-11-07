@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat;
 /**
  * Created by Ashwin on 10/5/2016.
  */
-public class ProfileController implements Controller {
+public class ProfileController extends Controller {
 
     @FXML
     private Text name;
@@ -45,8 +45,6 @@ public class ProfileController implements Controller {
     @FXML
     private Button editprofile;
 
-    private WaterQualityApplication mainApp;
-
     private Account account;
 
     private int count;
@@ -75,14 +73,6 @@ public class ProfileController implements Controller {
             title.setText(account.getTitle());
         }
         count = 0;
-    }
-
-    /**
-     * Gives the controller access to the main application
-     * @param newApp the new application
-     */
-    public void setApp(WaterQualityApplication newApp) {
-        mainApp = newApp;
     }
 
     /**

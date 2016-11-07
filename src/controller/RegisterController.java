@@ -15,9 +15,7 @@ import java.io.File;
 /**
  * Created by Allison on 9/27/16.
  */
-public class RegisterController implements Controller {
-
-    private WaterQualityApplication mainApp;
+public class RegisterController extends Controller {
 
     @FXML
     private TextField name;
@@ -43,12 +41,6 @@ public class RegisterController implements Controller {
     private Account account;
 
     public RegisterController() {}
-
-    /**
-     * Gives the controller access to the main application
-     * @param newApp the new application
-     */
-    public void setApp(WaterQualityApplication newApp) { mainApp = newApp;}
 
     /**
      * Returns to the welcome screen when Cancel is pressed

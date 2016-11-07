@@ -22,7 +22,7 @@ import java.time.LocalDate;
 /**
  * Created by Joshua on 11/1/2016.
  */
-public class HistoryGraphInputController implements Controller {
+public class HistoryGraphInputController extends Controller {
 
     @FXML
     private Slider radiusSlider;
@@ -45,8 +45,6 @@ public class HistoryGraphInputController implements Controller {
     @FXML
     private RadioButton virusRadio;
 
-    private WaterQualityApplication mainApp;
-
     public HistoryGraphInputController() {
     }
 
@@ -64,15 +62,6 @@ public class HistoryGraphInputController implements Controller {
 
         startDateField.setValue(LocalDate.now().minusYears(1));
         endDateField.setValue(LocalDate.now());
-    }
-
-    /**
-     * Gives the controller access to the main application
-     *
-     * @param newApp the new application
-     */
-    public void setApp(WaterQualityApplication newApp) {
-        mainApp = newApp;
     }
 
     /**

@@ -14,22 +14,12 @@ import java.nio.file.Paths;
 /**
  * Created by Joshua on 10/25/16.
  */
-public class MailController implements Controller {
+public class MailController extends Controller {
     protected static final String BASE_URL = "https://api.mailgun.net/v3/h2locator.jdwire.co";
     protected static final String FROM = "noreply@h2locator.jdwire.co";
     protected static final String SUBJECT = "Reset your H2LOcator Password";
 
     protected String apiKey;
-
-    private WaterQualityApplication mainApp;
-
-    /**
-     * Gives the controller access to the main application
-     * @param newApp the new application
-     */
-    public void setApp(WaterQualityApplication newApp) {
-        mainApp = newApp;
-    }
 
     /**
      * controls where mail is sent from
