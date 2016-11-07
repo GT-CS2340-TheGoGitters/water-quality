@@ -1,6 +1,5 @@
 package controller;
 
-import fxapp.WaterQualityApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
@@ -9,9 +8,6 @@ import model.*;
 import java.io.File;
 
 
-/**
- * Created by Joshua on 10/25/2016.
- */
 public class ResetPasswordController extends Controller {
 
     @FXML

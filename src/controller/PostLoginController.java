@@ -18,9 +18,6 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.ResourceBundle;
 
-/**
- * Created by Ashwin on 9/17/2016.
- */
 public class PostLoginController extends Controller implements Initializable, MapComponentInitializedListener {
     @FXML
     private MenuItem WaterPurityReportDropDown;

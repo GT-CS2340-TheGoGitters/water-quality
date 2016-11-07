@@ -1,14 +1,10 @@
 package controller;
 
-import fxapp.WaterQualityApplication;
 import javafx.fxml.FXML;
 import model.*;
 
 import java.io.File;
 
-/**
- * Created by Allison on 10/20/16.
- */
 public class AdminHomeController extends Controller {
 
 

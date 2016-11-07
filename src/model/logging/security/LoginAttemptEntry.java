@@ -2,9 +2,6 @@ package model.logging.security;
 
 import model.Account;
 
-/**
- * Created by Joshua on 10/21/16.
- */
 public class LoginAttemptEntry extends SecurityLogEntry {
     public enum SuccessStatus {
         UNKNOWN_USER,

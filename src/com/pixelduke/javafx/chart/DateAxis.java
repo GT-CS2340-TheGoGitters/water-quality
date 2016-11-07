@@ -6,7 +6,6 @@ import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.beans.property.*;
 import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.css.CssMetaData;
 import javafx.css.Styleable;
 import javafx.css.StyleableDoubleProperty;

@@ -10,59 +10,64 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.66" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WaterSourceReportController">
-   <children>
-      <Label fx:id="WaterLocationLabel" layoutX="88.0" layoutY="54.0" text="Water Location">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <TextField fx:id="WaterLocationField" alignment="CENTER" layoutX="270.0" layoutY="55.0" prefHeight="27.0" prefWidth="342.0" promptText="Lat, Long or Address">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </TextField>
-      <Label layoutX="86.0" layoutY="141.0" prefHeight="17.0" prefWidth="166.0" text="Water Type" textAlignment="RIGHT">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <ButtonBar layoutX="463.0" layoutY="420.0" prefHeight="40.0" prefWidth="200.0">
-        <buttons>
-          <Button fx:id="CancelButton" mnemonicParsing="false" onAction="#handleCancelPressed" text="Cancel" />
-            <Button fx:id="SubmitButton" mnemonicParsing="false" onAction="#handleSubmitPressed" text="Submit" />
-        </buttons>
-      </ButtonBar>
-      <VBox layoutX="396.0" layoutY="193.0" prefHeight="161.0" prefWidth="184.0">
-         <children>
-            <RadioButton fx:id="PotableButton" mnemonicParsing="false" selected="true" text="Potable">
-               <toggleGroup>
-                  <ToggleGroup fx:id="ConditionGroup" />
-               </toggleGroup></RadioButton>
-            <RadioButton fx:id="TreatableClearButton" mnemonicParsing="false" text="Treatable - Clear" toggleGroup="$ConditionGroup" translateY="15.0" />
-            <RadioButton fx:id="TreatableMuddyButton" mnemonicParsing="false" text="Treatable - Muddy" toggleGroup="$ConditionGroup" translateY="30.0" />
-            <RadioButton fx:id="WasteButton" minWidth="35.0" mnemonicParsing="false" prefHeight="18.0" text="Waste" toggleGroup="$ConditionGroup" translateY="45.0" />
-         </children>
-      </VBox>
-      <VBox layoutX="104.0" layoutY="196.0" prefHeight="244.0" prefWidth="100.0">
-         <children>
-            <RadioButton fx:id="WellButton" mnemonicParsing="false" selected="true" text="Well">
-               <toggleGroup>
-                  <ToggleGroup fx:id="TypeGroup" />
-               </toggleGroup>
-            </RadioButton>
-            <RadioButton fx:id="StreamButton" mnemonicParsing="false" text="Stream" toggleGroup="$TypeGroup" translateY="15.0" />
-            <RadioButton fx:id="LakeButton" mnemonicParsing="false" text="Lake" toggleGroup="$TypeGroup" translateY="30.0" />
-            <RadioButton fx:id="SpringButton" mnemonicParsing="false" text="Spring" toggleGroup="$TypeGroup" translateY="45.0" />
-            <RadioButton fx:id="BottledButton" mnemonicParsing="false" text="Bottled" toggleGroup="$TypeGroup" translateY="60.0" />
-            <RadioButton fx:id="OtherButton" mnemonicParsing="false" text="Other" toggleGroup="$TypeGroup" translateY="75.0" />
-         </children>
-      </VBox>
-      <Label layoutX="385.0" layoutY="147.0" text="Water Condition">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Button layoutX="270.0" layoutY="102.0" mnemonicParsing="false" onAction="#handleGeocodePressed" text="Geocode" />
-   </children>
+<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.66"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WaterSourceReportController">
+    <Label fx:id="WaterLocationLabel" layoutX="88.0" layoutY="54.0" text="Water Location">
+        <font>
+          <Font size="24.0"/>
+        </font>
+    </Label>
+    <TextField fx:id="WaterLocationField" alignment="CENTER" layoutX="270.0" layoutY="55.0" prefHeight="27.0"
+               prefWidth="342.0" promptText="Lat, Long or Address">
+        <font>
+          <Font size="14.0"/>
+        </font>
+    </TextField>
+    <Label layoutX="86.0" layoutY="141.0" prefHeight="17.0" prefWidth="166.0" text="Water Type" textAlignment="RIGHT">
+        <font>
+          <Font size="24.0"/>
+        </font>
+    </Label>
+    <ButtonBar layoutX="463.0" layoutY="420.0" prefHeight="40.0" prefWidth="200.0">
+      <buttons>
+          <Button fx:id="CancelButton" mnemonicParsing="false" onAction="#handleCancelPressed" text="Cancel"/>
+          <Button fx:id="SubmitButton" mnemonicParsing="false" onAction="#handleSubmitPressed" text="Submit"/>
+      </buttons>
+    </ButtonBar>
+    <VBox layoutX="396.0" layoutY="193.0" prefHeight="161.0" prefWidth="184.0">
+        <RadioButton fx:id="PotableButton" mnemonicParsing="false" selected="true" text="Potable">
+            <toggleGroup>
+                <ToggleGroup fx:id="ConditionGroup"/>
+            </toggleGroup>
+        </RadioButton>
+        <RadioButton fx:id="TreatableClearButton" mnemonicParsing="false" text="Treatable - Clear"
+                     toggleGroup="$ConditionGroup" translateY="15.0"/>
+        <RadioButton fx:id="TreatableMuddyButton" mnemonicParsing="false" text="Treatable - Muddy"
+                     toggleGroup="$ConditionGroup" translateY="30.0"/>
+        <RadioButton fx:id="WasteButton" minWidth="35.0" mnemonicParsing="false" prefHeight="18.0" text="Waste"
+                     toggleGroup="$ConditionGroup" translateY="45.0"/>
+    </VBox>
+    <VBox layoutX="104.0" layoutY="196.0" prefHeight="244.0" prefWidth="100.0">
+        <RadioButton fx:id="WellButton" mnemonicParsing="false" selected="true" text="Well">
+            <toggleGroup>
+                <ToggleGroup fx:id="TypeGroup"/>
+            </toggleGroup>
+        </RadioButton>
+        <RadioButton fx:id="StreamButton" mnemonicParsing="false" text="Stream" toggleGroup="$TypeGroup"
+                     translateY="15.0"/>
+        <RadioButton fx:id="LakeButton" mnemonicParsing="false" text="Lake" toggleGroup="$TypeGroup"
+                     translateY="30.0"/>
+        <RadioButton fx:id="SpringButton" mnemonicParsing="false" text="Spring" toggleGroup="$TypeGroup"
+                     translateY="45.0"/>
+        <RadioButton fx:id="BottledButton" mnemonicParsing="false" text="Bottled" toggleGroup="$TypeGroup"
+                     translateY="60.0"/>
+        <RadioButton fx:id="OtherButton" mnemonicParsing="false" text="Other" toggleGroup="$TypeGroup"
+                     translateY="75.0"/>
+    </VBox>
+    <Label layoutX="385.0" layoutY="147.0" text="Water Condition">
+        <font>
+          <Font size="24.0"/>
+        </font>
+    </Label>
+    <Button layoutX="270.0" layoutY="102.0" mnemonicParsing="false" onAction="#handleGeocodePressed" text="Geocode"/>
 </AnchorPane>

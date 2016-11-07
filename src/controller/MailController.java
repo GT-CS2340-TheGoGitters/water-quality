@@ -3,23 +3,18 @@ package controller;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
-import com.mashape.unirest.http.exceptions.UnirestException;
-import fxapp.WaterQualityApplication;
 import model.Account;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-/**
- * Created by Joshua on 10/25/16.
- */
-public class MailController extends Controller {
-    protected static final String BASE_URL = "https://api.mailgun.net/v3/h2locator.jdwire.co";
-    protected static final String FROM = "noreply@h2locator.jdwire.co";
-    protected static final String SUBJECT = "Reset your H2LOcator Password";
+class MailController extends Controller {
+    private static final String BASE_URL = "https://api.mailgun.net/v3/h2locator.jdwire.co";
+    private static final String FROM = "noreply@h2locator.jdwire.co";
+    private static final String SUBJECT = "Reset your H2LOcator Password";
 
-    protected String apiKey;
+    private String apiKey;
 
     /**
      * controls where mail is sent from

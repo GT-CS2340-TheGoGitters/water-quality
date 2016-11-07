@@ -7,7 +7,6 @@ import javax.crypto.SecretKeyFactory;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.Date;
-import javax.xml.bind.DatatypeConverter;
 
 // Copied from the approved library: https://github.com/defuse/password-hashing
 public class Password implements Serializable{
@@ -22,12 +21,12 @@ public class Password implements Serializable{
         }
     }
 
-    protected static final String PBKDF2_ALGORITHM = "PBKDF2WithHmacSHA1";
+    private static final String PBKDF2_ALGORITHM = "PBKDF2WithHmacSHA1";
 
     // These constants may be changed without breaking existing hashes.
-    protected static final int SALT_BYTE_SIZE = 24;
-    protected static final int HASH_BYTE_SIZE = 18;
-    protected static final int PBKDF2_ITERATIONS = 64000;
+    private static final int SALT_BYTE_SIZE = 24;
+    private static final int HASH_BYTE_SIZE = 18;
+    private static final int PBKDF2_ITERATIONS = 64000;
 
     // These constants define the encoding and may not be changed.
     protected static final int HASH_SECTIONS = 5;
@@ -37,10 +36,10 @@ public class Password implements Serializable{
     protected static final int SALT_INDEX = 3;
     protected static final int PBKDF2_INDEX = 4;
 
-    protected byte[] salt;
-    protected byte[] hash;
-    protected int iterations;
-    protected Date created;
+    private byte[] salt;
+    private byte[] hash;
+    private int iterations;
+    private Date created;
 
     public Password(String password)
             throws CannotPerformOperationException {

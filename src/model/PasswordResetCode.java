@@ -4,17 +4,14 @@ import java.math.BigInteger;
 import java.security.SecureRandom;
 import java.util.Date;
 
-/**
- * Created by Joshua on 10/25/16.
- */
-public class PasswordResetCode {
-    public final static long MILLIS_PER_HOUR = 60 * 60 * 1000L;
+public final class PasswordResetCode {
+    private final static long MILLIS_PER_HOUR = 60 * 60 * 1000L;
 
 
-    protected static SecureRandom random = new SecureRandom();
+    private static SecureRandom random = new SecureRandom();
 
-    protected String code;
-    protected Date created;
+    private String code;
+    private Date created;
 
     public PasswordResetCode() {
         code = new BigInteger(130, random).toString(32);

@@ -2,12 +2,9 @@ package controller;
 
 import fxapp.WaterQualityApplication;
 
-/**
- * Created by Ashwin on 11/5/2016.
- */
 public class Controller {
 
-    protected WaterQualityApplication mainApp;
+    WaterQualityApplication mainApp;
 
     /**
      * Gives the controller access to the main application

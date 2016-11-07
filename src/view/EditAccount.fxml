@@ -10,60 +10,69 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EditAccountController">
-   <children>
-      <Text layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Profile" textAlignment="CENTER" wrappingWidth="700.0000030398369">
-         <font>
-            <Font size="46.0" />
-         </font>
-      </Text>
-      <TextField fx:id="EditAccountName" layoutX="267.0" layoutY="103.0" />
-      <PasswordField fx:id="EditAccountPassword" accessibleRole="TEXT_FIELD" layoutX="267.0" layoutY="168.0" />
-      <Label layoutX="160.0" layoutY="96.0" prefHeight="38.0" prefWidth="87.0" text="Name:" textAlignment="RIGHT">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </Label>
-      <Label layoutX="48.0" layoutY="158.0" prefHeight="38.0" prefWidth="190.0" text="New Password:" textAlignment="RIGHT">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </Label>
-      <Label layoutX="65.0" layoutY="212.0" prefHeight="31.0" prefWidth="190.0" text="Email Address:" textAlignment="RIGHT">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </Label>
-      <Label layoutX="55.0" layoutY="275.0" prefHeight="31.0" prefWidth="190.0" text="Address Line 1:" textAlignment="RIGHT">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </Label>
-      <Label layoutX="49.0" layoutY="330.0" prefHeight="31.0" prefWidth="202.0" text="Address Line 2:" textAlignment="RIGHT">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </Label>
-      <Label layoutX="168.0" layoutY="382.0" prefHeight="31.0" prefWidth="70.0" text="Title:" textAlignment="RIGHT">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </Label>
-      <TextField fx:id="EditAccountEmail" layoutX="267.0" layoutY="220.0" />
-      <TextField fx:id="EditAccountAddress" layoutX="266.0" layoutY="283.0" />
-      <TextField fx:id="EditAccountCity" layoutX="266.0" layoutY="337.0" prefHeight="27.0" prefWidth="87.0" promptText="City" />
-      <TextField fx:id="EditAccountState" layoutX="366.0" layoutY="337.0" prefHeight="27.0" prefWidth="63.0" promptText="State" />
-      <TextField fx:id="EditAccountZIP" layoutX="447.0" layoutY="337.0" prefHeight="27.0" prefWidth="101.0" promptText="ZIP Code" />
-      <TextField fx:id="EditAccountTitle" layoutX="266.0" layoutY="388.0" promptText="ex: Mr., Mrs., Ms., etc..." />
-      <ButtonBar layoutX="264.0" layoutY="427.0" prefHeight="40.0" prefWidth="167.0">
-         <buttons>
-            <Button fx:id="EditProfileCancel" cancelButton="true" mnemonicParsing="false" onAction="#handleCancelPressed" text="Cancel">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </Button>
-            <Button fx:id="EditProfileSave" mnemonicParsing="false" onAction="#handleSaveClick" text="Save" />
-         </buttons>
-      </ButtonBar>
-   </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0"
+            prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.EditAccountController">
+    <Text layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Profile" textAlignment="CENTER"
+          wrappingWidth="700.0000030398369">
+        <font>
+          <Font size="46.0"/>
+        </font>
+    </Text>
+    <TextField fx:id="EditAccountName" layoutX="267.0" layoutY="103.0"/>
+    <PasswordField fx:id="EditAccountPassword" accessibleRole="TEXT_FIELD" layoutX="267.0" layoutY="168.0"/>
+    <Label layoutX="160.0" layoutY="96.0" prefHeight="38.0" prefWidth="87.0" text="Name:" textAlignment="RIGHT">
+        <font>
+          <Font size="26.0"/>
+        </font>
+    </Label>
+    <Label layoutX="48.0" layoutY="158.0" prefHeight="38.0" prefWidth="190.0" text="New Password:"
+           textAlignment="RIGHT">
+        <font>
+          <Font size="26.0"/>
+        </font>
+    </Label>
+    <Label layoutX="65.0" layoutY="212.0" prefHeight="31.0" prefWidth="190.0" text="Email Address:"
+           textAlignment="RIGHT">
+        <font>
+          <Font size="26.0"/>
+        </font>
+    </Label>
+    <Label layoutX="55.0" layoutY="275.0" prefHeight="31.0" prefWidth="190.0" text="Address Line 1:"
+           textAlignment="RIGHT">
+        <font>
+          <Font size="26.0"/>
+        </font>
+    </Label>
+    <Label layoutX="49.0" layoutY="330.0" prefHeight="31.0" prefWidth="202.0" text="Address Line 2:"
+           textAlignment="RIGHT">
+        <font>
+          <Font size="26.0"/>
+        </font>
+    </Label>
+    <Label layoutX="168.0" layoutY="382.0" prefHeight="31.0" prefWidth="70.0" text="Title:" textAlignment="RIGHT">
+        <font>
+          <Font size="26.0"/>
+        </font>
+    </Label>
+    <TextField fx:id="EditAccountEmail" layoutX="267.0" layoutY="220.0"/>
+    <TextField fx:id="EditAccountAddress" layoutX="266.0" layoutY="283.0"/>
+    <TextField fx:id="EditAccountCity" layoutX="266.0" layoutY="337.0" prefHeight="27.0" prefWidth="87.0"
+               promptText="City"/>
+    <TextField fx:id="EditAccountState" layoutX="366.0" layoutY="337.0" prefHeight="27.0" prefWidth="63.0"
+               promptText="State"/>
+    <TextField fx:id="EditAccountZIP" layoutX="447.0" layoutY="337.0" prefHeight="27.0" prefWidth="101.0"
+               promptText="ZIP Code"/>
+    <TextField fx:id="EditAccountTitle" layoutX="266.0" layoutY="388.0" promptText="ex: Mr., Mrs., Ms., etc..."/>
+    <ButtonBar layoutX="264.0" layoutY="427.0" prefHeight="40.0" prefWidth="167.0">
+        <buttons>
+          <Button fx:id="EditProfileCancel" cancelButton="true" mnemonicParsing="false"
+                  onAction="#handleCancelPressed" text="Cancel">
+              <opaqueInsets>
+                  <Insets/>
+              </opaqueInsets>
+          </Button>
+          <Button fx:id="EditProfileSave" mnemonicParsing="false" onAction="#handleSaveClick" text="Save"/>
+        </buttons>
+    </ButtonBar>
 </AnchorPane>

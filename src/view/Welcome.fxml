@@ -8,31 +8,29 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="titlelogo" accessibleRole="MENU_BAR" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WelcomeController">
-   <children>
-      <VBox layoutX="87.0" layoutY="132.0" prefHeight="200.0" prefWidth="482.0">
-         <children>
-            <ImageView fx:id="titlelogo" fitHeight="202.0" fitWidth="541.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@H2LOcatorLogo.png" />
-               </image>
-            </ImageView>
-         </children>
-      </VBox>
-      <ButtonBar layoutX="164.0" layoutY="370.0" prefHeight="40.0" prefWidth="84.0">
-         <buttons>
-            <Button fx:id="login" alignment="CENTER" mnemonicParsing="false" onAction="#handleLoginClick" prefHeight="35.0" prefWidth="76.0" text="Login">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-         </buttons>
-      </ButtonBar>
-      <ButtonBar layoutX="487.0" layoutY="377.0" prefHeight="40.0" prefWidth="118.0" />
-      <Button fx:id="register" alignment="CENTER" layoutX="419.0" layoutY="371.0" mnemonicParsing="false" onAction="#handleRegisterClick" prefHeight="35.0" prefWidth="103.0" text="Register">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
-   </children>
+<AnchorPane id="titlelogo" accessibleRole="MENU_BAR" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.65"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WelcomeController">
+    <VBox layoutX="87.0" layoutY="132.0" prefHeight="200.0" prefWidth="482.0">
+        <ImageView fx:id="titlelogo" fitHeight="202.0" fitWidth="541.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@H2LOcatorLogo.png"/>
+        </ImageView>
+    </VBox>
+    <ButtonBar layoutX="164.0" layoutY="370.0" prefHeight="40.0" prefWidth="84.0">
+        <buttons>
+          <Button fx:id="login" alignment="CENTER" mnemonicParsing="false" onAction="#handleLoginClick"
+                  prefHeight="35.0" prefWidth="76.0" text="Login">
+              <font>
+                  <Font size="18.0"/>
+              </font>
+          </Button>
+        </buttons>
+    </ButtonBar>
+    <ButtonBar layoutX="487.0" layoutY="377.0" prefHeight="40.0" prefWidth="118.0"/>
+    <Button fx:id="register" alignment="CENTER" layoutX="419.0" layoutY="371.0" mnemonicParsing="false"
+            onAction="#handleRegisterClick" prefHeight="35.0" prefWidth="103.0" text="Register">
+        <font>
+          <Font size="18.0"/>
+        </font>
+    </Button>
 </AnchorPane>

@@ -4,9 +4,6 @@ import java.io.Serializable;
 import java.util.Date;
 
 
-/**
- * Created by Joshua on 10/4/16.
- */
 public class WaterReport implements Serializable{
     private static int nextReportNumber = 1;
 
@@ -20,7 +17,7 @@ public class WaterReport implements Serializable{
      * @param creator Account that's submitting report
      * @param location location where report is
      */
-    protected WaterReport(Account creator, ReportLocation location){
+    WaterReport(Account creator, ReportLocation location){
         /*try {
             created = new SimpleDateFormat("M/dd/yyyy").parse("05/01/2016");
         } catch (ParseException e) {

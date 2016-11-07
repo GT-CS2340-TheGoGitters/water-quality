@@ -4,12 +4,9 @@ import java.io.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- * Created by Jack on 10/22/16.
- */
 public class Persistence {
 
-    public static Logger LOGGER = Logger.getLogger("Persistence");
+    private static Logger LOGGER = Logger.getLogger("Persistence");
 
     private Object backing;
 

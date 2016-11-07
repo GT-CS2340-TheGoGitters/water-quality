@@ -3,9 +3,6 @@ package model;
 import java.io.Serializable;
 import java.util.logging.Logger;
 
-/**
- * Created by Joshua on 10/4/16.
- */
 public class WaterSourceReport extends WaterReport implements Serializable{
 
     private WaterType waterType;

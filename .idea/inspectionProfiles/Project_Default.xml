@@ -3035,8 +3035,8 @@
     <inspection_tool class="SpringHandlersSchemasHighlighting" enabled="true" level="ERROR" enabled_by_default="false">
       <scope name="Our Code" level="ERROR" enabled="true" />
     </inspection_tool>
-    <inspection_tool class="SpringInactiveProfileHighlightingInspection" enabled="true" level="INFORMATION" enabled_by_default="false">
-      <scope name="Our Code" level="INFORMATION" enabled="true" />
+    <inspection_tool class="SpringInactiveProfileHighlightingInspection" enabled="true" level="WARNING" enabled_by_default="false">
+      <scope name="Our Code" level="WARNING" enabled="true" />
     </inspection_tool>
     <inspection_tool class="SpringIncorrectResourceTypeInspection" enabled="true" level="ERROR" enabled_by_default="false">
       <scope name="Our Code" level="ERROR" enabled="true" />

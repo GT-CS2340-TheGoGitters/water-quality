@@ -3,9 +3,6 @@ package model;
 import java.io.File;
 import java.util.HashMap;
 
-/**
- * Created by Joshua on 9/29/16.
- */
 public class WaterReportsHolder {
     private static HashMap<Integer, WaterReport> reportsList = new HashMap<>();
 

@@ -1,6 +1,5 @@
 package controller;
 
-import fxapp.WaterQualityApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.RadioButton;
@@ -12,9 +11,6 @@ import model.logging.security.AccountCreationEntry;
 
 import java.io.File;
 
-/**
- * Created by Allison on 9/27/16.
- */
 public class RegisterController extends Controller {
 
     @FXML

@@ -8,9 +8,6 @@ import model.*;
 
 import java.io.File;
 
-/**
- * Created by Jack on 10/13/16.
- */
 public class WaterPurityReportController extends WaterReportController {
 
     @FXML
@@ -25,17 +22,7 @@ public class WaterPurityReportController extends WaterReportController {
     @FXML
     private RadioButton UnsafeButton;
 
-    private Account account;
-
     private WaterCondition waterCondition;
-
-    private ReportLocation reportLocation;
-
-    private WaterPurityReport waterPurityReport;
-
-    private int virusPPM;
-
-    private int containmentPPM;
 
 
     public WaterPurityReportController() { }
@@ -58,9 +45,10 @@ public class WaterPurityReportController extends WaterReportController {
         if (WaterLocationField.getText().length() > 0 &&
                 VirusPPMField.getText().length() > 0 &&
                 ContainmentPPMField.getText().length() > 0) {
-            account = mainApp.getCurrentAccount();
+            Account account = mainApp.getCurrentAccount();
 
             String waterLocation = WaterLocationField.getText();
+            ReportLocation reportLocation;
             try {
                 String[] latLong = waterLocation.split(",");
                 double latitude = Double.parseDouble(latLong[0]);
@@ -80,6 +68,7 @@ public class WaterPurityReportController extends WaterReportController {
                 waterCondition = WaterCondition.UNSAFE;
             }
 
+            int virusPPM;
             try {
                 virusPPM = Integer.parseInt(VirusPPMField.getText());
             } catch (Exception ex) {
@@ -91,6 +80,7 @@ public class WaterPurityReportController extends WaterReportController {
                 return;
             }
 
+            int containmentPPM;
             try {
                 containmentPPM = Integer.parseInt(ContainmentPPMField.getText());
             } catch (Exception ex) {
@@ -102,7 +92,7 @@ public class WaterPurityReportController extends WaterReportController {
                 return;
             }
 
-            waterPurityReport = new WaterPurityReport(account, reportLocation, waterCondition, virusPPM, containmentPPM);
+            WaterPurityReport waterPurityReport = new WaterPurityReport(account, reportLocation, waterCondition, virusPPM, containmentPPM);
 
             try {
                 WaterReportsHolder.addReport(waterPurityReport);

@@ -4,9 +4,6 @@ import com.lynden.gmapsfx.javascript.object.LatLong;
 
 import java.io.Serializable;
 
-/**
- * Created by Joshua on 10/4/16.
- */
 public class ReportLocation implements Serializable{
     private static final int EARTH_RADIUS_MILES = 3959;
 
@@ -18,10 +15,14 @@ public class ReportLocation implements Serializable{
         this.longitude = lng;
     }
 
+    // This is public because future development may want to access the lattitude.
+    @SuppressWarnings("WeakerAccess")
     public double getLatitude() {
         return latitude;
     }
 
+    // This is public because future development may want to access the longitude
+    @SuppressWarnings("WeakerAccess")
     public double getLongitude() {
         return longitude;
     }

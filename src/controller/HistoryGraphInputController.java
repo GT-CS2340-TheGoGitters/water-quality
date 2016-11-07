@@ -1,12 +1,9 @@
 package controller;
 
 import com.lynden.gmapsfx.javascript.object.LatLong;
-import com.lynden.gmapsfx.service.geocoding.GeocoderStatus;
 import com.lynden.gmapsfx.service.geocoding.GeocodingResult;
 import com.lynden.gmapsfx.service.geocoding.GeocodingService;
-import com.lynden.gmapsfx.service.geocoding.GeocodingServiceCallback;
 import com.pixelduke.javafx.chart.DateAxis;
-import fxapp.WaterQualityApplication;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.chart.*;
@@ -19,9 +16,6 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 
 
-/**
- * Created by Joshua on 11/1/2016.
- */
 public class HistoryGraphInputController extends Controller {
 
     @FXML
@@ -231,7 +225,7 @@ public class HistoryGraphInputController extends Controller {
      *
      * @param submitOnCompletion takes in the boolean if ready for submission
      */
-    protected void doGeoCode(boolean submitOnCompletion) {
+    private void doGeoCode(boolean submitOnCompletion) {
         String location = locationTextField.getText();
         new GeocodingService().geocode(location, (geocodingResults, geocoderStatus) -> {
 

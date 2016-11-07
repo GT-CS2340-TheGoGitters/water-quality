@@ -3,9 +3,6 @@ package model;
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- * Created by Jack on 9/20/16.
- */
 public class Account implements Serializable{
     private String username;
     private Password password;

@@ -1,8 +1,5 @@
 package model;
 
-/**
- * Created by Jack on 9/27/16.
- */
 public enum AccountType {
     USR ("USER", "USR"),
     WKR ("WORKER", "WKR"),

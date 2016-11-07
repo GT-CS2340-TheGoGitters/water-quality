@@ -65,7 +65,7 @@ public class WaterQualityApplication extends Application {
     /**
      * Initializes the application
      */
-    public void initialize() {
+    private void initialize() {
         this.loadData();
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -82,7 +82,7 @@ public class WaterQualityApplication extends Application {
             System.out.print("Cannot load Welcome Screen");
         }
 
-        Runtime.getRuntime().addShutdownHook(new Thread(() -> saveData()));
+        Runtime.getRuntime().addShutdownHook(new Thread(this::saveData));
     }
 
     /**

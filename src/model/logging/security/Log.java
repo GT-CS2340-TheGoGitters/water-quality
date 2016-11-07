@@ -7,9 +7,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Joshua on 10/21/16.
- */
 public class Log implements Serializable{
     private static List<SecurityLogEntry> entries = new ArrayList<>();
 

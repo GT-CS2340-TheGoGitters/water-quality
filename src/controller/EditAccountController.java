@@ -1,6 +1,5 @@
 package controller;
 
-import fxapp.WaterQualityApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -10,9 +9,6 @@ import model.Password;
 
 import java.io.File;
 
-/**
- * Created by Jack on 9/29/16.
- */
 public class EditAccountController extends Controller {
 
     @FXML
@@ -45,8 +41,6 @@ public class EditAccountController extends Controller {
     @FXML
     private Button EditProfileSave;
 
-    private int count;
-
     private Account account;
 
     public EditAccountController() {
@@ -75,7 +69,6 @@ public class EditAccountController extends Controller {
         if (account.getTitle() != null) {
             EditAccountTitle.setText(account.getTitle());
         }
-        count = 0;
     }
 
     /**

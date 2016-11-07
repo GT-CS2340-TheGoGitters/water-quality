@@ -1,20 +1,14 @@
 package controller;
 
 import com.lynden.gmapsfx.javascript.object.LatLong;
-import com.lynden.gmapsfx.service.geocoding.GeocoderStatus;
 import com.lynden.gmapsfx.service.geocoding.GeocodingResult;
 import com.lynden.gmapsfx.service.geocoding.GeocodingService;
-import com.lynden.gmapsfx.service.geocoding.GeocodingServiceCallback;
-import fxapp.WaterQualityApplication;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 
-/**
- * Created by Joshua on 10/13/16.
- */
-public class WaterReportController extends Controller {
+class WaterReportController extends Controller {
 
     @FXML
     protected TextField WaterLocationField;
@@ -30,14 +24,14 @@ public class WaterReportController extends Controller {
     /**
      * Handles what to do when Submit is pressed
      */
-    protected void handleSubmitPressed() {
+    void handleSubmitPressed() {
     }
 
     /**
      * Gets the geocode
      * @param submitOnCompletion takes in the boolean if ready for submission
      */
-    protected void doGeoCode(boolean submitOnCompletion) {
+    void doGeoCode(boolean submitOnCompletion) {
         String waterLocation = WaterLocationField.getText();
         new GeocodingService().geocode(waterLocation, (geocodingResults, geocoderStatus) -> {
 

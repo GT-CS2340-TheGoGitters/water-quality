@@ -1,6 +1,5 @@
 package controller;
 
-import fxapp.WaterQualityApplication;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -18,9 +17,6 @@ import model.WaterSourceReport;
 import java.io.File;
 import java.text.SimpleDateFormat;
 
-/**
- * Created by Joshua on 10/12/2016.
- */
 public class ReportsController extends Controller {
     @FXML
     private TableView reportsTable;

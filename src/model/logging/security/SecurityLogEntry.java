@@ -8,14 +8,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-/**
- * Created by Joshua on 10/21/16.
- */
 public abstract class SecurityLogEntry implements Serializable{
-    protected static final DateFormat dateFormat = new SimpleDateFormat("dd/MMM/yyyy:HH:mm:ss Z", Locale.US);
+    private static final DateFormat dateFormat = new SimpleDateFormat("dd/MMM/yyyy:HH:mm:ss Z", Locale.US);
 
-    protected Account actingAccount;
-    protected Date time;
+    Account actingAccount;
+    private Date time;
 
     public Account getActingAccount() {
         return actingAccount;
@@ -25,14 +22,14 @@ public abstract class SecurityLogEntry implements Serializable{
         return time;
     }
 
-    protected SecurityLogEntry(Account actingAccount) {
+    SecurityLogEntry(Account actingAccount) {
         this.actingAccount = actingAccount;
         this.time = new Date();
     }
 
-    public abstract String getLabel();
+    protected abstract String getLabel();
 
-    public abstract String getMessage();
+    protected abstract String getMessage();
 
     @Override
     public String toString() {

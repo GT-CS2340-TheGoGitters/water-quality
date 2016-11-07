@@ -2,9 +2,6 @@ package model;
 
 import java.io.Serializable;
 
-/**
- * Created by Joshua on 10/4/16.
- */
 public enum WaterType implements Serializable{
     BOTTLED ("Bottled", "BOTTLED"),
     WELL ("Well", "WELL"),

@@ -1,6 +1,5 @@
 package controller;
 
-import fxapp.WaterQualityApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
@@ -13,9 +12,6 @@ import model.logging.security.LoginAttemptEntry;
 import java.io.File;
 
 
-/**
- * Created by Ashwin on 9/17/2016.
- */
 public class LoginController extends Controller {
 
     @FXML

@@ -1,6 +1,5 @@
 package controller;
 
-import fxapp.WaterQualityApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
@@ -10,9 +9,6 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 
 
-/**
- * Created by Ashwin on 10/5/2016.
- */
 public class ProfileController extends Controller {
 
     @FXML
@@ -45,10 +41,6 @@ public class ProfileController extends Controller {
     @FXML
     private Button editprofile;
 
-    private Account account;
-
-    private int count;
-
     public ProfileController() {
 
     }
@@ -57,7 +49,7 @@ public class ProfileController extends Controller {
      * Puts required values in the appropriate fields.
      */
     public void setUpProfile() {
-        account = mainApp.getCurrentAccount();
+        Account account = mainApp.getCurrentAccount();
         name.setText(account.getName());
         username.setText(account.getUsername());
         passwordCreated.setText(new SimpleDateFormat("MMMMM F, y").format(account.getLastPasswordChange()));
@@ -72,7 +64,6 @@ public class ProfileController extends Controller {
         if (account.getTitle() != null) {
             title.setText(account.getTitle());
         }
-        count = 0;
     }
 
     /**

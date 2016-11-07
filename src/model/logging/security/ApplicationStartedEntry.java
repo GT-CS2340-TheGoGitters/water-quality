@@ -1,8 +1,5 @@
 package model.logging.security;
 
-/**
- * Created by Joshua on 10/21/16.
- */
 public class ApplicationStartedEntry extends SecurityLogEntry {
 
     public ApplicationStartedEntry() {

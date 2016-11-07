@@ -7,9 +7,6 @@ import model.*;
 
 import java.io.File;
 
-/**
- * Created by Jack on 10/8/16.
- */
 public class WaterSourceReportController extends WaterReportController {
 
     @FXML
@@ -32,15 +29,9 @@ public class WaterSourceReportController extends WaterReportController {
     @FXML
     private RadioButton PotableButton;
 
-    private Account account;
-
     private WaterType waterType;
 
     private WaterOverallCondition waterOverallCondition;
-
-    private ReportLocation reportLocation;
-
-    private WaterSourceReport waterSourceReport;
 
 
     public WaterSourceReportController() {
@@ -64,9 +55,10 @@ public class WaterSourceReportController extends WaterReportController {
     @FXML
     protected void handleSubmitPressed() {
         if (WaterLocationField.getText().length() > 0) {
-            account = mainApp.getCurrentAccount();
+            Account account = mainApp.getCurrentAccount();
 
             String waterLocation = WaterLocationField.getText();
+            ReportLocation reportLocation;
             try {
                 String[] latLong = waterLocation.split(",");
                 double latitude = Double.parseDouble(latLong[0]);
@@ -100,7 +92,7 @@ public class WaterSourceReportController extends WaterReportController {
                 waterOverallCondition = WaterOverallCondition.POTABLE;
             }
 
-            waterSourceReport = new WaterSourceReport(account, reportLocation, waterType, waterOverallCondition);
+            WaterSourceReport waterSourceReport = new WaterSourceReport(account, reportLocation, waterType, waterOverallCondition);
 
             try {
                 WaterReportsHolder.addReport(waterSourceReport);

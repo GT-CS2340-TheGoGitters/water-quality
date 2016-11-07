@@ -1,13 +1,8 @@
 package model;
 
-import com.sun.tools.corba.se.idl.InvalidArgument;
-
 import java.io.File;
 import java.util.HashMap;
 
-/**
- * Created by Joshua on 9/29/16.
- */
 public class AccountsHolder {
     private static HashMap<String, Account> accountList = new HashMap<>();
 
