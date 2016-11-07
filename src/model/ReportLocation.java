@@ -15,7 +15,7 @@ public class ReportLocation implements Serializable{
         this.longitude = lng;
     }
 
-    // This is public because future development may want to access the lattitude.
+    // This is public because future development may want to access the latitude.
     @SuppressWarnings("WeakerAccess")
     public double getLatitude() {
         return latitude;

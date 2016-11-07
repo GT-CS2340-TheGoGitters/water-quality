@@ -70,7 +70,7 @@
           <Font size="26.0"/>
         </font>
     </Label>
-    <Text fx:id="accounttype" layoutX="259.0" layoutY="418.0" strokeType="OUTSIDE" strokeWidth="0.0">
+    <Text fx:id="accountType" layoutX="259.0" layoutY="418.0" strokeType="OUTSIDE" strokeWidth="0.0">
         <font>
           <Font size="26.0"/>
         </font>
@@ -91,6 +91,6 @@
                   text="Back"/>
       </buttons>
     </ButtonBar>
-    <Button fx:id="editprofile" layoutX="97.0" layoutY="14.0" mnemonicParsing="false" onAction="#editProfileClicked"
+    <Button fx:id="editProfile" layoutX="97.0" layoutY="14.0" mnemonicParsing="false" onAction="#editProfileClicked"
             text="Edit Profile"/>
 </AnchorPane>

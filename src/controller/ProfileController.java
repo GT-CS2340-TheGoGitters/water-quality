@@ -27,19 +27,16 @@ public class ProfileController extends Controller {
     private Text address;
 
     @FXML
-    private Text accounttype;
+    private Text accountType;
 
     @FXML
     private Text title;
 
     @FXML
-    private Button passbutton;
-
-    @FXML
     private Button back;
 
     @FXML
-    private Button editprofile;
+    private Button editProfile;
 
     public ProfileController() {
 
@@ -53,7 +50,7 @@ public class ProfileController extends Controller {
         name.setText(account.getName());
         username.setText(account.getUsername());
         passwordCreated.setText(new SimpleDateFormat("MMMMM F, y").format(account.getLastPasswordChange()));
-        accounttype.setText(account.getAccountType().getUserType());
+        accountType.setText(account.getAccountType().getUserType());
         if (account.getEmailAddress() != null) {
             email.setText(account.getEmailAddress());
         }

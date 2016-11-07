@@ -9,7 +9,7 @@ import java.io.File;
 public class WelcomeController extends Controller {
 
     @FXML
-    private ImageView titlelogo;
+    private ImageView titleLogo;
 
     @FXML
     private Image logo;
