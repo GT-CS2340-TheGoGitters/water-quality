@@ -117,7 +117,6 @@ public class WaterPurityReportController extends WaterReportController implement
             alert.setHeaderText("Incomplete Information");
             alert.setContentText("Enter all required information.");
             alert.showAndWait();
-            return;
         }
     }
 }

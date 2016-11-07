@@ -79,7 +79,6 @@ public class SendResetEmailController implements Controller {
             alert.setHeaderText("Email Error");
             alert.setContentText(e.getMessage());
             alert.showAndWait();
-            return;
         }
     }
 }

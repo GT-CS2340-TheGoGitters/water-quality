@@ -63,7 +63,6 @@ public class ResetPasswordController implements Controller {
             alert.setHeaderText("Invalid Information");
             alert.setContentText("You must enter a password.");
             alert.showAndWait();
-            return;
         } else {
             try {
                 account.setPassword(password);

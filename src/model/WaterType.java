@@ -22,7 +22,7 @@ public enum WaterType implements Serializable{
      * @param text type of water
      * @param code code for the type of water
      */
-    private WaterType(String text, String code) {
+    WaterType(String text, String code) {
         this.text = text;
         this.code = code;
     }

@@ -82,12 +82,7 @@ public class WaterQualityApplication extends Application {
             System.out.print("Cannot load Welcome Screen");
         }
 
-        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
-            @Override
-            public void run() {
-                saveData();
-            }
-        }));
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> saveData()));
     }
 
     /**

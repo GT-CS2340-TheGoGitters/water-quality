@@ -198,7 +198,7 @@ public class HistoryGraphInputController implements Controller {
 
                 if (numReports.containsKey(dateStr)) {
                     double averagePPM = (double) ppmTotal.get(dateStr) / numReports.get(dateStr);
-                    series.getData().add(new XYChart.Data<Long, Number>(new GregorianCalendar(year, month, 0).getTime().getTime(), averagePPM));
+                    series.getData().add(new XYChart.Data<>(new GregorianCalendar(year, month, 0).getTime().getTime(), averagePPM));
                 }
 
                 i++;
@@ -211,7 +211,7 @@ public class HistoryGraphInputController implements Controller {
 
             // Create the chart
             final LineChart<Long, Number> lineChart =
-                    new LineChart<Long, Number>(xAxis, yAxis);
+                    new LineChart<>(xAxis, yAxis);
             lineChart.getData().add(series);
 
 
@@ -234,7 +234,6 @@ public class HistoryGraphInputController implements Controller {
             alert.setHeaderText("Incomplete Information");
             alert.setContentText("Enter all required information.");
             alert.showAndWait();
-            return;
         }
     }
 
@@ -245,29 +244,26 @@ public class HistoryGraphInputController implements Controller {
      */
     protected void doGeoCode(boolean submitOnCompletion) {
         String location = locationTextField.getText();
-        new GeocodingService().geocode(location, new GeocodingServiceCallback() {
-            @Override
-            public void geocodedResultsReceived(GeocodingResult[] geocodingResults, GeocoderStatus geocoderStatus) {
+        new GeocodingService().geocode(location, (geocodingResults, geocoderStatus) -> {
 
-                if (geocodingResults.length == 0) {
-                    Platform.runLater(() -> {
-                        Alert alert = new Alert(Alert.AlertType.ERROR);
-                        alert.setTitle("Geocode Error");
-                        alert.setHeaderText("Address Error");
-                        alert.setContentText("Please enter a valid address or latitude, longitude.");
-                        alert.showAndWait();
-                    });
-                }
+            if (geocodingResults.length == 0) {
+                Platform.runLater(() -> {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Geocode Error");
+                    alert.setHeaderText("Address Error");
+                    alert.setContentText("Please enter a valid address or latitude, longitude.");
+                    alert.showAndWait();
+                });
+            }
 
-                GeocodingResult result = geocodingResults[0];
+            GeocodingResult result = geocodingResults[0];
 
-                LatLong location = result.getGeometry().getLocation();
+            LatLong location1 = result.getGeometry().getLocation();
 
-                locationTextField.setText(location.getLatitude() + ", " + location.getLongitude());
+            locationTextField.setText(location1.getLatitude() + ", " + location1.getLongitude());
 
-                if (submitOnCompletion) {
-                    handleViewHistoryPressed();
-                }
+            if (submitOnCompletion) {
+                handleViewHistoryPressed();
             }
         });
     }

@@ -19,7 +19,7 @@ public enum WaterCondition implements Serializable{
      * @param text condition of water
      * @param code code for condition
      */
-    private WaterCondition(String text, String code) {
+    WaterCondition(String text, String code) {
         this.text = text;
         this.code = code;
     }

@@ -144,9 +144,7 @@ public class PostLoginController implements Initializable, MapComponentInitializ
 
         InfoWindow infoWindow = new InfoWindow(infoWindowOptions);
 
-        map.addUIEventHandler(marker, UIEventType.click, (netscape.javascript.JSObject obj) -> {
-            infoWindow.open(map, marker);
-        });
+        map.addUIEventHandler(marker, UIEventType.click, (netscape.javascript.JSObject obj) -> infoWindow.open(map, marker));
     }
 
     /**
@@ -195,7 +193,6 @@ public class PostLoginController implements Initializable, MapComponentInitializ
             alert.setTitle("Error");
             alert.setHeaderText("You do no have permission to submit a Water Purity Report");
             alert.showAndWait();
-            return;
         } else {
             mainApp.showScreen(new File("../view/WaterPurityReport.fxml"));
         }
@@ -211,7 +208,6 @@ public class PostLoginController implements Initializable, MapComponentInitializ
             alert.setTitle("Error");
             alert.setHeaderText("You do no have permission to view water history");
             alert.showAndWait();
-            return;
         } else {
             mainApp.showScreen(new File("../view/HistoryGraphInput.fxml"));
         }

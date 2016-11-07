@@ -119,7 +119,6 @@ public class WaterSourceReportController extends WaterReportController implement
             alert.setHeaderText("Incomplete Information");
             alert.setContentText("Enter location of water.");
             alert.showAndWait();
-            return;
         }
     }
 

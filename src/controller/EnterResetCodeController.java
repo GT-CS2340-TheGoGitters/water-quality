@@ -75,7 +75,6 @@ public class EnterResetCodeController implements Controller {
             alert.setHeaderText("Invalid Information");
             alert.setContentText("The code you entered is either invalid or expired.");
             alert.showAndWait();
-            return;
         } else {
             ResetPasswordController newController = mainApp.showResetPassword();
 

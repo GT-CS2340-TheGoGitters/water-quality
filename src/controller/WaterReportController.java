@@ -41,29 +41,26 @@ public class WaterReportController implements Controller {
      */
     protected void doGeoCode(boolean submitOnCompletion) {
         String waterLocation = WaterLocationField.getText();
-        new GeocodingService().geocode(waterLocation, new GeocodingServiceCallback() {
-            @Override
-            public void geocodedResultsReceived(GeocodingResult[] geocodingResults, GeocoderStatus geocoderStatus) {
+        new GeocodingService().geocode(waterLocation, (geocodingResults, geocoderStatus) -> {
 
-                if (geocodingResults.length == 0) {
-                    Platform.runLater(() -> {
-                        Alert alert = new Alert(Alert.AlertType.ERROR);
-                        alert.setTitle("Geocode Error");
-                        alert.setHeaderText("Address Error");
-                        alert.setContentText("Please enter a valid address or latitude, longitude.");
-                        alert.showAndWait();
-                    });
-                }
+            if (geocodingResults.length == 0) {
+                Platform.runLater(() -> {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Geocode Error");
+                    alert.setHeaderText("Address Error");
+                    alert.setContentText("Please enter a valid address or latitude, longitude.");
+                    alert.showAndWait();
+                });
+            }
 
-                GeocodingResult result = geocodingResults[0];
+            GeocodingResult result = geocodingResults[0];
 
-                LatLong location = result.getGeometry().getLocation();
+            LatLong location = result.getGeometry().getLocation();
 
-                WaterLocationField.setText(location.getLatitude() + ", " + location.getLongitude());
+            WaterLocationField.setText(location.getLatitude() + ", " + location.getLongitude());
 
-                if (submitOnCompletion) {
-                    handleSubmitPressed();
-                }
+            if (submitOnCompletion) {
+                handleSubmitPressed();
             }
         });
     }
