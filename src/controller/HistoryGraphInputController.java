@@ -117,38 +117,25 @@ public class HistoryGraphInputController extends Controller {
                 return;
             }
 
-            Collection<WaterReport> reports = WaterReportsHolder.getReportsList().values();
+
 
             HashMap<String, Integer> numReports = new HashMap<>();
             HashMap<String, Integer> ppmTotal = new HashMap<>();
+            WaterPurityReport[] reports = getReportsForQuery(startDate, endDate, location, radius);
 
 
-            for (WaterReport report : reports) {
-                if (!(report instanceof WaterPurityReport)) {
-                    continue;
-                }
-
-                WaterPurityReport purityReport = (WaterPurityReport) (report);
-
-                if (purityReport.getCreated().before(startDate) || purityReport.getCreated().after(endDate)) {
-                    continue;
-                }
-
-                if(purityReport.getLocation().distFrom(location) > radius){
-                    continue;
-                }
-
-                String monthStr = new SimpleDateFormat("YYYY/MM").format(purityReport.getCreated());
+            for (WaterPurityReport report : reports) {
+                String monthStr = new SimpleDateFormat("YYYY/MM").format(report.getCreated());
 
                 int ppm;
 
                 if (contaminantRadio.isSelected()) {
                     // Contaminant Report
-                    ppm = purityReport.getContaminantPPM();
+                    ppm = report.getContaminantPPM();
 
                 } else {
                     // Virus Report
-                    ppm = purityReport.getVirusPPM();
+                    ppm = report.getVirusPPM();
                 }
 
                 if (!numReports.containsKey(monthStr)) {
@@ -218,6 +205,31 @@ public class HistoryGraphInputController extends Controller {
             alert.setContentText("Enter all required information.");
             alert.showAndWait();
         }
+    }
+
+    public WaterPurityReport[] getReportsForQuery(Date startDate, Date endDate, ReportLocation location, int radius) {
+        Collection<WaterReport> allReports = WaterReportsHolder.getReportsList().values();
+        List<WaterPurityReport> selectedReports = new LinkedList<>();
+
+        for (WaterReport report : allReports) {
+            if (!(report instanceof WaterPurityReport)) {
+                continue;
+            }
+
+            WaterPurityReport purityReport = (WaterPurityReport) (report);
+
+            if (purityReport.getCreated().before(startDate) || purityReport.getCreated().after(endDate)) {
+                continue;
+            }
+
+            if (purityReport.getLocation().distFrom(location) > radius) {
+                continue;
+            }
+
+            selectedReports.add((WaterPurityReport) report);
+        }
+
+        return selectedReports.toArray(new WaterPurityReport[selectedReports.size()]);
     }
 
     /**
