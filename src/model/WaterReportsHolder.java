@@ -39,4 +39,9 @@ public class WaterReportsHolder {
         }
         WaterReport.setNextReportNumber(reportNum);
     }
+
+    public static void clearAll(){
+        reportsList = new HashMap<>();
+        WaterReport.setNextReportNumber(1);
+    }
 }
