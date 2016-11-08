@@ -20,7 +20,19 @@ public class LoginController extends Controller {
     @FXML
     private TextField passwordField;
 
+    public boolean validated;
+
     public LoginController() { }
+
+    public void setUsernameField(String text) {
+        usernameField = new TextField("");
+        usernameField.setText(text);
+    }
+
+    public void setPasswordField(String text) {
+        passwordField = new TextField("");
+        passwordField.setText(text);
+    }
 
     /**
      * Returns to the Welcome screen when Cancel is pressed
@@ -34,7 +46,7 @@ public class LoginController extends Controller {
      * Logs in the user or generates an alert if it cannot authenticate
      */
     @FXML
-    private void handleLoginPressed() {
+    public void handleLoginPressed() {
         Account authenticatedAccount = null;
 
         String username = usernameField.getText();
@@ -70,11 +82,14 @@ public class LoginController extends Controller {
             if (authenticatedAccount.getAccountType() == AccountType.ADM) {
                 mainApp.setCurrentAccount(authenticatedAccount);
                 mainApp.showAdminHome();
+                validated = true;
             } else {
                 mainApp.setCurrentAccount(authenticatedAccount);
                 mainApp.showScreen(new File("../view/PostLogin.fxml"));
+                validated = true;
             }
         } else {
+            validated = false;
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Login Error");
             alert.setHeaderText("Invalid Login Information");
