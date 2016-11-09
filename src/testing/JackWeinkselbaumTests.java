@@ -1,14 +1,14 @@
 package testing;
 
-import model.Account;
-import model.AccountType;
-import model.AccountsHolder;
-import model.Persistence;
+import controller.ProfileController;
+import fxapp.WaterQualityApplication;
+import model.*;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 
 import static org.junit.Assert.*;
 
@@ -16,33 +16,59 @@ import static org.junit.Assert.*;
  * Created by Jack on 11/7/16.
  */
 public class JackWeinkselbaumTests {
-    Persistence p;
-    AccountsHolder aH;
-    File file;
-    Account curr;
+    //Testing getValues() in WaterReportsHolder
+
+    WaterReportsHolder wh;
+    HashMap<Integer, WaterReport> testAgainst;
+    WaterReport wr;
+    Account acct;
+    ReportLocation rl;
+
     @Before
     public void setUp() throws Exception {
-        aH = new AccountsHolder();
-        p = new Persistence(aH);
-        curr = new Account("Jack", "user", "pass", AccountType.USR);
-    }
-
-    @Test (expected = ClassNotFoundException.class)
-    public void loadFromBinaryWithNonexistentFile() {
-        file = new File("/testing/TestFile.dat");
-        p.loadFromBinary(file);
-    }
-
-    @Test (expected = IOException.class)
-    public void loadFromBinaryWithBlankFile() {
-        p.loadFromBinary(file);
+        wh = new WaterReportsHolder();
+        testAgainst = new HashMap<>();
+        acct = new Account("Jack", "user", "pass", AccountType.USR);
+        rl = new ReportLocation(12.4, 12.4);
+        wr = new WaterReport(acct, rl);
     }
 
     @Test
-    public void loadFromBinaryWithExistentFile() {
-        aH.addAccount(curr);
-        p.saveToBinary(file);
-        p.loadFromBinary(file);
+    public void testAddReport() {
+        ReportLocation rl1 = new ReportLocation(100, 100);
+        WaterReport wr1 = new WaterReport(acct, rl1);
+        testAgainst.put(2, wr);
+        wh.addReport(wr);
+        testAgainst.put(3, wr1);
+        wh.addReport(wr1);
+        assertEquals(testAgainst, wh.getReportsList());
     }
 
+    @Test
+    public void clearAll() {
+        wh.clearAll();
+        testAgainst = new HashMap<Integer, WaterReport>();
+        assertEquals(wh.getReportsList(), testAgainst);
+    }
+
+    @Test
+    public void testGetValuesAdding() {
+        ReportLocation rl1 = new ReportLocation(100, 100);
+        WaterReport wr1 = new WaterReport(acct, rl1);
+        wh.addReport(wr);
+        wh.addReport(wr1);
+        testAgainst.put(2, wr);
+        testAgainst.put(3, wr1);
+        WaterReport[] vals = testAgainst.values().toArray(new WaterReport[wh.getReportsList().size()]);
+        assertArrayEquals(vals, wh.getValues());
+    }
+
+    @Test
+    public void testGetValuesAfterClear() {
+        wh.clearAll();
+        testAgainst = new HashMap<Integer, WaterReport>();
+        WaterReport[] vals1 = testAgainst.values().toArray(new WaterReport[wh.getReportsList().size()]);
+        assertArrayEquals(vals1, wh.getValues());
+
+    }
 }
