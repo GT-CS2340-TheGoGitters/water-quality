@@ -9,13 +9,16 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertNotNull;
 
+/**
+ * test for setUpEditPage() in EditAccountController.java
+ */
 public class MarisaHoenigTests {
     Account account;
-    //test for setUpEditPage() in EditAccountController.java
 
     @Before
     public void setUp() throws Exception {
-        account = new Account("Marisa", "mhoenig3", "password", AccountType.USR);
+        account = new Account("Marisa", "mhoenig3", "password",
+                AccountType.USR);
     }
 
     @Test
@@ -49,7 +52,8 @@ public class MarisaHoenigTests {
 
     @Test
     public void testAddressPartsFilled() {
-        account.setHomeAddress("330662 Georgia Tech Station\nAtlanta,GA\n30332");
+        account.setHomeAddress("330662 Georgia Tech Station\nAtlanta,"
+                + "GA\n30332");
         String[] addressComponents = account.getHomeAddress().split("\n");
         String addressOne = addressComponents[0];
         String[] cityState = addressComponents[1].split(",");
@@ -61,7 +65,8 @@ public class MarisaHoenigTests {
         assertEquals(state, "GA");
         assertEquals(zip, "30332");
         assertNotNull(account.getHomeAddress());
-        assertEquals(account.getHomeAddress(), "330662 Georgia Tech Station\nAtlanta,GA\n30332");
+        assertEquals(account.getHomeAddress(), "330662 Georgia Tech Station"
+                + "\nAtlanta,GA\n30332");
     }
 
     @Test
