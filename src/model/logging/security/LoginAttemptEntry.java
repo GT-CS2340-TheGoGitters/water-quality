@@ -10,9 +10,9 @@ public class LoginAttemptEntry extends SecurityLogEntry {
         SUCCESS
     }
 
-    private SuccessStatus successStatus;
+    private final SuccessStatus successStatus;
 
-    private String enteredUsername;
+    private final String enteredUsername;
 
     public LoginAttemptEntry(Account account, String enteredUsername, SuccessStatus status) {
         super(account);

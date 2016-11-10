@@ -8,10 +8,10 @@ public final class PasswordResetCode {
     private final static long MILLIS_PER_HOUR = 60 * 60 * 1000L;
 
 
-    private static SecureRandom random = new SecureRandom();
+    private static final SecureRandom random = new SecureRandom();
 
-    private String code;
-    private Date created;
+    private final String code;
+    private final Date created;
 
     public PasswordResetCode() {
         code = new BigInteger(130, random).toString(32);

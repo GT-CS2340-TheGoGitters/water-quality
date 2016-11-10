@@ -10,7 +10,7 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertNotNull;
 
 public class MarisaHoenigTests {
-    Account account;
+    private Account account;
     //test for setUpEditPage() in EditAccountController.java
 
     @Before

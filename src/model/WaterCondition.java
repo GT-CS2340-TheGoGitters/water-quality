@@ -7,9 +7,9 @@ public enum WaterCondition implements Serializable{
     TREATABLE ("Treatable", "TREATABLE"),
     UNSAFE ("Unsafe", "UNSAFE");
 
-    private String text;
+    private final String text;
 
-    private String code;
+    private final String code;
 
     /**
      * Constructor for WaterCondition

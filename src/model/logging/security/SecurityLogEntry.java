@@ -11,8 +11,8 @@ import java.util.Locale;
 public abstract class SecurityLogEntry implements Serializable{
     private static final DateFormat dateFormat = new SimpleDateFormat("dd/MMM/yyyy:HH:mm:ss Z", Locale.US);
 
-    Account actingAccount;
-    private Date time;
+    private final Account actingAccount;
+    private final Date time;
 
     public Account getActingAccount() {
         return actingAccount;

@@ -10,9 +10,9 @@ public enum WaterType implements Serializable{
     SPRING ("Spring", "SPRING"),
     OTHER ("Other", "OTHER");
 
-    private String text;
+    private final String text;
 
-    private String code;
+    private final String code;
 
     /**
      * Constructor for WaterType

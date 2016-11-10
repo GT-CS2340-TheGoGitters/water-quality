@@ -29,7 +29,7 @@ public class Password implements Serializable{
      * unique hashes, even if they password is the same.
      * https://en.wikipedia.org/wiki/Salt_(cryptography)
      */
-    private byte[] salt;
+    private final byte[] salt;
 
     private byte[] hash;
     private int iterations;

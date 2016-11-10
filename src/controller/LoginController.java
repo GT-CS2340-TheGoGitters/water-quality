@@ -70,7 +70,7 @@ public class LoginController extends Controller {
         if ( authenticatedAccount != null ) {
             if (authenticatedAccount.getAccountType() == AccountType.ADM) {
                 mainApp.setCurrentAccount(authenticatedAccount);
-                mainApp.showAdminHome();
+                mainApp.showScreen(new File("../view/AdminHome.fxml"));
             } else {
                 mainApp.setCurrentAccount(authenticatedAccount);
                 mainApp.showScreen(new File("../view/PostLogin.fxml"));

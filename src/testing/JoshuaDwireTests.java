@@ -12,8 +12,8 @@ import java.util.Date;
 import static org.junit.Assert.*;
 
 public class JoshuaDwireTests {
-    HistoryGraphInputController controller;
-    Account account;
+    private HistoryGraphInputController controller;
+    private Account account;
 
     @Before
     public void setUp() throws Exception {

@@ -7,8 +7,8 @@ import java.io.Serializable;
 public class ReportLocation implements Serializable{
     private static final int EARTH_RADIUS_MILES = 3959;
 
-    private double latitude;
-    private double longitude;
+    private final double latitude;
+    private final double longitude;
 
     public ReportLocation(double lat, double lng){
         this.latitude = lat;
