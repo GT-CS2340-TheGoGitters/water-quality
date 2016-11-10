@@ -11,7 +11,6 @@
           </list>
         </value>
       </option>
-      <option name="commentsAreContent" value="false" />
     </inspection_tool>
     <inspection_tool class="JavaDoc" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="TOP_LEVEL_CLASS_OPTIONS">

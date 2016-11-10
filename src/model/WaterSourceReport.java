@@ -1,7 +1,6 @@
 package model;
 
 import java.io.Serializable;
-import java.util.logging.Logger;
 
 public class WaterSourceReport extends WaterReport implements Serializable{
 

@@ -13,7 +13,7 @@ import static org.junit.Assert.assertNotNull;
  * test for setUpEditPage() in EditAccountController.java
  */
 public class MarisaHoenigTests {
-    Account account;
+    private Account account;
 
     @Before
     public void setUp() throws Exception {
