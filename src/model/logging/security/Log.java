@@ -10,7 +10,7 @@ import java.util.List;
 public class Log implements Serializable{
     private static List<SecurityLogEntry> entries = new ArrayList<>();
 
-    private static File logFile = new File("LogSaveState.dat");
+    private static final File logFile = new File("LogSaveState.dat");
 
 
     public static void addEntry(SecurityLogEntry entry) {

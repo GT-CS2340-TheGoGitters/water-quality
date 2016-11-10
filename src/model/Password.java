@@ -12,10 +12,6 @@ import java.util.Date;
 public class Password implements Serializable{
     @SuppressWarnings("serial")
     static public class CannotPerformOperationException extends Exception {
-        public CannotPerformOperationException(String message) {
-            super(message);
-        }
-
         public CannotPerformOperationException(String message, Throwable source) {
             super(message, source);
         }
@@ -28,15 +24,13 @@ public class Password implements Serializable{
     private static final int HASH_BYTE_SIZE = 18;
     private static final int PBKDF2_ITERATIONS = 64000;
 
-    // These constants define the encoding and may not be changed.
-    protected static final int HASH_SECTIONS = 5;
-    protected static final int HASH_ALGORITHM_INDEX = 0;
-    protected static final int ITERATION_INDEX = 1;
-    protected static final int HASH_SIZE_INDEX = 2;
-    protected static final int SALT_INDEX = 3;
-    protected static final int PBKDF2_INDEX = 4;
+    /**
+     * This is the salt used to increase security and ensure that passwords always have
+     * unique hashes, even if they password is the same.
+     * https://en.wikipedia.org/wiki/Salt_(cryptography)
+     */
+    private final byte[] salt;
 
-    private byte[] salt;
     private byte[] hash;
     private int iterations;
     private Date created;

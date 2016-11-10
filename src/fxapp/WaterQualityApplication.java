@@ -173,27 +173,6 @@ public class WaterQualityApplication extends Application {
     }
 
     /**
-     * Loads the reset password screen
-     */
-    public AdminHomeController showAdminHome() {
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(WaterQualityApplication.class.getResource("../view/AdminHome.fxml"));
-            baseLayout = loader.load();
-
-            AdminHomeController controller = loader.getController();
-            controller.setApp(this);
-
-            mainStage.setScene(new Scene(baseLayout));
-
-            return controller;
-        } catch (IOException e) {
-            System.out.print("Cannot load Admin Home screen");
-            return null;
-        }
-    }
-
-    /**
      * Logs and failed login attempts
      *
      * @param event the failed login attempt.

@@ -5,8 +5,8 @@ import java.util.logging.Logger;
 
 public class WaterSourceReport extends WaterReport implements Serializable{
 
-    private WaterType waterType;
-    private WaterOverallCondition waterOverallCondition;
+    private final WaterType waterType;
+    private final WaterOverallCondition waterOverallCondition;
     private static Logger LOGGER = Logger.getLogger("WaterReport");
 
 

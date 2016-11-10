@@ -6,7 +6,7 @@ import java.util.HashMap;
 public class AccountsHolder {
     private static HashMap<String, Account> accountList = new HashMap<>();
 
-    private static File accountsFile = new File("AccountsSaveState.dat");
+    private static final File accountsFile = new File("AccountsSaveState.dat");
 
 
     public static void addAccount(Account account){

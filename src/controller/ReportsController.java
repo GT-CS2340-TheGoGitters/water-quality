@@ -21,7 +21,7 @@ public class ReportsController extends Controller {
     @FXML
     private TableView reportsTable;
 
-    private ObservableList<WaterReport> data = FXCollections.observableArrayList();
+    private final ObservableList<WaterReport> data = FXCollections.observableArrayList();
 
     /**
      * Brings Account back to PostLogin screen

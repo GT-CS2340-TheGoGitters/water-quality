@@ -3,10 +3,10 @@ package model;
 import java.io.File;
 import java.util.HashMap;
 
-public class WaterReportsHolder {
+public abstract class WaterReportsHolder {
     private static HashMap<Integer, WaterReport> reportsList = new HashMap<>();
 
-    private static File reportsFile = new File("ReportsSaveState.dat");
+    private static final File reportsFile = new File("ReportsSaveState.dat");
 
     public static void addReport(WaterReport report){
 
