@@ -14,10 +14,14 @@ public abstract class SecurityLogEntry implements Serializable{
     private final Account actingAccount;
     private final Date time;
 
+    @SuppressWarnings("unused")
+    // This will be used in the security log viewer
     public Account getActingAccount() {
         return actingAccount;
     }
 
+    @SuppressWarnings("unused")
+    // This will be used in the security log viewer
     public Date getTime() {
         return time;
     }

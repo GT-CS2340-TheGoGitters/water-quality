@@ -24,10 +24,6 @@ public enum AccountType {
         return userType;
     }
 
-    public String getCode() {
-        return code;
-    }
-
     public String toString() {
         return userType;
     }

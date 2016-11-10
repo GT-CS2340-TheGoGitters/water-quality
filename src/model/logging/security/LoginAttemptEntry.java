@@ -21,10 +21,14 @@ public class LoginAttemptEntry extends SecurityLogEntry {
         this.successStatus = status;
     }
 
+    @SuppressWarnings("unused")
+    // This may be used in the security log viewer
     public SuccessStatus getSuccessStatus() {
         return successStatus;
     }
 
+    @SuppressWarnings("unused")
+    // This may be used in the security log viewer
     public String getEnteredUsername() {
         return enteredUsername;
     }

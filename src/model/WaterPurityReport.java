@@ -7,7 +7,6 @@ public class WaterPurityReport extends WaterReport implements Serializable{
     private final WaterCondition waterCondition;
     private final int virusPPM;
     private final int contaminantPPM;
-    private static Logger LOGGER = Logger.getLogger("WaterReport");
 
 
     public WaterCondition getWaterCondition() {

@@ -1,8 +1,6 @@
 package model;
 
 import java.io.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Persistence {
     private Object backing;
@@ -25,10 +23,7 @@ public class Persistence {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f))) {
             backing = ois.readObject();
             ois.close();
-        } catch (IOException e) {
-            System.out.println("Failed to load file");
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (IOException | ClassNotFoundException e) {
             System.out.println("Failed to load file");
             e.printStackTrace();
         }

@@ -24,14 +24,6 @@ public enum WaterType implements Serializable{
         this.code = code;
     }
 
-    public String getText() {
-        return text;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
     public String toString() {
         return text;
     }

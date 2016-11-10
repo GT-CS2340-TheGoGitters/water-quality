@@ -17,6 +17,8 @@ public class Log implements Serializable{
         entries.add(entry);
     }
 
+    @SuppressWarnings("unused")
+    // This will be used in the security log viewer
     public static SecurityLogEntry[] getEntries() {
         return entries.toArray(new SecurityLogEntry[entries.size()]);
     }
