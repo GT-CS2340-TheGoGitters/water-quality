@@ -70,10 +70,6 @@ public class Account implements Serializable{
         this.homeAddress = homeAddress;
     }
 
-    public void setAccountType(AccountType type) {
-        this.type = type;
-    }
-
     /**
      * Increments the number of incorrect login attempts
      */
@@ -88,10 +84,10 @@ public class Account implements Serializable{
         this.incorrectAttempts = 0;
     }
 
-    public int getIncorrectAttempts() {
-        return this.incorrectAttempts;
-    }
-
+    /**
+     * Checks to see whether someone has tried to log in incorrectly more than 3 times
+     * @return whether or not the account should be locked
+     */
     public boolean getIsLocked() {
         return this.incorrectAttempts >= 3;
     }

@@ -78,4 +78,5 @@ public class ProfileController extends Controller {
     public void editProfileClicked() {
         mainApp.showScreen(new File("../view/EditAccount.fxml"));
     }
+
 }

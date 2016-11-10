@@ -17,7 +17,7 @@ public class WaterReport implements Serializable{
      * @param creator Account that's submitting report
      * @param location location where report is
      */
-    WaterReport(Account creator, ReportLocation location){
+    public WaterReport(Account creator, ReportLocation location){
         /*try {
             created = new SimpleDateFormat("M/dd/yyyy").parse("05/01/2016");
         } catch (ParseException e) {
@@ -60,5 +60,33 @@ public class WaterReport implements Serializable{
 
     public static void setNextReportNumber(int rN) {
         nextReportNumber = rN;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null) {
+            return false;
+        }
+        if (o.getClass() != WaterReport.class) {
+            return false;
+        }
+
+        WaterReport checking = (WaterReport) o;
+
+        if (checking.getCreator().equals(this.getCreator())
+                && checking.getLocation().equals(this.getLocation())) {
+            return true;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return creator.getName() + " " + Double.toString
+                (location.getLatitude()) + " "
+                + Double.toString(location.getLatitude());
     }
 }

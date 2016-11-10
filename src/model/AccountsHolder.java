@@ -29,6 +29,8 @@ public class AccountsHolder {
         return accountList;
     }
 
+    public static void resetAccountList() { accountList = new HashMap(); }
+
     public static void saveAccountsToBinary() {
         Persistence p = new Persistence(accountList);
         p.saveToBinary(accountsFile);
