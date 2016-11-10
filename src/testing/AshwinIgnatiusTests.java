@@ -3,22 +3,13 @@ package testing;
 import model.Account;
 import model.AccountType;
 import model.AccountsHolder;
-import model.Persistence;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import controller.EditAccountController;
-import javafx.scene.control.TextField;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.HashMap;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by Ashwin on 11/9/2016.
- */
 public class AshwinIgnatiusTests {
     HashMap<String, Account> accountList;
     // Tests for addAccount in AccountsHolder

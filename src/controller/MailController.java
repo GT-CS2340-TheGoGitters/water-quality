@@ -18,7 +18,7 @@ class MailController extends Controller {
 
     /**
      * controls where mail is sent from
-     * @throws IOException
+     * @throws IOException When the api key fails to load.
      */
     public MailController() throws IOException {
         apiKey = new String(Files.readAllBytes(Paths.get("mailgunkey.dat")));
@@ -28,7 +28,7 @@ class MailController extends Controller {
      * if clicked, this will send a password reset to the email listed
      * @param account the user's account on the app
      * @param code code to reset the password
-     * @throws Exception
+     * @throws Exception When the email fails to send.
      */
     public void sendPasswordReset(Account account, String code) throws Exception {
         String txtTemplate = new String(Files.readAllBytes(Paths.get("recovery_email.txt")));
