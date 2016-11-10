@@ -9,18 +9,18 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500" prefWidth="700" xmlns="http://javafx.com/javafx/8.0.66" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PostLoginController">
     <MenuBar AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
         <Menu mnemonicParsing="false" text="Profile">
-            <MenuItem fx:id="EditProfileDropDown" mnemonicParsing="false" onAction="#handleEditProfile"
+            <MenuItem mnemonicParsing="false" onAction="#handleEditProfile"
                       text="Edit Profile"/>
-            <MenuItem fx:id="ViewProfileDropDown" mnemonicParsing="false" onAction="#handleViewProfile"
+            <MenuItem mnemonicParsing="false" onAction="#handleViewProfile"
                       text="View Profile"/>
             <MenuItem mnemonicParsing="false" onAction="#handleLogOutClick" text="Logout"/>
         </Menu>
         <Menu mnemonicParsing="false" text="Report">
-            <MenuItem fx:id="WaterSourceReportDropDown" mnemonicParsing="false" onAction="#handleWaterSourceReport"
+            <MenuItem mnemonicParsing="false" onAction="#handleWaterSourceReport"
                       text="Water Source Report"/>
             <MenuItem fx:id="WaterPurityReportDropDown" mnemonicParsing="false" onAction="#handleWaterPurityReports"
                       text="Water Purity Report "/>
-            <MenuItem fx:id="ViewReportsDropdown" mnemonicParsing="false" onAction="#handleViewReports"
+            <MenuItem mnemonicParsing="false" onAction="#handleViewReports"
                       text="View Reports"/>
             <MenuItem fx:id="ViewHistoryDropdown" mnemonicParsing="false" onAction="#handleViewHistory"
                       text="View History"/>

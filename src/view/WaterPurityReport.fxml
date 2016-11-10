@@ -14,7 +14,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0"
             prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="controller.WaterPurityReportController">
-    <Label fx:id="WaterLocationLabel" layoutX="54.0" layoutY="88.0" text="Water Location">
+    <Label layoutX="54.0" layoutY="88.0" text="Water Location">
         <font>
           <Font size="24.0"/>
         </font>
@@ -33,8 +33,8 @@
     </Label>
     <ButtonBar layoutX="459.0" layoutY="427.0" prefHeight="40.0" prefWidth="200.0">
         <buttons>
-          <Button fx:id="CancelButton" mnemonicParsing="false" onAction="#handleCancelPressed" text="Cancel"/>
-          <Button fx:id="SubmitButton" mnemonicParsing="false" onAction="#handleSubmitPressed" text="Submit"/>
+          <Button mnemonicParsing="false" onAction="#handleCancelPressed" text="Cancel"/>
+          <Button mnemonicParsing="false" onAction="#handleSubmitPressed" text="Submit"/>
         </buttons>
     </ButtonBar>
     <HBox layoutX="254.0" layoutY="152.0" prefHeight="40.0" prefWidth="326.0">
@@ -43,7 +43,8 @@
                 <Insets right="20.0" top="10.0"/>
             </HBox.margin>
             <toggleGroup>
-                <ToggleGroup fx:id="ConditionGroup"/>
+                <!--suppress JavaFxUnresolvedFxIdReference, JavaFxUnresolvedFxIdReference -->
+                <ToggleGroup fx:id="ConditionGroup"/> <!-- Must leave this for toggle group reference-->
             </toggleGroup>
         </RadioButton>
         <RadioButton fx:id="TreatableButton" mnemonicParsing="false" text="Treatable" toggleGroup="$ConditionGroup">
