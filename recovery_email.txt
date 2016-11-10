@@ -1,0 +1,9 @@
+Hello {name},
+
+We received a password reset request for your H2LOcator account.
+
+Here's the code we mentioned:
+
+       {code}
+
+If you did not request a password reset, you can safely ignore this message.

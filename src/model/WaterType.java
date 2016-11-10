@@ -1,9 +1,8 @@
 package model;
 
-/**
- * Created by Joshua on 10/4/16.
- */
-public enum WaterType {
+import java.io.Serializable;
+
+public enum WaterType implements Serializable{
     BOTTLED ("Bottled", "BOTTLED"),
     WELL ("Well", "WELL"),
     STREAM ("Stream", "STREAM"),
@@ -11,26 +10,18 @@ public enum WaterType {
     SPRING ("Spring", "SPRING"),
     OTHER ("Other", "OTHER");
 
-    private String text;
+    private final String text;
 
-    private String code;
+    private final String code;
 
     /**
      * Constructor for WaterType
      * @param text type of water
      * @param code code for the type of water
      */
-    private WaterType(String text, String code) {
+    WaterType(String text, String code) {
         this.text = text;
         this.code = code;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public String getCode() {
-        return code;
     }
 
     public String toString() {

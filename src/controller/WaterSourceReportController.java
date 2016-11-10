@@ -1,15 +1,12 @@
 package controller;
 
-import fxapp.WaterQualityApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
 import model.*;
 
-/**
- * Created by Jack on 10/8/16.
- */
+import java.io.File;
+
 public class WaterSourceReportController extends WaterReportController {
 
     @FXML
@@ -32,15 +29,9 @@ public class WaterSourceReportController extends WaterReportController {
     @FXML
     private RadioButton PotableButton;
 
-    private Account account;
-
     private WaterType waterType;
 
     private WaterOverallCondition waterOverallCondition;
-
-    private ReportLocation reportLocation;
-
-    private WaterSourceReport waterSourceReport;
 
 
     public WaterSourceReportController() {
@@ -53,20 +44,21 @@ public class WaterSourceReportController extends WaterReportController {
      */
     @FXML
     private void handleCancelPressed() {
-        mainApp.showPostLogin();
+        mainApp.showScreen(new File("../view/PostLogin.fxml"));
     }
 
     /*
-     * Checks to make sure that latitude and logitude are filled out
+     * Checks to make sure that latitude and longitude are filled out
      * Then adds information to WaterReportsHolder
      * Then returns to PostLogin screen
      */
     @FXML
     protected void handleSubmitPressed() {
         if (WaterLocationField.getText().length() > 0) {
-            account = mainApp.getCurrentAccount();
+            Account account = mainApp.getCurrentAccount();
 
             String waterLocation = WaterLocationField.getText();
+            ReportLocation reportLocation;
             try {
                 String[] latLong = waterLocation.split(",");
                 double latitude = Double.parseDouble(latLong[0]);
@@ -100,7 +92,7 @@ public class WaterSourceReportController extends WaterReportController {
                 waterOverallCondition = WaterOverallCondition.POTABLE;
             }
 
-            waterSourceReport = new WaterSourceReport(account, reportLocation, waterType, waterOverallCondition);
+            WaterSourceReport waterSourceReport = new WaterSourceReport(account, reportLocation, waterType, waterOverallCondition);
 
             try {
                 WaterReportsHolder.addReport(waterSourceReport);
@@ -112,14 +104,13 @@ public class WaterSourceReportController extends WaterReportController {
                 return;
             }
 
-            mainApp.showPostLogin();
+            mainApp.showScreen(new File("../view/PostLogin.fxml"));
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Report Location Error");
             alert.setHeaderText("Incomplete Information");
             alert.setContentText("Enter location of water.");
             alert.showAndWait();
-            return;
         }
     }
 

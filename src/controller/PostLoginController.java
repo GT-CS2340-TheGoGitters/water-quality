@@ -11,27 +11,26 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.MenuItem;
 import model.*;
 
+import java.io.File;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.ResourceBundle;
 
-/**
- * Created by Ashwin on 9/17/2016.
- */
-public class PostLoginController implements Initializable, MapComponentInitializedListener {
+public class PostLoginController extends Controller implements Initializable, MapComponentInitializedListener {
     @FXML
     private MenuItem WaterPurityReportDropDown;
+
+    @FXML
+    private MenuItem ViewHistoryDropdown;
 
     @FXML
     private GoogleMapView mapView;
 
     private GoogleMap map;
 
-    private WaterQualityApplication mainApp;
-
-    private Queue<WaterReport> pendingReports = new LinkedList<>();
+    private final Queue<WaterReport> pendingReports = new LinkedList<>();
 
     private boolean mapInitialized = false;
 
@@ -44,13 +43,15 @@ public class PostLoginController implements Initializable, MapComponentInitializ
      * Gives the controller access to the main application
      * @param newApp the new application
      */
+    @Override
     public void setApp(WaterQualityApplication newApp) {
-        mainApp = newApp;
+        super.setApp(newApp);
 
         // Handle user ACL
         WaterPurityReportDropDown.setDisable(mainApp.getCurrentAccount().getAccountType() == AccountType.USR);
+        ViewHistoryDropdown.setDisable(mainApp.getCurrentAccount().getAccountType() != AccountType.MGR);
 
-        for (WaterReport report : WaterReportsHolder.getReports()) {
+        for (WaterReport report : WaterReportsHolder.getValues()) {
             addWaterReport(report);
         }
     }
@@ -139,9 +140,7 @@ public class PostLoginController implements Initializable, MapComponentInitializ
 
         InfoWindow infoWindow = new InfoWindow(infoWindowOptions);
 
-        map.addUIEventHandler(marker, UIEventType.click, (netscape.javascript.JSObject obj) -> {
-            infoWindow.open(map, marker);
-        });
+        map.addUIEventHandler(marker, UIEventType.click, (netscape.javascript.JSObject obj) -> infoWindow.open(map, marker));
     }
 
     /**
@@ -150,7 +149,7 @@ public class PostLoginController implements Initializable, MapComponentInitializ
     @FXML
     private void handleLogOutClick() {
         mainApp.setCurrentAccount(null);
-        mainApp.returnToWelcomeScreen();
+        mainApp.showScreen(new File("../view/Welcome.fxml"));
     }
 
     /**
@@ -158,20 +157,27 @@ public class PostLoginController implements Initializable, MapComponentInitializ
      */
     @FXML
     private void handleEditProfile() {
-        mainApp.showEditAccount();
+
+        mainApp.showScreen(new File("../view/EditAccount.fxml"));
     }
 
     /**
      * Show the profile screen
      */
     @FXML
-    private void handleViewProfile() { mainApp.showProfile(); }
+    private void handleViewProfile() {
+
+        mainApp.showScreen(new File("../view/Profile.fxml"));
+    }
 
     /**
      * Brings user to WaterSourceReport page
      */
     @FXML
-    private void handleWaterSourceReport() { mainApp.showWaterSourceReport(); }
+    private void handleWaterSourceReport() {
+
+        mainApp.showScreen(new File("../view/WaterSourceReport.fxml"));
+    }
 
     /**
      * Makes sure that Users don't have access to submit WaterPurityReport
@@ -183,9 +189,23 @@ public class PostLoginController implements Initializable, MapComponentInitializ
             alert.setTitle("Error");
             alert.setHeaderText("You do no have permission to submit a Water Purity Report");
             alert.showAndWait();
-            return;
         } else {
-            mainApp.showWaterPutrityReport();
+            mainApp.showScreen(new File("../view/WaterPurityReport.fxml"));
+        }
+    }
+
+    /**
+     * Makes sure that only managers can view the history graph
+     */
+    @FXML
+    private void handleViewHistory() {
+        if (mainApp.getCurrentAccount().getAccountType() != AccountType.MGR) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("You do no have permission to view water history");
+            alert.showAndWait();
+        } else {
+            mainApp.showScreen(new File("../view/HistoryGraphInput.fxml"));
         }
     }
 
@@ -193,5 +213,7 @@ public class PostLoginController implements Initializable, MapComponentInitializ
      * Shows WaterReports
      */
     @FXML
-    private void handlViewReports() { mainApp.showWaterReports(); }
+    private void handleViewReports() {
+        mainApp.showScreen(new File("../view/ReportsView.fxml"));
+    }
 }

@@ -1,12 +1,12 @@
 package model;
 
-/**
- * Created by Joshua on 10/4/16.
- */
-public class WaterSourceReport extends WaterReport {
+import java.io.Serializable;
 
-    private WaterType waterType;
-    private WaterOverallCondition waterOverallCondition;
+public class WaterSourceReport extends WaterReport implements Serializable{
+
+    private final WaterType waterType;
+    private final WaterOverallCondition waterOverallCondition;
+
 
     public WaterType getWaterType() {
         return waterType;
@@ -18,7 +18,7 @@ public class WaterSourceReport extends WaterReport {
 
     /**
      * Constructor for WaterReport
-     * @param creator Acccount that's submitting report
+     * @param creator Account that's submitting report
      * @param location location where report is
      * @param waterType the type of te water
      * @param waterOverallCondition the condition of the water
@@ -28,4 +28,11 @@ public class WaterSourceReport extends WaterReport {
         this.waterType = waterType;
         this.waterOverallCondition = waterOverallCondition;
     }
+
+//    public void saveToText(PrintWriter pw) {
+//        LOGGER.setLevel(Level.FINEST);
+//        LOGGER.entering("WaterReport", "saveToText");
+//        pw.println(this.getClass() + "," + this.getCreator() + "," + this.getLocation(), +"," + this.getCreated() + "," + this.getReportNumber() + "," + this.waterType + "," + this.waterOverallCondition);
+//        LOGGER.exiting("WaterReport", "saveToText");
+//    }
 }

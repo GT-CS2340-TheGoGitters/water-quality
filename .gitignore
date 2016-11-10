@@ -1,4 +1,13 @@
-
 .idea/workspace.xml
 
 out/
+
+security.log
+
+mailgunkey.dat
+
+mailgunkey.dat
+
+*.dat
+
+.idea/workspace.xml

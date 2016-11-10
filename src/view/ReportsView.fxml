@@ -8,16 +8,10 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0"
             prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="controller.ReportsController">
-    <children>
-        <MenuBar prefHeight="35.0" prefWidth="700.0">
-            <menus>
-                <Menu mnemonicParsing="false" text="File">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Home" onAction="#handleHomeClicked"/>
-                    </items>
-                </Menu>
-            </menus>
-        </MenuBar>
-        <TableView layoutY="35.0" fx:id="reportsTable" prefWidth="700.0"></TableView>
-    </children>
+    <MenuBar prefHeight="35.0" prefWidth="700.0">
+        <Menu mnemonicParsing="false" text="File">
+            <MenuItem mnemonicParsing="false" text="Home" onAction="#handleHomeClicked"/>
+        </Menu>
+    </MenuBar>
+    <TableView layoutY="35.0" fx:id="reportsTable" prefWidth="700.0"/>
 </AnchorPane>

@@ -1,6 +1,5 @@
 package controller;
 
-import fxapp.WaterQualityApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.RadioButton;
@@ -8,13 +7,11 @@ import javafx.scene.control.TextField;
 import model.Account;
 import model.AccountType;
 import model.AccountsHolder;
+import model.logging.security.AccountCreationEntry;
 
-/**
- * Created by Allison on 9/27/16.
- */
-public class RegisterController {
+import java.io.File;
 
-    private WaterQualityApplication mainApp;
+public class RegisterController extends Controller {
 
     @FXML
     private TextField name;
@@ -37,22 +34,15 @@ public class RegisterController {
     @FXML
     private RadioButton AdminSelectButton;
 
-    private Account account;
-
     public RegisterController() {}
-
-    /**
-     * Gives the controller access to the main application
-     * @param newApp the new application
-     */
-    public void setApp(WaterQualityApplication newApp) { mainApp = newApp;}
 
     /**
      * Returns to the welcome screen when Cancel is pressed
      */
     @FXML
     private void handleCancelPressed() {
-        mainApp.returnToWelcomeScreen();
+
+        mainApp.showScreen(new File("../view/Welcome.fxml"));
     }
 
     /**
@@ -76,15 +66,17 @@ public class RegisterController {
                 accountType = AccountType.ADM;
             }
 
-            Account newAccount = new Account(
-                name.getText(),
-                username.getText(),
-                password.getText(),
-                accountType
-            );
 
             try{
+                Account newAccount = new Account(
+                        name.getText(),
+                        username.getText(),
+                        password.getText(),
+                        accountType
+                );
+
                 AccountsHolder.addAccount(newAccount);
+                mainApp.logSecurityEvent(new AccountCreationEntry(newAccount));
             } catch (Exception ex) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Registration Error");
@@ -94,7 +86,7 @@ public class RegisterController {
             }
 
 
-            mainApp.returnToWelcomeScreen();
+            mainApp.showScreen(new File("../view/Welcome.fxml"));
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Registration Error");

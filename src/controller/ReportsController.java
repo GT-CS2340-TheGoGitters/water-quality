@@ -1,13 +1,10 @@
 package controller;
 
-import fxapp.WaterQualityApplication;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -17,33 +14,20 @@ import model.WaterReport;
 import model.WaterReportsHolder;
 import model.WaterSourceReport;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 
-/**
- * Created by Joshua on 10/12/2016.
- */
-public class ReportsController {
+public class ReportsController extends Controller {
     @FXML
     private TableView reportsTable;
 
-    private WaterQualityApplication mainApp;
-
-    private ObservableList<WaterReport> data = FXCollections.observableArrayList();
-
-    /**
-     * Gives the controller access to the main application
-     *
-     * @param newApp the new application
-     */
-    public void setApp(WaterQualityApplication newApp) {
-        mainApp = newApp;
-    }
+    private final ObservableList<WaterReport> data = FXCollections.observableArrayList();
 
     /**
      * Brings Account back to PostLogin screen
      */
     @FXML private void handleHomeClicked(){
-        mainApp.showPostLogin();
+        mainApp.showScreen(new File("../view/PostLogin.fxml"));
     }
 
     /**
@@ -162,7 +146,7 @@ public class ReportsController {
                 }
         );
 
-        data.addAll(WaterReportsHolder.getReports());
+        data.addAll(WaterReportsHolder.getValues());
 
         reportsTable.setItems(data);
 

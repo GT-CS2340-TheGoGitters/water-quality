@@ -1,20 +1,14 @@
 package controller;
 
-import com.lynden.gmapsfx.service.geocoding.GeocoderStatus;
-import com.lynden.gmapsfx.service.geocoding.GeocodingResult;
-import com.lynden.gmapsfx.service.geocoding.GeocodingService;
-import com.lynden.gmapsfx.service.geocoding.GeocodingServiceCallback;
-import fxapp.WaterQualityApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import model.*;
 
-/**
- * Created by Jack on 10/13/16.
- */
-public class WaterPurityReportController extends WaterReportController{
+import java.io.File;
+
+public class WaterPurityReportController extends WaterReportController {
 
     @FXML
     private TextField VirusPPMField;
@@ -28,17 +22,7 @@ public class WaterPurityReportController extends WaterReportController{
     @FXML
     private RadioButton UnsafeButton;
 
-    private Account account;
-
     private WaterCondition waterCondition;
-
-    private ReportLocation reportLocation;
-
-    private WaterPurityReport waterPurityReport;
-
-    private int virusPPM;
-
-    private int containmentPPM;
 
 
     public WaterPurityReportController() { }
@@ -48,11 +32,11 @@ public class WaterPurityReportController extends WaterReportController{
      */
     @FXML
     private void handleCancelPressed() {
-        mainApp.showPostLogin();
+        mainApp.showScreen(new File("../view/PostLogin.fxml"));
     }
 
     /*
-     * Checks to make sure that latitude and logitude are filled out
+     * Checks to make sure that latitude and longitude are filled out
      * Then adds information to WaterReportsHolder
      * Then returns to PostLogin screen
      */
@@ -61,9 +45,10 @@ public class WaterPurityReportController extends WaterReportController{
         if (WaterLocationField.getText().length() > 0 &&
                 VirusPPMField.getText().length() > 0 &&
                 ContainmentPPMField.getText().length() > 0) {
-            account = mainApp.getCurrentAccount();
+            Account account = mainApp.getCurrentAccount();
 
             String waterLocation = WaterLocationField.getText();
+            ReportLocation reportLocation;
             try {
                 String[] latLong = waterLocation.split(",");
                 double latitude = Double.parseDouble(latLong[0]);
@@ -83,6 +68,7 @@ public class WaterPurityReportController extends WaterReportController{
                 waterCondition = WaterCondition.UNSAFE;
             }
 
+            int virusPPM;
             try {
                 virusPPM = Integer.parseInt(VirusPPMField.getText());
             } catch (Exception ex) {
@@ -94,6 +80,7 @@ public class WaterPurityReportController extends WaterReportController{
                 return;
             }
 
+            int containmentPPM;
             try {
                 containmentPPM = Integer.parseInt(ContainmentPPMField.getText());
             } catch (Exception ex) {
@@ -105,7 +92,7 @@ public class WaterPurityReportController extends WaterReportController{
                 return;
             }
 
-            waterPurityReport = new WaterPurityReport(account, reportLocation, waterCondition, virusPPM, containmentPPM);
+            WaterPurityReport waterPurityReport = new WaterPurityReport(account, reportLocation, waterCondition, virusPPM, containmentPPM);
 
             try {
                 WaterReportsHolder.addReport(waterPurityReport);
@@ -113,14 +100,13 @@ public class WaterPurityReportController extends WaterReportController{
                 return;
             }
 
-            mainApp.showPostLogin();
+            mainApp.showScreen(new File("../view/PostLogin.fxml"));
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Report Submission Error");
             alert.setHeaderText("Incomplete Information");
             alert.setContentText("Enter all required information.");
             alert.showAndWait();
-            return;
         }
     }
 }

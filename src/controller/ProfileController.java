@@ -1,16 +1,15 @@
 package controller;
 
-import fxapp.WaterQualityApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import model.Account;
 
+import java.io.File;
+import java.text.SimpleDateFormat;
 
-/**
- * Created by Ashwin on 10/5/2016.
- */
-public class ProfileController {
+
+public class ProfileController extends Controller {
 
     @FXML
     private Text name;
@@ -19,7 +18,7 @@ public class ProfileController {
     private Text username;
 
     @FXML
-    private Text password;
+    private Text passwordCreated;
 
     @FXML
     private Text email;
@@ -28,19 +27,16 @@ public class ProfileController {
     private Text address;
 
     @FXML
-    private Text accounttype;
+    private Text accountType;
 
     @FXML
     private Text title;
 
     @FXML
-    private Button passbutton;
+    private Button back;
 
-    private WaterQualityApplication mainApp;
-
-    private Account account;
-
-    private int count;
+    @FXML
+    private Button editProfile;
 
     public ProfileController() {
 
@@ -50,13 +46,11 @@ public class ProfileController {
      * Puts required values in the appropriate fields.
      */
     public void setUpProfile() {
-        account = mainApp.getCurrentAccount();
+        Account account = mainApp.getCurrentAccount();
         name.setText(account.getName());
         username.setText(account.getUsername());
-        accounttype.setText(account.getAccountType().getUserType());
-        for (int i = 0; i < account.getPassword().length(); i++) {
-            password.setText(password.getText() + "*");
-        }
+        passwordCreated.setText(new SimpleDateFormat("MMMMM F, y").format(account.getLastPasswordChange()));
+        accountType.setText(account.getAccountType().getUserType());
         if (account.getEmailAddress() != null) {
             email.setText(account.getEmailAddress());
         }
@@ -67,39 +61,22 @@ public class ProfileController {
         if (account.getTitle() != null) {
             title.setText(account.getTitle());
         }
-        count = 0;
-    }
-
-    /**
-     * Gives the controller access to the main application
-     * @param newApp the new application
-     */
-    public void setApp(WaterQualityApplication newApp) {
-        mainApp = newApp;
     }
 
     /**
      * Returns to the post login screen when Done is clicked.
      */
     @FXML
-    public void doneClicked() {
-        mainApp.showPostLogin();
+    public void backClicked() {
+        mainApp.showScreen(new File("../view/PostLogin.fxml"));
     }
 
     /**
-     * Shows and hides the password.
+     * Returns to the edit account screen when Edit profile is clicked.
      */
     @FXML
-    public void passButtonClicked() {
-        if (count % 2 == 0) {
-            count++;
-            password.setText(account.getPassword());
-        } else {
-            count++;
-            password.setText("");
-            for (int i = 0; i < account.getPassword().length(); i++) {
-                password.setText(password.getText() + "*");
-            }
-        }
+    public void editProfileClicked() {
+        mainApp.showScreen(new File("../view/EditAccount.fxml"));
     }
+
 }

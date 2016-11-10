@@ -8,9 +8,14 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import model.*;
-import sun.rmi.runtime.Log;
+import model.logging.security.ApplicationStartedEntry;
+import model.logging.security.Log;
+import model.logging.security.SecurityLogEntry;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class WaterQualityApplication extends Application {
 
@@ -20,6 +25,8 @@ public class WaterQualityApplication extends Application {
 
     private Account currentAccount = null;
 
+    private PrintWriter securityLog;
+
     /**
      * Starts the application
      * @param primaryStage the main stage of the application
@@ -28,7 +35,19 @@ public class WaterQualityApplication extends Application {
     public void start(Stage primaryStage) {
         mainStage = primaryStage;
         mainStage.setResizable(false);
-        intialize();
+        initialize();
+
+        // Initialize Log
+        File file = new File("security.log");
+        FileWriter writer;
+        try {
+            writer = new FileWriter(file, true);
+            securityLog = new PrintWriter(writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        logSecurityEvent(new ApplicationStartedEntry());
     }
 
     public Account getCurrentAccount(){
@@ -46,7 +65,8 @@ public class WaterQualityApplication extends Application {
     /**
      * Initializes the application
      */
-    public void intialize() {
+    private void initialize() {
+        this.loadData();
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(WaterQualityApplication.class.getResource("../view/Welcome.fxml"));
@@ -61,171 +81,131 @@ public class WaterQualityApplication extends Application {
         } catch (IOException e) {
             System.out.print("Cannot load Welcome Screen");
         }
+
+        Runtime.getRuntime().addShutdownHook(new Thread(this::saveData));
     }
 
     /**
-     * Returns the user to the welcome screen
+     * Changes the screen
+     *
+     * @param file the FXML file that will be displayed
      */
-    public void returnToWelcomeScreen() {
+    public void showScreen(File file) {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(WaterQualityApplication.class.getResource("../view/Welcome.fxml"));
+            loader.setLocation(WaterQualityApplication.class.getResource("../view/" + file.getName()));
             baseLayout = loader.load();
 
-            WelcomeController controller = loader.getController();
+            Controller controller = loader.getController();
             controller.setApp(this);
+            if (controller instanceof ProfileController) {
+                ((ProfileController) controller).setUpProfile();
+            }
 
             mainStage.setScene(new Scene(baseLayout));
-        } catch (IOException e) {
-            System.out.print("Cannot load Welcome Screen");
+
+        } catch (Exception ex) {
+            System.out.println("Cannot load " + file.getName());
         }
     }
 
     /**
-     * Loads the login screen
+     * Loads the history graph screen.
      */
-    public void showLogin() {
+    public HistoryGraphDisplayController showHistoryDisplay() {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(WaterQualityApplication.class.getResource("../view/Login.fxml"));
+            loader.setLocation(WaterQualityApplication.class.getResource("../view/HistoryGraphDisplay.fxml"));
             baseLayout = loader.load();
 
-            LoginController controller = loader.getController();
+            HistoryGraphDisplayController controller = loader.getController();
             controller.setApp(this);
 
             mainStage.setScene(new Scene(baseLayout));
+
+            return controller;
         } catch (IOException e) {
-            System.out.print("Cannot load Login Screen");
+            System.out.print("Cannot load History Display Screen: " + e.getMessage());
+            return null;
         }
     }
 
     /**
-     * Loads the post login screen
+     * Loads the recovery code screen
      */
-    public void showPostLogin() {
+    public EnterResetCodeController showEnterResetCode() {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(WaterQualityApplication.class.getResource("../view/PostLogin.fxml"));
+            loader.setLocation(WaterQualityApplication.class.getResource("../view/EnterResetCode.fxml"));
             baseLayout = loader.load();
 
-            PostLoginController controller = loader.getController();
+            EnterResetCodeController controller = loader.getController();
             controller.setApp(this);
 
             mainStage.setScene(new Scene(baseLayout));
+
+            return controller;
         } catch (IOException e) {
-            System.out.print("Cannot load Post Login Screen");
+            System.out.print("Cannot load Enter Reset Code Screen");
+            return null;
         }
     }
 
     /**
-     * Loads the registration screen
+     * Loads the reset password screen
      */
-    public void showRegister() {
+    public ResetPasswordController showResetPassword() {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(WaterQualityApplication.class.getResource("../view/Registration.fxml"));
+            loader.setLocation(WaterQualityApplication.class.getResource("../view/ResetPassword.fxml"));
             baseLayout = loader.load();
 
-            RegisterController controller = loader.getController();
+            ResetPasswordController controller = loader.getController();
             controller.setApp(this);
 
             mainStage.setScene(new Scene(baseLayout));
+
+            return controller;
         } catch (IOException e) {
-            System.out.print("Cannot load Registration Screen");
+            System.out.print("Cannot load Reset Password Screen");
+            return null;
         }
     }
 
     /**
-     * Loads the profile screen
+     * Logs and failed login attempts
+     *
+     * @param event the failed login attempt.
      */
-    public void showProfile() {
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(WaterQualityApplication.class.getResource("../view/Profile.fxml"));
-            baseLayout = loader.load();
-
-            ProfileController controller = loader.getController();
-            controller.setApp(this);
-            controller.setUpProfile();
-
-            mainStage.setScene(new Scene(baseLayout));
-        } catch (IOException e) {
-            System.out.print("Cannot load Profile Screen.");
+    public void logSecurityEvent(SecurityLogEntry event){
+        if(securityLog != null){
+            securityLog.println(event.toString());
+            securityLog.flush();
         }
+        model.logging.security.Log.addEntry(event);
     }
 
     /**
-     * Loads the edit account screen
+     * Loads previously submitted WaterReports and Accounts
      */
-    public void showEditAccount() {
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(WaterQualityApplication.class.getResource("../view/EditAccount.fxml"));
-            baseLayout = loader.load();
-
-            EditAccountController controller = loader.getController();
-            controller.setApp(this);
-
-            mainStage.setScene(new Scene(baseLayout));
-        } catch (IOException e) {
-            System.out.print("Cannot load Edit Account Screen");
-        }
+    public void loadData() {
+        WaterReportsHolder.loadReportsFromBinary();
+        AccountsHolder.loadAccountsFromBinary();
+        Log.loadAccountsFromBinary();
     }
 
     /**
-     * Loads the submit water source report screen.
+     * Saves any newly submitted WaterReports and Accounts
      */
-    public void showWaterSourceReport() {
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(WaterQualityApplication.class.getResource("../view/WaterSourceReport.fxml"));
-            baseLayout = loader.load();
-
-            WaterSourceReportController controller = loader.getController();
-            controller.setApp(this);
-
-            mainStage.setScene(new Scene(baseLayout));
-        } catch (IOException e) {
-            System.out.print("Cannot load Water Source Report Screen");
-        }
+    public void saveData() {
+        WaterReportsHolder.saveReportsToBinary();
+        AccountsHolder.saveAccountsToBinary();
+        Log.saveAccountsToBinary();
     }
 
     /**
-     * Loads the submit water purity report screen.
+     * launches the application
      */
-    public void showWaterPutrityReport() {
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(WaterQualityApplication.class.getResource("../view/WaterPurityReport.fxml"));
-            baseLayout = loader.load();
-
-            WaterPurityReportController controller = loader.getController();
-            controller.setApp(this);
-
-            mainStage.setScene(new Scene(baseLayout));
-        } catch (IOException e) {
-            System.out.print("Cannot load Water Purity Report Screen");
-        }
-    }
-
-    /**
-     * Loads the view water reports screen.
-     */
-    public void showWaterReports() {
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(WaterQualityApplication.class.getResource("../view/ReportsView.fxml"));
-            baseLayout = loader.load();
-
-            ReportsController controller = loader.getController();
-            controller.setApp(this);
-
-            mainStage.setScene(new Scene(baseLayout));
-        } catch (IOException e) {
-            System.out.print("Cannot load Reports Screen: " + e.getMessage());
-        }
-    }
-
     public static void main(String[] args) {
         launch(args);
     }

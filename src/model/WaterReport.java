@@ -1,32 +1,32 @@
 package model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-/**
- * Created by Joshua on 10/4/16.
- */
-public class WaterReport {
+
+public class WaterReport implements Serializable{
     private static int nextReportNumber = 1;
 
-    private Date created;
-    private int reportNumber;
-    private Account creator;
-    private ReportLocation location;
+    private final Date created;
+    private final int reportNumber;
+    private final Account creator;
+    private final ReportLocation location;
 
     /**
      * Constructor for WaterReport
-     * @param creator Acccount that's submitting report
+     * @param creator Account that's submitting report
      * @param location location where report is
      */
-    protected WaterReport(Account creator, ReportLocation location){
+    public WaterReport(Account creator, ReportLocation location){
+        /*try {
+            created = new SimpleDateFormat("M/dd/yyyy").parse("05/01/2016");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }*/
         created = new Date();
         reportNumber = ++nextReportNumber;
         this.creator = creator;
         this.location = location;
-    }
-
-    public static int getNextReportNumber() {
-        return nextReportNumber;
     }
 
     public Date getCreated() {
@@ -43,5 +43,37 @@ public class WaterReport {
 
     public ReportLocation getLocation() {
         return location;
+    }
+
+    public static void setNextReportNumber(int rN) {
+        nextReportNumber = rN;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null) {
+            return false;
+        }
+        if (o.getClass() != WaterReport.class) {
+            return false;
+        }
+
+        WaterReport checking = (WaterReport) o;
+
+        if (checking.getCreator().equals(this.getCreator())
+                && checking.getLocation().equals(this.getLocation())) {
+            return true;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return creator.getName() + " " + Double.toString
+                (location.getLatitude()) + " "
+                + Double.toString(location.getLatitude());
     }
 }

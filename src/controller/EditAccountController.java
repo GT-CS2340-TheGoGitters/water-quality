@@ -1,16 +1,15 @@
 package controller;
 
-import fxapp.WaterQualityApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import model.Account;
+import model.Password;
 
-/**
- * Created by Jack on 9/29/16.
- */
-public class EditAccountController {
+import java.io.File;
+
+public class EditAccountController extends Controller {
 
     @FXML
     private TextField EditAccountName;
@@ -42,8 +41,6 @@ public class EditAccountController {
     @FXML
     private Button EditProfileSave;
 
-    private WaterQualityApplication mainApp;
-
     private Account account;
 
     public EditAccountController() {
@@ -51,11 +48,27 @@ public class EditAccountController {
     }
 
     /**
-     * Give controller access to main application
-     * @param newApp the new application
+     * Puts required values in the appropriate fields.
      */
-    public void setApp(WaterQualityApplication newApp) {
-        mainApp = newApp;
+    public void setUpEditPage() {
+        account = mainApp.getCurrentAccount();
+        EditAccountName.setText(account.getName());
+        if (account.getEmailAddress() != null) {
+            EditAccountEmail.setText(account.getEmailAddress());
+        }
+        if (account.getHomeAddress() != null) {
+            String address = account.getHomeAddress();
+            String[] addressComponents = address.split("\n");
+            EditAccountAddress.setText(addressComponents[0]);
+            String[] city = addressComponents[1].split(",");
+            EditAccountCity.setText(city[0]);
+            String[] stateZip = city[1].split(" ");
+            EditAccountState.setText(stateZip[1]);
+            EditAccountZIP.setText(stateZip[2]);
+        }
+        if (account.getTitle() != null) {
+            EditAccountTitle.setText(account.getTitle());
+        }
     }
 
     /**
@@ -63,7 +76,7 @@ public class EditAccountController {
      */
     @FXML
     private void handleCancelPressed() {
-        mainApp.showPostLogin();
+        mainApp.showScreen(new File("../view/PostLogin.fxml"));
     }
 
     /**
@@ -76,7 +89,18 @@ public class EditAccountController {
             account.setName(EditAccountName.getText());
         }
         if (EditAccountPassword.getText().length() != 0) {
-            account.setPassword(EditAccountPassword.getText());
+            try {
+                account.setPassword(EditAccountPassword.getText());
+            } catch (Password.CannotPerformOperationException e) {
+                e.printStackTrace();
+
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Password Error");
+                alert.setHeaderText("Password Hashing Error");
+                alert.setContentText("Could not hash password.");
+                alert.showAndWait();
+                return;
+            }
         }
         if (EditAccountEmail.getText().length() != 0) {
             account.setEmailAddress(EditAccountEmail.getText());
@@ -103,6 +127,6 @@ public class EditAccountController {
             account.setTitle(EditAccountTitle.getText());
         }
 
-        mainApp.showPostLogin();
+        mainApp.showScreen(new File("../view/PostLogin.fxml"));
     }
 }

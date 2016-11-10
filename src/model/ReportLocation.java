@@ -2,22 +2,27 @@ package model;
 
 import com.lynden.gmapsfx.javascript.object.LatLong;
 
-/**
- * Created by Joshua on 10/4/16.
- */
-public class ReportLocation {
-    private double latitude;
-    private double longitude;
+import java.io.Serializable;
+
+public class ReportLocation implements Serializable{
+    private static final int EARTH_RADIUS_MILES = 3959;
+
+    private final double latitude;
+    private final double longitude;
 
     public ReportLocation(double lat, double lng){
         this.latitude = lat;
         this.longitude = lng;
     }
 
+    // This is public because future development may want to access the latitude.
+    @SuppressWarnings("WeakerAccess")
     public double getLatitude() {
         return latitude;
     }
 
+    // This is public because future development may want to access the longitude
+    @SuppressWarnings("WeakerAccess")
     public double getLongitude() {
         return longitude;
     }
@@ -29,5 +34,21 @@ public class ReportLocation {
 
     public LatLong toLatLong(){
         return new LatLong(latitude, longitude);
+    }
+
+    /**
+     * Gets the distance in miles between 2 locations
+     *
+     * @param loc2 The second location
+     * @return The distance in miles between this location and the other location.
+     */
+    public double distFrom(ReportLocation loc2) {
+        double dLat = Math.toRadians(loc2.getLatitude() - latitude);
+        double dLng = Math.toRadians(loc2.getLongitude() - longitude);
+        double a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                Math.cos(Math.toRadians(latitude)) * Math.cos(Math.toRadians(loc2.getLatitude())) *
+                        Math.sin(dLng / 2) * Math.sin(dLng / 2);
+        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        return (EARTH_RADIUS_MILES * c);
     }
 }
