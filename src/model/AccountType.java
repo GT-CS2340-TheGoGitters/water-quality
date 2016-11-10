@@ -6,9 +6,9 @@ public enum AccountType {
     MGR ("MANAGER", "MGR"),
     ADM ("ADMIN", "ADM");
 
-    private String userType;
+    private final String userType;
 
-    private String code;
+    private final String code;
 
     /**
      * Constructor for AccountType enum

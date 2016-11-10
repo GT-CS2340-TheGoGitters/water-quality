@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Account implements Serializable{
-    private String username;
+    private final String username;
     private Password password;
     private String name;
     private String emailAddress = null;

@@ -16,17 +16,17 @@ public class AdminHomeController extends Controller {
 
     @FXML
     public void handleMngUsersClicked() {
-        //mainApp.showMngUsersScreen();
+        // TODO: Implement manage users
     }
 
     @FXML
     public void handleViewLogClicked() {
-        //mainApp.showSecurityLogScree();
+        // TODO: Implement view security log
     }
 
     @FXML
     public void handleMngReportsClicked() {
-        //mainApp.showMngReportsScreen();
+        // TODO: Implement manage reports
     }
 
     @FXML

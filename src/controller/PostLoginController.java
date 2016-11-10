@@ -30,7 +30,7 @@ public class PostLoginController extends Controller implements Initializable, Ma
 
     private GoogleMap map;
 
-    private Queue<WaterReport> pendingReports = new LinkedList<>();
+    private final Queue<WaterReport> pendingReports = new LinkedList<>();
 
     private boolean mapInitialized = false;
 

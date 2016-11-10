@@ -4,9 +4,9 @@ import java.io.Serializable;
 import java.util.logging.Logger;
 
 public class WaterPurityReport extends WaterReport implements Serializable{
-    private WaterCondition waterCondition;
-    private int virusPPM;
-    private int contaminantPPM;
+    private final WaterCondition waterCondition;
+    private final int virusPPM;
+    private final int contaminantPPM;
     private static Logger LOGGER = Logger.getLogger("WaterReport");
 
 

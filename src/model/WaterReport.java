@@ -7,10 +7,10 @@ import java.util.Date;
 public class WaterReport implements Serializable{
     private static int nextReportNumber = 1;
 
-    private Date created;
-    private int reportNumber;
-    private Account creator;
-    private ReportLocation location;
+    private final Date created;
+    private final int reportNumber;
+    private final Account creator;
+    private final ReportLocation location;
 
     /**
      * Constructor for WaterReport
@@ -25,19 +25,6 @@ public class WaterReport implements Serializable{
         }*/
         created = new Date();
         reportNumber = ++nextReportNumber;
-        this.creator = creator;
-        this.location = location;
-    }
-
-    /**
-     * Constructor for WaterReport
-     * @param creator Account that's submitting report
-     * @param location location where report is
-     */
-    protected WaterReport(Account creator, ReportLocation location, Date created, int reportNumber){
-        this.created = created;
-        this.reportNumber = reportNumber;
-        nextReportNumber++;
         this.creator = creator;
         this.location = location;
     }

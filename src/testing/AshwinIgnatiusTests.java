@@ -11,7 +11,7 @@ import java.util.HashMap;
 import static org.junit.Assert.*;
 
 public class AshwinIgnatiusTests {
-    HashMap<String, Account> accountList;
+    private HashMap<String, Account> accountList;
     // Tests for addAccount in AccountsHolder
 
     @Before
@@ -37,7 +37,7 @@ public class AshwinIgnatiusTests {
         AccountsHolder.resetAccountList();
 
         Account account1 = new Account("Ashwin", "aignatius3", "password", AccountType.USR);
-        Account account2 = new Account("Ash", "aignatius3", "pass", AccountType.USR.WKR);
+        Account account2 = new Account("Ash", "aignatius3", "pass", AccountType.WKR);
         AccountsHolder.addAccount(account1);
         AccountsHolder.addAccount(account2);
     }

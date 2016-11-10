@@ -5,9 +5,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Persistence {
-
-    private static Logger LOGGER = Logger.getLogger("Persistence");
-
     private Object backing;
 
     public Persistence(Object backing) {
@@ -19,7 +16,8 @@ public class Persistence {
             oos.writeObject(backing);
             oos.close();
         } catch (IOException e) {
-            LOGGER.log(Level.SEVERE, "Failed to save file", e);
+            System.out.println("Failed to save file");
+            e.printStackTrace();
         }
     }
 
@@ -28,9 +26,11 @@ public class Persistence {
             backing = ois.readObject();
             ois.close();
         } catch (IOException e) {
-            LOGGER.log(Level.SEVERE, "Failed to input Binary", e);
+            System.out.println("Failed to load file");
+            e.printStackTrace();
         } catch (ClassNotFoundException e) {
-            LOGGER.log(Level.SEVERE, "Failed to find Binary", e);
+            System.out.println("Failed to load file");
+            e.printStackTrace();
         }
     }
 

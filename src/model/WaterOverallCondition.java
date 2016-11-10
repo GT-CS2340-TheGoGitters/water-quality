@@ -8,9 +8,9 @@ public enum WaterOverallCondition implements Serializable{
     TREATABLE_MUDDY ("Treatable-Muddy", "TREATABLE_MUDDY"),
     POTABLE ("Potable", "POTABLE");
 
-    private String text;
+    private final String text;
 
-    private String code;
+    private final String code;
 
     /**
      * Constructor for WaterOverallCondition
