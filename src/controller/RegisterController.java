@@ -34,8 +34,6 @@ public class RegisterController extends Controller {
     @FXML
     private RadioButton AdminSelectButton;
 
-    private Account account;
-
     public RegisterController() {}
 
     /**

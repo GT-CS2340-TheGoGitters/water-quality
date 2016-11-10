@@ -14,13 +14,12 @@ public class JackWeinkselbaumTests {
     private HashMap<Integer, WaterReport> testAgainst;
     private WaterReport wr;
     private Account acct;
-    private ReportLocation rl;
 
     @Before
     public void setUp() throws Exception {
         testAgainst = new HashMap<>();
         acct = new Account("Jack", "user", "pass", AccountType.USR);
-        rl = new ReportLocation(12.4, 12.4);
+        ReportLocation rl = new ReportLocation(12.4, 12.4);
         wr = new WaterReport(acct, rl);
     }
 

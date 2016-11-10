@@ -7,7 +7,6 @@ public class WaterSourceReport extends WaterReport implements Serializable{
 
     private final WaterType waterType;
     private final WaterOverallCondition waterOverallCondition;
-    private static Logger LOGGER = Logger.getLogger("WaterReport");
 
 
     public WaterType getWaterType() {

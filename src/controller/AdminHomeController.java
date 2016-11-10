@@ -8,6 +8,8 @@ import java.io.File;
 public class AdminHomeController extends Controller {
 
 
+    @SuppressWarnings("unused")
+    // TODO: implement admin home controller
     private Account account;
 
     public AdminHomeController() {
