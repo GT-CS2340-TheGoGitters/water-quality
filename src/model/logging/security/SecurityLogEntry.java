@@ -11,7 +11,12 @@ import java.util.Locale;
 public abstract class SecurityLogEntry implements Serializable{
     private static final DateFormat dateFormat = new SimpleDateFormat("dd/MMM/yyyy:HH:mm:ss Z", Locale.US);
 
+    @SuppressWarnings("WeakerAccess")
+    // Subclasses should be able to access this field
     protected final Account actingAccount;
+
+    @SuppressWarnings("WeakerAccess")
+    // Subclasses should be able to access this field
     protected final Date time;
 
     @SuppressWarnings("unused")
