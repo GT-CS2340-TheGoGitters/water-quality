@@ -90,7 +90,8 @@
                     <RadioButton mnemonicParsing="false" selected="true" text="Contaminant" GridPane.columnIndex="1"
                                  fx:id="contaminantRadio">
                         <toggleGroup>
-                            <ToggleGroup fx:id="dataType"/>
+                            <!--suppress JavaFxUnresolvedFxIdReference -->
+                            <ToggleGroup fx:id="dataType"/> <!--must leave for toggle group reference-->
                         </toggleGroup>
                     </RadioButton>
                     <RadioButton mnemonicParsing="false" text="Virus" toggleGroup="$dataType" fx:id="virusRadio"/>
