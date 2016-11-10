@@ -1,6 +1,5 @@
 package testing;
 
-import controller.EditAccountController;
 import model.Account;
 import model.AccountType;
 import org.junit.Before;
@@ -10,9 +9,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertNotNull;
 
-/**
- * Created by Marisa on 11/8/2016.
- */
 public class MarisaHoenigTests {
     Account account;
     //test for setUpEditPage() in EditAccountController.java

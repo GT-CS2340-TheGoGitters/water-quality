@@ -1,20 +1,13 @@
 package testing;
 
-import controller.ProfileController;
-import fxapp.WaterQualityApplication;
 import model.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.HashMap;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by Jack on 11/7/16.
- */
 public class JackWeinkselbaumTests {
     //Testing getValues() in WaterReportsHolder
 
@@ -47,7 +40,7 @@ public class JackWeinkselbaumTests {
     @Test
     public void clearAll() {
         wh.clearAll();
-        testAgainst = new HashMap<Integer, WaterReport>();
+        testAgainst = new HashMap<>();
         assertEquals(wh.getReportsList(), testAgainst);
     }
 
@@ -66,7 +59,7 @@ public class JackWeinkselbaumTests {
     @Test
     public void testGetValuesAfterClear() {
         wh.clearAll();
-        testAgainst = new HashMap<Integer, WaterReport>();
+        testAgainst = new HashMap<>();
         WaterReport[] vals1 = testAgainst.values().toArray(new WaterReport[wh.getReportsList().size()]);
         assertArrayEquals(vals1, wh.getValues());
 
