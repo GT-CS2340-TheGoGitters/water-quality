@@ -67,7 +67,7 @@ public class WaterReport implements Serializable{
                 && checking.getLocation().equals(this.getLocation())) {
             return true;
         }
-        return true;
+        return false;
     }
 
     @Override
