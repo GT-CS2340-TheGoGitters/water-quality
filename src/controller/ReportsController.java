@@ -1,5 +1,7 @@
 package controller;
 
+import fxapp.WaterQualityApplication;
+import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -9,10 +11,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Callback;
-import model.WaterPurityReport;
-import model.WaterReport;
-import model.WaterReportsHolder;
-import model.WaterSourceReport;
+import model.*;
+import view.ButtonCell;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -151,5 +151,64 @@ public class ReportsController extends Controller {
         reportsTable.setItems(data);
 
         reportsTable.getColumns().addAll(reportCol, reportNumberCol, dateCol, accountCol, locationCol, typeCol, conditionCol, virusCol, contaminationCol);
+    }
+
+    @Override
+    public void setApp(WaterQualityApplication newApp) {
+        super.setApp(newApp);
+
+        if (newApp.getCurrentAccount().getAccountType() == AccountType.MGR) {
+            TableColumn deleteCol = new TableColumn<>("Delete");
+            deleteCol.setSortable(false);
+
+            deleteCol.setCellValueFactory(
+                    new Callback<TableColumn.CellDataFeatures<WaterReport, WaterReport>,
+                            ObservableValue<WaterReport>>() {
+
+                        @Override
+                        public ObservableValue<WaterReport> call(TableColumn.CellDataFeatures<WaterReport, WaterReport> p) {
+                            return new ReadOnlyObjectWrapper<>(p.getValue());
+                        }
+                    });
+
+
+            deleteCol.setCellFactory(
+                    new Callback<TableColumn<WaterReport, WaterReport>, ButtonCell<WaterReport>>() {
+
+                        @Override
+                        public ButtonCell<WaterReport> call(TableColumn<WaterReport, WaterReport> p) {
+                            return new ButtonCell<WaterReport>("Delete") {
+                                @Override
+                                protected void updateItem(WaterReport item, boolean empty) {
+                                    super.updateItem(item, empty);
+
+                                    if (this.getTableRow() == null) {
+                                        this.button.setVisible(false);
+                                        return;
+                                    }
+
+                                    WaterReport report = (WaterReport) this.getTableRow().getItem();
+
+                                    if (report == null) {
+                                        this.button.setVisible(false);
+                                        return;
+                                    } else {
+                                        this.button.setVisible(true);
+                                    }
+
+                                    ButtonCell<WaterReport> cell = this;
+
+                                    this.button.setOnAction((e) -> {
+                                        WaterReportsHolder.deleteReport(report);
+                                        data.removeAll(report);
+                                    });
+                                }
+                            };
+                        }
+
+                    });
+            
+            reportsTable.getColumns().add(deleteCol);
+        }
     }
 }

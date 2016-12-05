@@ -19,11 +19,6 @@ public class AdminHomeController extends Controller {
     }
 
     @FXML
-    public void handleMngReportsClicked() {
-        mainApp.showScreen(new File("../view/ManageReports.fxml"));
-    }
-
-    @FXML
     public void handleLogout() {
         mainApp.setCurrentAccount(null);
         mainApp.showScreen(new File("../view/Welcome.fxml"));

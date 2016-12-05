@@ -6,6 +6,6 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.66" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminHomeController">
    <Button layoutX="311.0" layoutY="305.0" mnemonicParsing="false" onAction="#handleLogout" text="Logout" />
  <Button layoutX="93.0" layoutY="108.0" mnemonicParsing="false" onAction="#handleMngUsersClicked" text="Manage Users" />
-   <Button layoutX="273.0" layoutY="108.0" mnemonicParsing="false" onAction="#handleMngReportsClicked" text="Manage Reports" />
-   <Button layoutX="462.0" layoutY="108.0" mnemonicParsing="false" onAction="#handleViewLogClicked" text="View Security Log" />
+    <Button layoutX="462.0" layoutY="108.0" mnemonicParsing="false" onAction="#handleViewLogClicked"
+            text="View Security Log"/>
 </AnchorPane>

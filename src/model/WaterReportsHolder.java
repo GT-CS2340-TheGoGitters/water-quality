@@ -13,6 +13,10 @@ public abstract class WaterReportsHolder {
         reportsList.put(report.getReportNumber(), report);
     }
 
+    public static void deleteReport(WaterReport report){
+        reportsList.remove(report.getReportNumber());
+    }
+
     public static WaterReport[] getValues(){
         return reportsList.values().toArray(new WaterReport[reportsList.size()]);
     }
