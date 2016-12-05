@@ -1,8 +1,11 @@
 package controller;
 
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import model.Account;
 import model.AccountType;
 import model.AccountsHolder;
@@ -21,7 +24,20 @@ public class LoginController extends Controller {
     private TextField passwordField;
 
 
-    public LoginController() { }
+    @FXML
+    public void initialize() {
+        usernameField.setOnKeyPressed((e) -> {
+            if (e.getCode() == KeyCode.ENTER) {
+                handleLoginPressed();
+            }
+        });
+
+        passwordField.setOnKeyPressed((e) -> {
+            if (e.getCode() == KeyCode.ENTER) {
+                handleLoginPressed();
+            }
+        });
+    }
 
     /**
      * Returns to the Welcome screen when Cancel is pressed
