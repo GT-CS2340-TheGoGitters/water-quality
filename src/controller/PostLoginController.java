@@ -114,7 +114,7 @@ public class PostLoginController extends Controller implements Initializable, Ma
             // Set Info Window Text
             infoWindowContent += "<h2>Water Source Report</h2>";
             infoWindowContent += "<div><strong>Account:</strong> " + report.getCreator() + "</div>";
-            infoWindowContent += "<div><strong>Date:</strong> " + new SimpleDateFormat("mm/dd/yyy HH:mm").format(report.getCreated()) + "</div>";
+            infoWindowContent += "<div><strong>Date:</strong> " + new SimpleDateFormat("MM/dd/yyy HH:mm").format(report.getCreated()) + "</div>";
             infoWindowContent += "<div><strong>Type:</strong> " + sourceReport.getWaterType() + "</div>";
             infoWindowContent += "<div><strong>Overall Condition:</strong> " + sourceReport.getWaterOverallCondition() + "</div>";
         } else if (report instanceof WaterPurityReport) {
@@ -132,7 +132,7 @@ public class PostLoginController extends Controller implements Initializable, Ma
             // Set Info Window Text
             infoWindowContent += "<h2>Water Purity Report</h2>";
             infoWindowContent += "<div><strong>Account:</strong> " + report.getCreator() + "</div>";
-            infoWindowContent += "<div><strong>Date:</strong> " + new SimpleDateFormat("mm/dd/yyy HH:mm").format(report.getCreated()) + "</div>";
+            infoWindowContent += "<div><strong>Date:</strong> " + new SimpleDateFormat("MM/dd/yyy HH:mm").format(report.getCreated()) + "</div>";
             infoWindowContent += "<div><strong>Condition:</strong> " + condition + "</div>";
             infoWindowContent += "<div><strong>Virus:</strong> " + purityReport.getVirusPPM() + " PPM</div>";
             infoWindowContent += "<div><strong>Contaminant:</strong> " + purityReport.getContaminantPPM() + " PPM</div>";

@@ -12,12 +12,13 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Callback;
 import model.*;
+import model.logging.security.ReportDeleteEntry;
 import view.ButtonCell;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
 
-public class ReportsController extends Controller {
+public class ManageReportsController extends Controller {
     @FXML
     private TableView reportsTable;
 
@@ -31,7 +32,7 @@ public class ReportsController extends Controller {
     }
 
     /**
-     * Initializes ReportsController
+     * Initializes ManageReportsController
      */
     @FXML
     private void initialize() {
@@ -74,7 +75,7 @@ public class ReportsController extends Controller {
                     public ObservableValue call(TableColumn.CellDataFeatures dataFeatures) {
                         WaterReport report = (WaterReport) dataFeatures.getValue();
 
-                        String date = new SimpleDateFormat("mm/dd/yyyy HH:mm").format(report.getCreated());
+                        String date = new SimpleDateFormat("MM/dd/yyyy HH:mm").format(report.getCreated());
 
                         return new SimpleStringProperty(date);
                     }
@@ -199,6 +200,7 @@ public class ReportsController extends Controller {
                                     ButtonCell<WaterReport> cell = this;
 
                                     this.button.setOnAction((e) -> {
+                                        mainApp.logSecurityEvent(new ReportDeleteEntry(mainApp.getCurrentAccount(), report.getReportNumber()));
                                         WaterReportsHolder.deleteReport(report);
                                         data.removeAll(report);
                                     });
@@ -207,7 +209,7 @@ public class ReportsController extends Controller {
                         }
 
                     });
-            
+
             reportsTable.getColumns().add(deleteCol);
         }
     }

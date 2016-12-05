@@ -13,5 +13,5 @@
             <MenuItem mnemonicParsing="false" text="Home" onAction="#handleHomeClicked"/>
         </Menu>
     </MenuBar>
-    <TableView layoutY="35.0" fx:id="reportsTable" prefWidth="700.0"/>
+    <TableView layoutY="35.0" fx:id="logTable" prefWidth="700.0"/>
 </AnchorPane>

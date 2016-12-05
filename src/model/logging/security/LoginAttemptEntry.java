@@ -38,6 +38,6 @@ public class LoginAttemptEntry extends SecurityLogEntry {
     }
 
     public String getMessage() {
-        return enteredUsername + "; status: " + successStatus;
+        return "Username: " + enteredUsername + "; status: " + successStatus;
     }
 }

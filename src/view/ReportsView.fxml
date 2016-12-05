@@ -7,7 +7,7 @@
 <?import javafx.scene.control.TableView?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0"
             prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="controller.ReportsController">
+            fx:controller="controller.ManageReportsController">
     <MenuBar prefHeight="35.0" prefWidth="700.0">
         <Menu mnemonicParsing="false" text="File">
             <MenuItem mnemonicParsing="false" text="Home" onAction="#handleHomeClicked"/>

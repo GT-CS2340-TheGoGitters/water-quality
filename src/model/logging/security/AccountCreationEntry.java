@@ -12,6 +12,6 @@ public class AccountCreationEntry extends SecurityLogEntry {
     }
 
     public String getMessage() {
-        return actingAccount.getUsername();
+        return "Username: " + actingAccount.getUsername();
     }
 }

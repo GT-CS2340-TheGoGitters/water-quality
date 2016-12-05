@@ -36,9 +36,9 @@ public abstract class SecurityLogEntry implements Serializable{
         this.time = new Date();
     }
 
-    protected abstract String getLabel();
+    public abstract String getLabel();
 
-    protected abstract String getMessage();
+    public abstract String getMessage();
 
     @Override
     public String toString() {

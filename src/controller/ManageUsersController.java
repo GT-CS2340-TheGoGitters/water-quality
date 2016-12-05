@@ -15,6 +15,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Callback;
 import model.*;
+import model.logging.security.AccountBanEntry;
+import model.logging.security.AccountDeleteEntry;
+import model.logging.security.AccountUnbanEntry;
+import model.logging.security.AccountUnblockEntry;
 import view.ButtonCell;
 
 import java.io.File;
@@ -35,7 +39,7 @@ public class ManageUsersController extends Controller {
     }
 
     /**
-     * Initializes ReportsController
+     * Initializes ManageReportsController
      */
     @FXML
     private void initialize() {
@@ -91,9 +95,11 @@ public class ManageUsersController extends Controller {
                                 this.button.setOnAction((e) -> {
                                     if (account.getIsBanned()) {
                                         account.unban();
+                                        mainApp.logSecurityEvent(new AccountUnbanEntry(mainApp.getCurrentAccount(), account.getUsername()));
                                         this.button.setText("Ban");
                                     } else {
                                         account.ban();
+                                        mainApp.logSecurityEvent(new AccountBanEntry(mainApp.getCurrentAccount(), account.getUsername()));
                                         this.button.setText("Unban");
                                     }
                                 });
@@ -147,6 +153,7 @@ public class ManageUsersController extends Controller {
 
                                 this.button.setOnAction((e) -> {
                                     account.resetIncorrectAttempts();
+                                    mainApp.logSecurityEvent(new AccountUnblockEntry(mainApp.getCurrentAccount(), account.getUsername()));
                                     this.button.setVisible(false);
                                 });
                             }
@@ -200,6 +207,7 @@ public class ManageUsersController extends Controller {
                                 ButtonCell<Account> cell = this;
 
                                 this.button.setOnAction((e) -> {
+                                    mainApp.logSecurityEvent(new AccountDeleteEntry(mainApp.getCurrentAccount(), account.getUsername()));
                                     AccountsHolder.deleteAccount(account);
                                     data.removeAll(account);
                                 });
