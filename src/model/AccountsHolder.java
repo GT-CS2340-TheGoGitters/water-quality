@@ -17,6 +17,10 @@ public class AccountsHolder {
         accountList.put(account.getUsername(), account);
     }
 
+    public static void deleteAccount(Account account){
+        accountList.remove(account.getUsername());
+    }
+
     public static Account getAccountByUsername(String username) {
         return accountList.get(username);
     }

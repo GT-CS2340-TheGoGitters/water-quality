@@ -16,7 +16,7 @@
             <MenuItem mnemonicParsing="false" onAction="#handleLogOutClick" text="Logout"/>
         </Menu>
         <Menu mnemonicParsing="false" text="Report">
-            <MenuItem mnemonicParsing="false" onAction="#handleWaterSourceReport"
+            <MenuItem fx:id="WaterSourceReportDropDown" mnemonicParsing="false" onAction="#handleWaterSourceReport"
                       text="Water Source Report"/>
             <MenuItem fx:id="WaterPurityReportDropDown" mnemonicParsing="false" onAction="#handleWaterPurityReports"
                       text="Water Purity Report "/>

@@ -20,6 +20,9 @@ import java.util.ResourceBundle;
 
 public class PostLoginController extends Controller implements Initializable, MapComponentInitializedListener {
     @FXML
+    private MenuItem WaterSourceReportDropDown;
+
+    @FXML
     private MenuItem WaterPurityReportDropDown;
 
     @FXML
@@ -48,8 +51,12 @@ public class PostLoginController extends Controller implements Initializable, Ma
         super.setApp(newApp);
 
         // Handle user ACL
-        WaterPurityReportDropDown.setDisable(mainApp.getCurrentAccount().getAccountType() == AccountType.USR);
-        ViewHistoryDropdown.setDisable(mainApp.getCurrentAccount().getAccountType() != AccountType.MGR);
+        Account account = mainApp.getCurrentAccount();
+        WaterPurityReportDropDown.setVisible(account.getAccountType() != AccountType.USR);
+        ViewHistoryDropdown.setVisible(account.getAccountType() == AccountType.MGR);
+
+        WaterPurityReportDropDown.setDisable(account.getIsBanned());
+        WaterSourceReportDropDown.setDisable(account.getIsBanned());
 
         for (WaterReport report : WaterReportsHolder.getValues()) {
             addWaterReport(report);
@@ -175,8 +182,14 @@ public class PostLoginController extends Controller implements Initializable, Ma
      */
     @FXML
     private void handleWaterSourceReport() {
-
-        mainApp.showScreen(new File("../view/WaterSourceReport.fxml"));
+        if (mainApp.getCurrentAccount().getIsBanned()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("You have been banned from submitting reports.");
+            alert.showAndWait();
+        } else {
+            mainApp.showScreen(new File("../view/WaterSourceReport.fxml"));
+        }
     }
 
     /**
@@ -188,6 +201,11 @@ public class PostLoginController extends Controller implements Initializable, Ma
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("You do no have permission to submit a Water Purity Report");
+            alert.showAndWait();
+        } else if (mainApp.getCurrentAccount().getIsBanned()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("You have been banned from submitting reports.");
             alert.showAndWait();
         } else {
             mainApp.showScreen(new File("../view/WaterPurityReport.fxml"));

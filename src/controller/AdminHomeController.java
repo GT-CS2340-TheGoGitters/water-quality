@@ -8,31 +8,24 @@ import java.io.File;
 public class AdminHomeController extends Controller {
 
 
-    @SuppressWarnings("unused")
-    // TODO: implement admin home controller
-    private Account account;
-
-    public AdminHomeController() {
-
-    }
-
     @FXML
     public void handleMngUsersClicked() {
-        // TODO: Implement manage users
+        mainApp.showScreen(new File("../view/ManageUsers.fxml"));
     }
 
     @FXML
     public void handleViewLogClicked() {
-        // TODO: Implement view security log
+        mainApp.showScreen(new File("../view/SecurityLog.fxml"));
     }
 
     @FXML
     public void handleMngReportsClicked() {
-        // TODO: Implement manage reports
+        mainApp.showScreen(new File("../view/ManageReports.fxml"));
     }
 
     @FXML
     public void handleLogout() {
+        mainApp.setCurrentAccount(null);
         mainApp.showScreen(new File("../view/Welcome.fxml"));
     }
 

@@ -10,6 +10,7 @@ public class Account implements Serializable{
     private String emailAddress = null;
     private String title = null;
     private String homeAddress = null;
+    public boolean isBanned = false;
 
     private int incorrectAttempts = 0;
 
@@ -90,6 +91,18 @@ public class Account implements Serializable{
      */
     public boolean getIsLocked() {
         return this.incorrectAttempts >= 3;
+    }
+
+    public boolean getIsBanned() {
+        return isBanned;
+    }
+
+    public void ban() {
+        isBanned = true;
+    }
+
+    public void unban() {
+        isBanned = false;
     }
 
     @Override
