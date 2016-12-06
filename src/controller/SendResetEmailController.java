@@ -34,7 +34,8 @@ public class SendResetEmailController extends Controller {
         Account identifiedAccount = null;
 
         for (Account account : AccountsHolder.getValues()) {
-            if(account.getEmailAddress().equals(email)){
+            String accountEmailAddress = account.getEmailAddress();
+            if (accountEmailAddress != null && accountEmailAddress.equals(email)) {
                 identifiedAccount = account;
                 break;
             }
